@@ -73,8 +73,13 @@ necessary.
 
 ---
 
+## :pencil: Usage
 
-WIP
+New sheets can be added using `cheat`
+
+```shell
+cheat -e foo
+```
 
 ---
 
