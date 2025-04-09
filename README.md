@@ -1,2 +1,0 @@
-# cheatsheets
-My personal cheatsheets
