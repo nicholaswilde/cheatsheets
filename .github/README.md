@@ -2,10 +2,20 @@
 
 My personal cheatsheets
 
+---
+
 ## :framed_picture: Background
 
 This repository contains my personal cheatsheets to be used with
 [cheat][1] and similar applications.
+
+---
+
+## :gear: Config
+
+WIP
+
+---
 
 ## :page_facing_up: Format
 
