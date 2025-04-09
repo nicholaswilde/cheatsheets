@@ -5,7 +5,12 @@ My personal cheatsheets
 This repository contains my personal cheatsheets to be used with
 [cheat][] and similar applications.
 
+## :framed_picture: Background
+
+WIP
+
 ## Format
+
 Cheatsheets are plain-text files that begin with an optional "front matter"
 header in YAML format. The header may be used to assign "tags" to a sheet, and
 to specify the sheet's syntax (`bash`, `python`, `go`, etc).
@@ -30,6 +35,7 @@ is permissible to use placeholder values (`foo.txt`, `example.com`, etc.) as
 necessary.
 
 ## License
+
 Cheatsheets are licensed under [Creative Commons CC0 1.0][cc0]. See
 [LICENSE.txt][] for the full license text.
 
