@@ -34,12 +34,20 @@ parameter placeholders. In edge-cases where that syntax may cause confusion, it
 is permissible to use placeholder values (`foo.txt`, `example.com`, etc.) as
 necessary.
 
-## License
+---
 
-Cheatsheets are licensed under [Creative Commons CC0 1.0][cc0]. See
-[LICENSE.txt][] for the full license text.
+## :balance_scale: License
 
+[Apache License 2.0](./LICENSE)
 
+---
+
+## :pencil: Author
+
+This project was started in 2025 by [Nicholas Wilde][2].
+
+[1]: <https://www.terraform.io/>
+[2]: <https://github.com/nicholaswilde/
 [LICENSE.txt]: https://github.com/cheat/cheatsheets/blob/master/.github/LICENSE.txt
 [cc0]: https://creativecommons.org/publicdomain/zero/1.0/legalcode
 [cheat]:  https://github.com/cheat/cheat
