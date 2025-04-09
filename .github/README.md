@@ -121,6 +121,7 @@ necessary.
 ## :clipboard: ToDo
 
 - [ ] Transfer useful commands from [notes][8] to this repo.
+- [ ] Document crontab to pull from community and apprise communications.
 
 ---
 
