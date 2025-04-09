@@ -35,6 +35,7 @@ Ensure that [cheatpaths][5] are configured in `cheat`.
 
 ```yaml
 # conf.yml
+cheatpaths:
   - name: personal
     path: /mnt/storage/cheat/cheatsheets/personal  # this is a separate directory and repository than above
     tags: [ personal ]
@@ -69,6 +70,11 @@ As a guideline, it is preferred to use [docopt][3] syntax when specifying
 parameter placeholders. In edge-cases where that syntax may cause confusion, it
 is permissible to use placeholder values (`foo.txt`, `example.com`, etc.) as
 necessary.
+
+---
+
+
+WIP
 
 ---
 
