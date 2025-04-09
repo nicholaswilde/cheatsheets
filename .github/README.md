@@ -42,6 +42,29 @@ cheatpaths:
     readonly: false        
 ```
 
+`git` can be used to backup new or updated sheets to a remote repo.
+
+Add `personal` path to a `$CHEAT_PERSONAL_PATH` environmental variable in `.bashrc`.
+
+```ini
+# .bashrc
+export CHEAT_PERSONAL_PATH=/mnt/storage/cheat/cheatsheets/personal
+```
+
+Add aliases to make it easier to pull and push updates.
+
+```ini
+# .bash_aliases
+
+alias push-cheats='git -C ${CHEAT_PERSONAL_PATH} add ${CHEAT_PERSONAL_PATH}/* && git -C ${CHEAT_PERSONAL_PATH} commit --allow-empty-message -a -m ""; git -C ${CHEAT_PERSONAL_PATH} push origin main'
+```
+
+Reload `.bashrc`.
+
+```shell
+source ~/.bashrc
+```
+
 ---
 
 ## :page_facing_up: Format
