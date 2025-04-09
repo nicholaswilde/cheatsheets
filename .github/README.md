@@ -20,7 +20,9 @@ When possible, cheatsheets should conform to this format:
 ```sh
 ---
 syntax: bash
-tags: [ vcs, development ]
+tags: 
+  - vcs
+  - development
 ---
 # To stage all changes in the current directory:
 git add --all
