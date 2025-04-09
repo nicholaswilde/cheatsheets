@@ -115,7 +115,7 @@ necessary.
 
 ---
 
-## ToDo
+## :clipboard: ToDo
 
 - [ ] Transfer useful commands from [notes][8] to this repo.
 
