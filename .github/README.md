@@ -115,6 +115,12 @@ necessary.
 
 ---
 
+## ToDo
+
+- [ ] Transfer useful commands from [notes][8] to this repo.
+
+---
+
 ## :balance_scale: License
 
 [Apache License 2.0](./LICENSE)
@@ -132,3 +138,4 @@ This project was started in 2025 by [Nicholas Wilde][2].
 [5]: <https://github.com/cheat/cheat?tab=readme-ov-file#cheatpaths>
 [6]: <https://www.digitalocean.com/community/tutorials/bashrc-file-in-linux>
 [7]: <https://linuxize.com/post/how-to-create-bash-aliases/>
+[8]: <https://nicholaswilde.io/notes>
