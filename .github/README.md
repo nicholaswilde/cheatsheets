@@ -55,7 +55,6 @@ Add aliases to make it easier to pull and push updates.
 
 ```ini
 # .bash_aliases
-
 alias cheats-pull='git -C ${CHEAT_PERSONAL_PATH} pull origin'
 
 alias cheats-push='git -C ${CHEAT_PERSONAL_PATH} add ${CHEAT_PERSONAL_PATH}/* && git -C ${CHEAT_PERSONAL_PATH} commit --allow-empty-message -a -m ""; git -C ${CHEAT_PERSONAL_PATH} push origin'
