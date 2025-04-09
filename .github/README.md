@@ -31,7 +31,15 @@ git clone git@github.com:nicholaswilde/cheatsheets.git personal
 
 ## :gear: Config
 
-WIP
+Ensure that [cheatpaths][5] are configured in `cheat`.
+
+```yaml
+# conf.yml
+  - name: personal
+    path: /mnt/storage/cheat/cheatsheets/personal  # this is a separate directory and repository than above
+    tags: [ personal ]
+    readonly: false        
+```
 
 ---
 
@@ -78,3 +86,4 @@ This project was started in 2025 by [Nicholas Wilde][2].
 [2]: <https://github.com/nicholaswilde/>
 [3]: <http://docopt.org>
 [4]: <https://github.com/cheat/cheatsheets>
+[5]: <>
