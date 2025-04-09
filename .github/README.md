@@ -56,15 +56,33 @@ Add aliases to make it easier to pull and push updates.
 ```ini
 # .bash_aliases
 
-alias pull-cheats='git -C ${CHEAT_PERSONAL_PATH} pull origin'
+alias cheats-pull='git -C ${CHEAT_PERSONAL_PATH} pull origin'
 
-alias push-cheats='git -C ${CHEAT_PERSONAL_PATH} add ${CHEAT_PERSONAL_PATH}/* && git -C ${CHEAT_PERSONAL_PATH} commit --allow-empty-message -a -m ""; git -C ${CHEAT_PERSONAL_PATH} push origin'
+alias cheats-push='git -C ${CHEAT_PERSONAL_PATH} add ${CHEAT_PERSONAL_PATH}/* && git -C ${CHEAT_PERSONAL_PATH} commit --allow-empty-message -a -m ""; git -C ${CHEAT_PERSONAL_PATH} push origin'
 ```
 
 Reload `.bashrc`.
 
 ```shell
 source ~/.bashrc
+```
+
+---
+
+## :pencil: Usage
+
+New sheets can be added or updated using `cheat`.
+
+```shell
+cheat -e tar     # opens the "tar" cheatsheet for editing, or creates it if it does not exist
+cheat -e foo/bar # nested cheatsheets are accessed like this
+```
+
+Push or pull sheets to a remote repo.
+
+```shell
+cheats-pull
+cheats-push
 ```
 
 ---
@@ -95,17 +113,6 @@ As a guideline, it is preferred to use [docopt][3] syntax when specifying
 parameter placeholders. In edge-cases where that syntax may cause confusion, it
 is permissible to use placeholder values (`foo.txt`, `example.com`, etc.) as
 necessary.
-
----
-
-## :pencil: Usage
-
-New sheets can be added or updated using `cheat`.
-
-```shell
-cheat -e tar     # opens the "tar" cheatsheet for editing, or creates it if it does not exist
-cheat -e foo/bar # nested cheatsheets are accessed like this
-```
 
 ---
 
