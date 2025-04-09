@@ -9,7 +9,7 @@ My personal cheatsheets
 This repository contains my personal cheatsheets to be used with
 [cheat][1] and similar applications.
 
-This repository supplements the [community-sourced cheatsheets][4].
+This repository supplements the [community-sourced cheatsheets][4] and [cheat.sheets][9].
 
 ---
 
@@ -143,3 +143,4 @@ This project was started in 2025 by [Nicholas Wilde][2].
 [6]: <https://www.digitalocean.com/community/tutorials/bashrc-file-in-linux>
 [7]: <https://linuxize.com/post/how-to-create-bash-aliases/>
 [8]: <https://nicholaswilde.io/notes>
+[9]: <https://github.com/chubin/cheat.sheets>
