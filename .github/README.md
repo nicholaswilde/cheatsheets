@@ -7,7 +7,7 @@ My personal cheatsheets
 This repository contains my personal cheatsheets to be used with
 [cheat][1] and similar applications.
 
-## Format
+## :page_facing_up: Format
 
 Cheatsheets are plain-text files that begin with an optional "front matter"
 header in YAML format. The header may be used to assign "tags" to a sheet, and
