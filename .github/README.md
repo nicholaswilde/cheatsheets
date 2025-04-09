@@ -1,4 +1,4 @@
-# :clipboard: cheatsheets
+# :magic_wand: cheatsheets :clipboard:
 
 This repository contains my personal cheatsheets to be used with
 [cheat][] and similar applications.
