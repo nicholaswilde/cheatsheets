@@ -46,6 +46,6 @@ necessary.
 
 This project was started in 2025 by [Nicholas Wilde][2].
 
-[2]: <https://github.com/nicholaswilde/
 [1]: <https://github.com/cheat/cheat>
+[2]: <https://github.com/nicholaswilde/
 [3]: <http://docopt.org>
