@@ -86,4 +86,4 @@ This project was started in 2025 by [Nicholas Wilde][2].
 [2]: <https://github.com/nicholaswilde/>
 [3]: <http://docopt.org>
 [4]: <https://github.com/cheat/cheatsheets>
-[5]: <>
+[5]: <https://github.com/cheat/cheat?tab=readme-ov-file#cheatpaths>
