@@ -20,7 +20,7 @@ I am using `cheat` in my homelab and want access to the cheat sheets from all Pr
 ```shell
 mkdir -p /mnt/storage/cheat/cheatsheets
 cd /mnt/storage/cheat/cheatsheets
-git clone 
+git clone https://github.com/nicholaswilde/cheatsheets.git personal
 ```
 
 ---
