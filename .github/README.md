@@ -47,7 +47,6 @@ necessary.
 This project was started in 2025 by [Nicholas Wilde][2].
 
 
-[1]: <https://www.terraform.io/>
 [2]: <https://github.com/nicholaswilde/
 [cheat]: <https://github.com/cheat/cheat>
 [docopt]: <http://docopt.org>
