@@ -9,7 +9,7 @@ My personal cheatsheets
 This repository contains my personal cheatsheets to be used with
 [cheat][1] and similar applications.
 
-This repository supplements the [community cheatsheets][4]
+This repository supplements the [community-sourced cheatsheets][4]
 
 ---
 
