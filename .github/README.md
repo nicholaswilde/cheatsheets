@@ -29,7 +29,7 @@ git add --all
 git commit -m <message>
 ```
 
-As a guideline, it is preferred to use [docopt][] syntax when specifying
+As a guideline, it is preferred to use [docopt][3] syntax when specifying
 parameter placeholders. In edge-cases where that syntax may cause confusion, it
 is permissible to use placeholder values (`foo.txt`, `example.com`, etc.) as
 necessary.
@@ -46,7 +46,6 @@ necessary.
 
 This project was started in 2025 by [Nicholas Wilde][2].
 
-
 [2]: <https://github.com/nicholaswilde/
 [1]: <https://github.com/cheat/cheat>
-[docopt]: <http://docopt.org>
+[3]: <http://docopt.org>
