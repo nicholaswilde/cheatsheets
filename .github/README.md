@@ -1,6 +1,6 @@
-cheatsheets
-===========
-This repository contains community-sourced cheatsheets to be used with
+# :clipboard: cheatsheets
+
+This repository contains my personal cheatsheets to be used with
 [cheat][] and similar applications.
 
 ### Format ###
