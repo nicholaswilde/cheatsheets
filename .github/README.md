@@ -51,7 +51,7 @@ Add `personal` path to a `$CHEAT_PERSONAL_PATH` environmental variable in [`.bas
 export CHEAT_PERSONAL_PATH=/mnt/storage/cheat/cheatsheets/personal
 ```
 
-Add aliases to make it easier to pull and push updates.
+Add [aliases][7] to make it easier to pull and push updates.
 
 ```ini
 # .bash_aliases
@@ -131,3 +131,4 @@ This project was started in 2025 by [Nicholas Wilde][2].
 [4]: <https://github.com/cheat/cheatsheets>
 [5]: <https://github.com/cheat/cheat?tab=readme-ov-file#cheatpaths>
 [6]: <https://www.digitalocean.com/community/tutorials/bashrc-file-in-linux>
+[7]: <https://linuxize.com/post/how-to-create-bash-aliases/>
