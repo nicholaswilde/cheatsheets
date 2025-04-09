@@ -15,7 +15,13 @@ This repository supplements the [community-sourced cheatsheets][4].
 
 ## :gear: Config
 
-I am using `cheat` in my homelab and want access to the cheat sheets from all Proxmox containers.
+I am using `cheat` in my homelab and want access to the cheat sheets from all Proxmox containers. To do so, all containers have my NFS share mounted to `/mnt/storage/cheat/cheatsheets/personal`.
+
+```shell
+mkdir -p /mnt/storage/cheat/cheatsheets
+cd /mnt/storage/cheat/cheatsheets
+git clone 
+```
 
 ---
 
