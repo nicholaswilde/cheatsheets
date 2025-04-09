@@ -44,7 +44,7 @@ cheatpaths:
 
 `git` can be used to backup new or updated sheets to a remote repo.
 
-Add `personal` path to a `$CHEAT_PERSONAL_PATH` environmental variable in `.bashrc`.
+Add `personal` path to a `$CHEAT_PERSONAL_PATH` environmental variable in [`.bashrc`][6].
 
 ```ini
 # .bashrc
@@ -131,3 +131,4 @@ This project was started in 2025 by [Nicholas Wilde][2].
 [3]: <http://docopt.org>
 [4]: <https://github.com/cheat/cheatsheets>
 [5]: <https://github.com/cheat/cheat?tab=readme-ov-file#cheatpaths>
+[6]: <https://www.digitalocean.com/community/tutorials/bashrc-file-in-linux>
