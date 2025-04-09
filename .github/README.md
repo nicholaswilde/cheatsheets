@@ -3,7 +3,7 @@
 My personal cheatsheets
 
 This repository contains my personal cheatsheets to be used with
-[cheat][] and similar applications.
+[cheat][1] and similar applications.
 
 ## :framed_picture: Background
 
@@ -48,5 +48,5 @@ This project was started in 2025 by [Nicholas Wilde][2].
 
 
 [2]: <https://github.com/nicholaswilde/
-[cheat]: <https://github.com/cheat/cheat>
+[1]: <https://github.com/cheat/cheat>
 [docopt]: <http://docopt.org>
