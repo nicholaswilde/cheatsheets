@@ -9,13 +9,13 @@ My personal cheatsheets
 This repository contains my personal cheatsheets to be used with
 [cheat][1] and similar applications.
 
-This repository supplements the [community-sourced cheatsheets][4]
+This repository supplements the [community-sourced cheatsheets][4].
 
 ---
 
 ## :gear: Config
 
-WIP
+I am using `cheat` in my homelab and want access to the cheat sheets from all Proxmox containers.
 
 ---
 
