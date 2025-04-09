@@ -66,6 +66,9 @@ Reload `.bashrc`.
 source ~/.bashrc
 ```
 
+>[!TIP]
+>The push and pull commands may also be added to bash script files located in `/use/local/bin` to make it easier to run from a cronjob.
+
 ---
 
 ## :pencil: Usage
