@@ -75,10 +75,11 @@ necessary.
 
 ## :pencil: Usage
 
-New sheets can be added using `cheat`
+New sheets can be added or updated using `cheat`.
 
 ```shell
-cheat -e foo
+cheat -e tar     # opens the "tar" cheatsheet for editing, or creates it if it does not exist
+cheat -e foo/bar # nested cheatsheets are accessed like this
 ```
 
 ---
