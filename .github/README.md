@@ -2,12 +2,10 @@
 
 My personal cheatsheets
 
-This repository contains my personal cheatsheets to be used with
-[cheat][1] and similar applications.
-
 ## :framed_picture: Background
 
-WIP
+This repository contains my personal cheatsheets to be used with
+[cheat][1] and similar applications.
 
 ## Format
 
