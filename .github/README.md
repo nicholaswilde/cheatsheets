@@ -13,7 +13,7 @@ This repository supplements the [community-sourced cheatsheets][4].
 
 ---
 
-## :gear: Config
+## :hammer_and_wrench: Installation
 
 I am using `cheat` in my homelab and want access to the cheat sheets from all Proxmox containers. To do so, all containers have my NFS share mounted to `/mnt/storage/cheat/cheatsheets/personal`.
 
@@ -22,6 +22,12 @@ mkdir -p /mnt/storage/cheat/cheatsheets
 cd /mnt/storage/cheat/cheatsheets
 git clone https://github.com/nicholaswilde/cheatsheets.git personal
 ```
+
+---
+
+## :gear: Config
+
+WIP
 
 ---
 
