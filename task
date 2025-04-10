@@ -1,0 +1,22 @@
+# Create your first Taskfile
+task --init
+
+# Create Taskfile in subdirectory
+task --init ./subdirectory
+
+# Taskfile to have a specific name
+task --init Custom.yml
+
+# Calling a task in a subdirectory
+task --dir ./subdirectory
+
+# List tasks
+task -l
+
+# Reading a Taskfile from stdin
+task -t - <(cat ./Taskfile.yml)
+# OR
+cat ./Taskfile.yml | task -t -
+
+# Sending parameters with environment variables
+TASK_VARIABLE=a-value task do-something
