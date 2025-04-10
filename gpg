@@ -210,3 +210,37 @@
 lpass show gpg --attach=8017296795546256342-55097 -q | gpg --import
 
 gpg --import secret.asc
+
+# Sign Others' Keys
+wget http://example.com/pgp-public-key -O- | gpg --import
+gpg --list-keys
+gpg --sign-key theirs@email.com
+
+# List
+# Secret keys
+gpg --list-secret-keys --keyid-format LONG
+# All keys
+gpg --list-keys --keyid-format LONG
+
+# Submit to keyserver
+gpg --keyid-format LONG --list-keys john@example.com
+pub   rsa4096/ABCDEF0123456789 2018-01-01 [SCEA] [expires: 2021-01-01]
+      ABCDEF0123456789ABCDEF0123456789
+uid              [ ultimate ] John Doe
+gpg --keyserver keyserver.ubuntu.com --send-keys ABCDEF0123456789
+
+# Revocation Certificate
+gpg --output revoke.asc --gen-revoke you@example.com
+
+# Export gpg --export-secret-keys --armor $EMAIL > /path/to/secret-key-backup.asc
+gpg --export --armor $EMAIL > /path/to/public-key-backup.asc
+
+# Get Key ID
+key=$(gpg --list-keys | sed -n '/^\s/s/\s*//p') && echo "0x"${key:(-8)}
+# 0x08B7D7A3
+
+# Restart Agent in Windows
+gpg-connect-agent reloadagent /bye
+
+# Refresh Keys
+gpg --refresh-keys --keyserver keyserver.ubuntu.com
