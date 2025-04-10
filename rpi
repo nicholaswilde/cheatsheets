@@ -13,3 +13,14 @@ sudo rpi-update
 
 # Expand filesystem
 sudo raspi-config --expand-rootfs
+
+# Generate User Before Boot
+echo 'mypassword' | openssl passwd -6 -stdin | sudo tee -a /boot/userconf.txt
+# or
+echo 'nicholas:' "$(openssl passwd -6)" | sed 's/ //g' | sudo tee -a userconf.txt
+
+# Enable ssh
+touch /boot/ssh
+
+# Kernal page size /boot/firmware/config.txt
+kernel=kernel8.img # to end of line
