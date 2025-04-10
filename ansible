@@ -1,5 +1,7 @@
 ---
-tags: [ orchestration ]
+syntax: bash
+tags:
+  - orchestration
 ---
 # ansible
 # Manage groups of computers remotely over SSH. (use the `/etc/ansible/hosts` file to add new groups/hosts).
