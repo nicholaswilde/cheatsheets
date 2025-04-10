@@ -1,4 +1,5 @@
 ---
+syntax: bash
 tags:
   - rpi
 ---
