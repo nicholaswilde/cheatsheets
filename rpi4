@@ -1,1 +1,15 @@
+---
+tags:
+  - epic
+---
 # Raspberry Pi 4
+
+# Argon Fan Hat
+# Install
+curl https://download.argon40.com/argonfanhat.sh | bash
+
+# Uninstall
+argonone-uninstall
+
+# Config
+argonone-config
