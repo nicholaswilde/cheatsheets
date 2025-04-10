@@ -3,3 +3,12 @@ tags:
   - rpi
 ---
 # Raspberry Pi OS
+
+# Change settings
+sudo raspi-config
+
+# Update firmware 
+sudo rpi-update
+
+# Expand filesystem
+sudo raspi-config --expand-rootfs
