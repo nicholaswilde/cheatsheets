@@ -1,3 +1,6 @@
+---
+syntax: bash
+---
 # To actively follow log (like tail -f):
 journalctl -f
 
