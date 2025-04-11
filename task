@@ -1,3 +1,6 @@
+# Install
+brew install go-task
+
 # Create your first Taskfile
 task --init
 
