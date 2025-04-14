@@ -31,3 +31,8 @@ ansible group -i inventory_file -m command -a 'my_command'
 
 # List the groups in an inventory:
 ansible localhost -m debug -a 'var=groups.keys()'
+
+# Ignore errors
+- name: task name
+  ansible.builtin.taskname
+  ignore_errors: true
