@@ -1,6 +1,14 @@
 # Create a key
  gpg --gen-key
 
+# Generate Ed25519 key
+gpg --expert --full-gen-key
+
+  Kind
+  (9) ECC and ECC
+
+  Curve
+  (1) Curve 25519
 
 # Show keys
   To list a summary of all keys
