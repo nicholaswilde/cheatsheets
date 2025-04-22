@@ -203,3 +203,6 @@ echo "echo 'bash is executed'" | bash
 
 # Execute remote script
 bash -c "$(curl -fsSL https://example.com/script.sh)"
+
+# Get directory path
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
