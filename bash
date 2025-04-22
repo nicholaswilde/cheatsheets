@@ -200,3 +200,6 @@ bash -e path/to/script.sh
 
 # Execute specific commands from `stdin`:
 echo "echo 'bash is executed'" | bash
+
+# Execute remote script
+bash -c "$(curl -fsSL https://example.com/script.sh)"
