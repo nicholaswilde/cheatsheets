@@ -252,3 +252,10 @@ gpg-connect-agent reloadagent /bye
 
 # Refresh Keys
 gpg --refresh-keys --keyserver keyserver.ubuntu.com
+
+# Delete sub key
+gpg --edit-key
+  ssb
+  key #
+  ssb*
+  delkey
