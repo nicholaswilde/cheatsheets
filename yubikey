@@ -1,0 +1,17 @@
+# yubikey
+# https://github.com/drduh/YubiKey-Guide
+sudo apt -y install \
+  wget gnupg2 gnupg-agent dirmngr \
+  cryptsetup scdaemon pcscd \
+  yubikey-personalization yubikey-manager
+
+# https://support.yubico.com/hc/en-us/articles/360013790259-Using-Your-YubiKey-with-OpenPGP
+
+gpg --expert --edit-key 1234ABC
+  keytocard
+
+gpg --card-status
+gpg --card-edit
+
+  admin
+  passwd
