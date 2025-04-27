@@ -259,3 +259,7 @@ gpg --edit-key
   key #
   ssb*
   delkey
+
+# Send gpg private key to another computer
+# https://stackoverflow.com/a/3176373/1061279
+gpg --export-secret-key SOMEKEYID | ssh othermachine gpg --import
