@@ -66,4 +66,4 @@ ssh-keygen -p -f ~/.ssh/filename
 ssh-keygen -p -N "" -m PEM -f ~/.ssh/OpenSSH_private_key
 
 # Generate ssh service key to change identity
-ssh-keygen -t ed25519 -f /etc/ssh/ssh_host_ed25519_key -N ""
+ssh-keygen -t ed25519 -f /etc/ssh/ssh_host_ed25519_key -N "" && sudo systemctl restart ssh && sudo systemctl restart sshd
