@@ -116,3 +116,6 @@ sshfs <user>@<host>:/path/to/folder /path/to/mount/point
 # Emacs can read file through SSH
 # Doc: http://www.gnu.org/software/emacs/manual/html_node/emacs/Remote-Files.html
 emacs /ssh:<user>@<host>:<file>
+
+# Permissions https://superuser.com/q/215504/352242
+find .ssh/ -type f -exec chmod 600 {} \;; find .ssh/ -type d -exec chmod 700 {} \;; find .ssh/ -type f -name "*.pub" -exec chmod 644 {} \;
