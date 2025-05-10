@@ -26,3 +26,5 @@ rg --invert-match regular_expression
 
 # Search a literal string pattern:
 rg --fixed-strings -- string
+
+ rg -n --color=always "\.apt" .
