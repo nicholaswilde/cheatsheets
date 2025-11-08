@@ -268,3 +268,6 @@ gpg --export-secret-key SOMEKEYID | ssh othermachine gpg --import
 chown -R $(whoami) ~/.gnupg/
 find ~/.gnupg -type f -exec chmod 600 {} \;
 find ~/.gnupg -type d -exec chmod 700 {} \;
+
+# View subkey fingerprints
+gpg -K --with-subkey-fingerprints
