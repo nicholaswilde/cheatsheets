@@ -46,6 +46,9 @@ restic ls --recursive latest /home
 # List more details about a snapshot
 restic ls --long latest
 
+# Dry run with list of changes
+restic -r /srv/restic-repo backup ~/work --dry-run -vv | grep "added"
+
 # Copy snapshots between repos
 restic -r /srv/restic-repo-copy copy --from-repo /srv/restic-repo --verbose
 
