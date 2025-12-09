@@ -3,6 +3,20 @@
 # Aims to be a faster alternative to `grep`.
 # More information: <https://github.com/BurntSushi/ripgrep>.
 
+# Search hidden files but respect .gitignore
+rg --hidden "search_term"
+# OR
+rg -. "search_term"
+
+# Unrestricted level 1 - Searches files ignored by .gitignore, but skips hidden files.
+rg -u "search_term"
+
+# Unrestricted level 2 - Searches ignored files AND hidden files.
+rg -u "search_term"
+
+# Unrestricted level 3 - Searches everything, including binary files.
+rg -uuu "search_term"
+
 # Recursively search the current directory for a regular expression:
 rg regular_expression
 
@@ -27,4 +41,4 @@ rg --invert-match regular_expression
 # Search a literal string pattern:
 rg --fixed-strings -- string
 
- rg -n --color=always "\.apt" .
+rg -n --color=always "\.apt" .

@@ -27,3 +27,27 @@ find . -type f "*.txt" | fzf --multi > output.txt
 
 # Bash completions
 eval "$(fzf --bash)"
+
+# Search history once bash completions are enabled.
+Ctrl+R 
+
+# Fast directory navigation
+Alt+C
+
+# Quick file search and selection
+Ctrl+T
+
+# Easy process termination
+kill -9 **<TAB>
+
+# SSH
+ssh **<TAB>
+
+# Environment Variables
+env | fzf
+
+# Quickly unset an environment variable
+unset **<TAB>
+
+# Systemd show you the status of any service
+fuzzy-sys --status

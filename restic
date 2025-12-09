@@ -1,0 +1,86 @@
+# restic
+# Backups done right!
+
+# To get started with a local repository, first define some environment variables:
+export RESTIC_REPOSITORY=/srv/restic-repo
+export RESTIC_PASSWORD=some-strong-password
+
+# Initialize the repository (first time only):
+restic init
+
+# Create your first backup:
+restic backup ~/work
+
+# Backup individual file
+restic -r /srv/restic-repo backup ~/work.txt
+
+# You can list all the snapshots you created with:
+restic snapshots
+
+ID        Date                 Host    Tags   Directory        Size
+-------------------------------------------------------------------------
+40dc1520  2015-05-08 21:38:30  kasimir        /home/user/work  20.643GiB
+79766175  2015-05-08 21:40:19  kasimir        /home/user/work  20.645GiB
+bdbd3439  2015-05-08 21:45:17  luigi          /home/art        3.141GiB
+590c8fc8  2015-05-08 21:47:38  kazik          /srv             580.200MiB
+9f0bc19e  2015-05-08 21:46:11  luigi          /srv             572.180MiB
+
+# You can filter the listing by directory path
+restic -r /srv/restic-repo snapshots --path="/srv"
+
+# Or filter by host
+restic -r /srv/restic-repo snapshots --host luigi
+
+# List files in a snapshot
+restic ls 073a90db
+
+# List the latest snapshot
+restic ls --host kasimir latest
+
+# List a specific directory
+restic ls latest /home
+
+# List recursively
+restic ls --recursive latest /home
+
+# List more details about a snapshot
+restic ls --long latest
+
+# Copy snapshots between repos
+restic -r /srv/restic-repo-copy copy --from-repo /srv/restic-repo --verbose
+
+# Remove files from snapshots
+restic -r /srv/restic-repo rewrite --exclude secret-file
+restic -r /srv/restic-repo rewrite --exclude secret-file 6160ddb2
+
+# Modify metadata of snapshots
+restic rewrite --new-host newhost --new-time "1999-01-01 11:11:11"
+
+# You can restore a backup by noting the snapshot ID you want and running:
+restic restore --target /tmp/restore-work your-snapshot-ID
+
+# It is a good idea to periodically check your repository’s metadata:
+restic check
+# or full data:
+restic check --read-data
+
+# Dry run
+restic restore --target /tmp/restore-work --dry-run --verbose=2 latest
+
+# Printing files to stdout
+restic -r /srv/restic-repo dump latest production.sql | mysql
+
+# Dump the file contents and folder structure to a file
+restic -r /srv/restic-repo dump latest / --target /home/linux.user/output.tar -a tar
+
+# Check if a repo is already initialized
+restic -r /srv/restic-repo cat config
+
+# Exclude files
+cat <<EOF > excludes.txt
+# exclude go-files
+*.go
+# exclude foo/x/y/z/bar foo/x/bar foo/bar
+foo/**/bar
+EOF
+restic -r /srv/restic-repo backup ~/work --exclude="*.c" --exclude-file=excludes.txt
