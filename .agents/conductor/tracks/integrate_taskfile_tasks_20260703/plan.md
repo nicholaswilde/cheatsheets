@@ -9,4 +9,4 @@ This plan details the phases and tasks required to integrate recipes' Taskfile t
 - [x] Task: Verify task commands (238e06d)
     - [x] Run `task site:validate-toml` to verify config file validation works.
     - [x] Verify `task site:check` runs successfully.
-- [ ] Task: Conductor - User Manual Verification 'Phase 1: Implementation and Verification' (Protocol in workflow.md)
+- [~] Task: Conductor - User Manual Verification 'Phase 1: Implementation and Verification' (Protocol in workflow.md)
