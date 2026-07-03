@@ -4,5 +4,5 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
-- [~] **Track: Implement Zensical static site**
+- [x] **Track: Implement Zensical static site**
   *Link: [./tracks/zensical_static_site_20260703/](./tracks/zensical_static_site_20260703/)*
