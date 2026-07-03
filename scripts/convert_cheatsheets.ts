@@ -135,7 +135,7 @@ export function parseCheatsheet(filename: string, bodyLines: string[], syntax: s
     };
 }
 
-function convertFile(filename: string, srcPath: string, destPath: string) {
+function convertFile(filename: string, srcPath: string, destPath: string): { title: string, filename: string } {
     const content = fs.readFileSync(srcPath, 'utf-8');
     const lines = content.split(/\r?\n/);
     
@@ -203,6 +203,8 @@ function convertFile(filename: string, srcPath: string, destPath: string) {
     }
     
     fs.writeFileSync(destPath, outputLines.join('\n').trim() + '\n', 'utf-8');
+    
+    return { title, filename };
 }
 
 export function main() {
@@ -210,6 +212,7 @@ export function main() {
     const rootDir = path.dirname(scriptDir);
     const sheetsDir = path.join(rootDir, 'sheets');
     const docsDir = path.join(rootDir, 'docs');
+    const tomlPath = path.join(rootDir, 'zensical.toml');
     
     if (!fs.existsSync(sheetsDir)) {
         console.error(`Source sheets directory does not exist: ${sheetsDir}`);
@@ -228,11 +231,50 @@ export function main() {
     });
     
     console.log(`Converting ${filesToConvert.length} cheatsheets to Zensical pages...`);
+    const convertedSheets: { title: string, filename: string }[] = [];
+    
     for (const filename of filesToConvert) {
         const srcPath = path.join(sheetsDir, filename);
         const destPath = path.join(docsDir, `${filename}.md`);
-        convertFile(filename, srcPath, destPath);
+        const result = convertFile(filename, srcPath, destPath);
+        convertedSheets.push(result);
     }
+    
+    // Sort converted sheets alphabetically by title
+    convertedSheets.sort((a, b) => a.title.localeCompare(b.title));
+    
+    // Update zensical.toml nav block
+    if (fs.existsSync(tomlPath)) {
+        console.log('Updating zensical.toml navigation...');
+        let tomlContent = fs.readFileSync(tomlPath, 'utf-8');
+        
+        const navLines: string[] = [];
+        navLines.push('[[project.nav]]');
+        navLines.push('Home = "index.md"');
+        navLines.push('');
+        navLines.push('[[project.nav]]');
+        navLines.push('Cheatsheets = [');
+        for (let k = 0; k < convertedSheets.length; k++) {
+            const { title, filename } = convertedSheets[k];
+            const key = title.includes(' ') || title.includes('-') || title.includes('/') ? `"${title}"` : title;
+            const comma = k === convertedSheets.length - 1 ? '' : ',';
+            navLines.push(`  { ${key} = "${filename}.md" }${comma}`);
+        }
+        navLines.push(']');
+        
+        const newNavBlock = navLines.join('\n');
+        
+        // Match from [[project.nav]] to the next section [project.extra]
+        const navRegex = /\[\[project\.nav\]\][\s\S]*?(?=\n\n?\[project\.extra\])/;
+        if (navRegex.test(tomlContent)) {
+            tomlContent = tomlContent.replace(navRegex, newNavBlock);
+            fs.writeFileSync(tomlPath, tomlContent, 'utf-8');
+            console.log('zensical.toml navigation updated successfully!');
+        } else {
+            console.warn('Could not locate project.nav or project.extra in zensical.toml. Navigation was not updated.');
+        }
+    }
+    
     console.log('Conversion complete!');
 }
 
