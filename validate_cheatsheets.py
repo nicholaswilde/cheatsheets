@@ -4,9 +4,9 @@ def validate_content(content: str) -> list[str]:
     if not lines:
         return errors
     
+    end_idx = -1
     # Check if there is front matter
     if lines[0].strip() == '---':
-        end_idx = -1
         for i in range(1, len(lines)):
             if lines[i].strip() == '---':
                 end_idx = i
@@ -68,5 +68,27 @@ def validate_content(content: str) -> list[str]:
             if not isinstance(tags_val, list):
                 errors.append("'tags' must be a list")
                 
+    # Structure and layout checks
+    scan_start = end_idx + 1
+    last_type = None
+    
+    for i in range(scan_start, len(lines)):
+        line = lines[i].rstrip('\n')
+        stripped = line.strip()
+        if not stripped:
+            continue
+            
+        if line.startswith('##'):
+            last_type = 'heading'
+        elif line.startswith('# '):
+            last_type = 'description'
+        elif line.startswith('#'):
+            last_type = 'comment'
+        else:
+            # It's a command
+            if last_type not in ('description', 'command'):
+                errors.append(f"Line {i+1}: Command without description: '{stripped}'")
+            last_type = 'command'
+            
     return errors
 

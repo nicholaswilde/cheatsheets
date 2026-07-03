@@ -64,3 +64,27 @@ git status
 """
     errors = validate_content(content)
     assert any("'tags' must be a list" in e.lower() for e in errors)
+
+def test_valid_structure():
+    content = """# First description
+git status
+
+# Second description
+git commit -m "msg"
+"""
+    errors = validate_content(content)
+    assert len(errors) == 0
+
+def test_command_without_description():
+    content = """git status
+"""
+    errors = validate_content(content)
+    assert any("command without description" in e.lower() for e in errors)
+
+def test_command_after_heading_without_description():
+    content = """## Git Commands
+git status
+"""
+    errors = validate_content(content)
+    assert any("command without description" in e.lower() for e in errors)
+
