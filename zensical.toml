@@ -1,0 +1,27 @@
+[project]
+site_name = "Cheatsheets"
+site_description = "A collection of personal cheatsheets."
+site_author = "Nicholas Wilde"
+site_url = "https://nicholaswilde.io/cheatsheets"
+copyright = "Copyright &copy; 2026 Nicholas Wilde"
+dev_addr = "0.0.0.0:8000"
+repo_url = "https://github.com/nicholaswilde/cheatsheets"
+repo_name = "nicholaswilde/cheatsheets"
+edit_uri = "edit/main/docs/"
+plugins = [
+  { tags = { tags_file = "tags.md" } },
+  "search",
+  { minify = { minify_html = true } },
+]
+extra_css = [
+  "css/neoteroi-mkdocs.css",
+  "stylesheets/extra.css",
+]
+extra_javascript = [
+  "javascripts/mathjax.js",
+  "https://polyfill.io/v3/polyfill.min.js?features=es6",
+  "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js", 
+]
+
+[[project.nav]]
+Home = "index.md"
