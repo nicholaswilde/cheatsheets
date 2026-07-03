@@ -9,7 +9,7 @@ Nicholas Wilde's personal cheatsheets — a central reference for commands and c
 
 ---
 
-## :framed_picture: About
+## :books: About
 
 This collection is designed to be used with [cheat](https://github.com/cheat/cheat), a command-line tool for managing and searching cheatsheets. It supplements the [community-sourced cheatsheets](https://github.com/cheat/cheatsheets) and [cheat.sheets](https://github.com/chubin/cheat.sheets).
 
