@@ -4,7 +4,7 @@ This plan details the phases and tasks required to build the cheatsheet to Zensi
 
 ## Phase 1: Script Development and Automation
 
-- [ ] Task: Create convert_cheatsheets.ts script
+- [~] Task: Create convert_cheatsheets.ts script
     - [ ] Write the TypeScript conversion logic in `scripts/convert_cheatsheets.ts`.
     - [ ] Ensure it parses front matter, header notes, headings, and commands, converting them into Zensical admonitions.
 - [ ] Task: Add task site:convert to Taskfile.yml
