@@ -1,0 +1,277 @@
+# Gpg
+
+!!! info "Create a key"
+    ```bash
+     gpg --gen-key
+    ```
+
+!!! info "Generate Ed25519 key"
+    ```bash
+    gpg --expert --full-gen-key
+      Kind
+      (9) ECC and ECC
+      Curve
+      (1) Curve 25519
+    ```
+
+!!! info "Show keys"
+    ```bash
+      To list a summary of all keys
+        gpg --list-keys
+      To show your public key
+        gpg --armor --export
+      To show the fingerprint for a key
+        gpg --fingerprint KEY_ID
+    ```
+
+!!! info "Search for keys"
+    ```bash
+      gpg --search-keys 'user@emailaddress.com'
+    ```
+
+!!! info "To Encrypt a File"
+    ```bash
+      gpg --encrypt --recipient 'user@emailaddress.com' example.txt
+    ```
+
+!!! info "To Decrypt a File"
+    ```bash
+      gpg --output example.txt --decrypt example.txt.gpg
+    ```
+
+!!! info "Export keys"
+    ```bash
+      gpg --output ~/public_key.txt --armor --export KEY_ID
+      gpg --output ~/private_key.txt --armor --export-secret-key KEY_ID
+      Where KEY_ID is the 8 character GPG key ID.
+      Store these files to a safe location, such as a USB drive, then
+      remove the private key file.
+        shred -zu ~/private_key.txt
+    ```
+
+!!! info "Import keys"
+    ```bash
+      Retrieve the key files which you previously exported.
+        gpg --import ~/public_key.txt
+        gpg --allow-secret-key-import --import ~/private_key.txt
+      Then delete the private key file.
+        shred -zu ~/private_key.txt
+    ```
+
+!!! info "Revoke a key"
+    ```bash
+      Create a revocation certificate.
+        gpg --output ~/revoke.asc --gen-revoke KEY_ID
+      Where KEY_ID is the 8 character GPG key ID.
+      After creating the certificate import it.
+        gpg --import ~/revoke.asc
+      Then ensure that key servers know about the revokation.
+        gpg --send-keys KEY_ID
+    ```
+
+!!! info "Signing and Verifying files"
+    ```bash
+      If you are uploading files to launchpad you may also want to include
+      a GPG signature file.
+        gpg -ba filename
+      or if you need to specify a particular key:
+        gpg --default-key <key ID> -ba filename
+      This then produces a file with a .asc extension which can be uploaded.
+      If you need to set the default key more permanently then edit the
+      file ~/.gnupg/gpg.conf and set the default-key parameter.
+      To verify a downloaded file using its signature file.
+      gpg --verify filename.asc
+    ```
+
+!!! info "Signing Public Keys"
+    ```bash
+      Import the public key or retrieve it from a server.
+        gpg --keyserver <keyserver> --recv-keys <Key_ID>
+      Check its fingerprint against any previously stated value.
+        gpg --fingerprint <Key_ID>
+      Sign the key.
+        gpg --sign-key <Key_ID>
+      Upload the signed key to a server.
+        gpg --keyserver <keyserver> --send-key <Key_ID>
+    ```
+
+!!! info "Change the email address associated with a GPG key"
+    ```bash
+      gpg --edit-key <key ID>
+      adduid
+      Enter the new name and email address. You can then list the addresses with:
+        list
+      If you want to delete a previous email address first select it:
+        uid <list number>
+      Then delete it with:
+        deluid
+      To finish type:
+        save
+      Publish the key to a server:
+        gpg --send-keys <key ID>
+    ```
+
+!!! info "Creating Subkeys"
+    ```bash
+      Subkeys can be useful if you don't wish to have your main GPG key
+      installed on multiple machines. In this way you can keep your
+      master key safe and have subkeys with expiry periods or which may be
+      separately revoked installed on various machines. This avoids
+      generating entirely separate keys and so breaking any web of trust
+      which has been established.
+        gpg --edit-key <key ID>
+      At the prompt type:
+        addkey
+      Choose RSA (sign only), 4096 bits and select an expiry period.
+      Entropy will be gathered.
+      At the prompt type:
+        save
+      You can also repeat the procedure, but selecting RSA (encrypt only).
+      To remove the master key, leaving only the subkey/s in place:
+        gpg --export-secret-subkeys <subkey ID> > subkeys
+        gpg --export <key ID> > pubkeys
+        gpg --delete-secret-key <key ID>
+      Import the keys back.
+        gpg --import pubkeys subkeys
+      Verify the import.
+        gpg -K
+      Should show sec# instead of just sec.
+    ```
+
+!!! info "High-quality options for gpg for symmetric (secret key) encryption"
+    ```bash
+      This is what knowledgable people consider a good set of options for 
+      symmetric encryption with gpg to give you a high-quality result.
+      gpg \
+        --symmetric \
+        --cipher-algo aes256 \
+        --digest-algo sha512 \
+        --cert-digest-algo sha512 \
+        --compress-algo none -z 0 \
+        --s2k-mode 3 \
+        --s2k-digest-algo sha512 \
+        --s2k-count 65011712 \
+        --force-mdc \
+        --pinentry-mode loopback \
+        --armor \
+        --no-symkey-cache \
+        --output somefile.gpg \
+        somefile # to encrypt
+      gpg \
+        --decrypt \
+        --pinentry-mode loopback \
+        --armor \
+        --output somefile.gpg \
+        somefile # to decrypt
+    ```
+
+!!! info "Trust Own Key"
+    https://unix.stackexchange.com/a/407070/93726
+
+    ```bash
+      gpg --edit-key user@useremail.com
+      gpg> trust
+      Please decide how far you trust this user to correctly verify other users' keys
+      (by looking at passports, checking fingerprints from different sources, etc.)
+        1 = I don't know or won't say
+        2 = I do NOT trust
+        3 = I trust marginally
+        4 = I trust fully
+        5 = I trust ultimately
+        m = back to the main menu
+      Your decision? 5
+      gpg> save
+    ```
+
+!!! info "Import from lpass"
+    ```bash
+    lpass show gpg --attach=8017296795546256342-55097 -q | gpg --import
+    gpg --import secret.asc
+    ```
+
+!!! info "Sign Others' Keys"
+    ```bash
+    wget http://example.com/pgp-public-key -O- | gpg --import
+    gpg --list-keys
+    gpg --sign-key theirs@email.com
+    ```
+
+!!! info "List"
+    Secret keys
+
+    ```bash
+    gpg --list-secret-keys --keyid-format LONG
+    ```
+
+!!! info "All keys"
+    ```bash
+    gpg --list-keys --keyid-format LONG
+    ```
+
+!!! info "Submit to keyserver"
+    ```bash
+    gpg --keyid-format LONG --list-keys john@example.com
+    ```
+
+!!! info "pub   rsa4096/ABCDEF0123456789 2018-01-01 [SCEA] [expires: 2021-01-01]"
+    ABCDEF0123456789ABCDEF0123456789
+    uid              [ ultimate ] John Doe
+
+    ```bash
+    gpg --keyserver keyserver.ubuntu.com --send-keys ABCDEF0123456789
+    ```
+
+!!! info "Revocation Certificate"
+    ```bash
+    gpg --output revoke.asc --gen-revoke you@example.com
+    ```
+
+!!! info "Export gpg --export-secret-keys --armor $EMAIL > /path/to/secret-key-backup.asc"
+    ```bash
+    gpg --export --armor $EMAIL > /path/to/public-key-backup.asc
+    ```
+
+!!! info "Get Key ID"
+    ```bash
+    key=$(gpg --list-keys | sed -n '/^\s/s/\s*//p') && echo "0x"${key:(-8)}
+    ```
+
+!!! info "0x08B7D7A3"
+    Restart Agent in Windows
+
+    ```bash
+    gpg-connect-agent reloadagent /bye
+    ```
+
+!!! info "Refresh Keys"
+    ```bash
+    gpg --refresh-keys --keyserver keyserver.ubuntu.com
+    ```
+
+!!! info "Delete sub key"
+    ```bash
+    gpg --edit-key
+      ssb
+      key #
+      ssb*
+      delkey
+    ```
+
+!!! info "Send gpg private key to another computer"
+    https://stackoverflow.com/a/3176373/1061279
+
+    ```bash
+    gpg --export-secret-key SOMEKEYID | ssh othermachine gpg --import
+    ```
+
+!!! info "Permissions https://superuser.com/a/954536/352242"
+    ```bash
+    chown -R $(whoami) ~/.gnupg/
+    find ~/.gnupg -type f -exec chmod 600 {} \;
+    find ~/.gnupg -type d -exec chmod 700 {} \;
+    ```
+
+!!! info "View subkey fingerprints"
+    ```bash
+    gpg -K --with-subkey-fingerprints
+    ```

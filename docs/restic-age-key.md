@@ -1,0 +1,11 @@
+# Restic-age-key
+
+Use asymmetric age keys instead of a password on your restic repository
+
+!!! info "Usage"
+    ```bash
+    restic-age-key add \
+      --repo /tmp/restic-repo \
+      --password secret \
+      --recipient age1ql3z7hjy54pw3hyww5ayyfg7zqgvc7w3j2elw8zmrj2kg5sfn9aqmcac8p
+    ```

@@ -26,6 +26,42 @@ extra_javascript = [
 [[project.nav]]
 Home = "index.md"
 
+[[project.nav]]
+Cheatsheets = [
+  { Age = "age.md" },
+  { Ansible = "ansible.md" },
+  { "Ansible-pull" = "ansible-pull.md" },
+  { Bash = "bash.md" },
+  { Brew = "brew.md" },
+  { Bw = "bw.md" },
+  { Column = "column.md" },
+  { Crontab = "crontab.md" },
+  { Docker = "docker.md" },
+  { Fzf = "fzf.md" },
+  { Git = "git.md" },
+  { Gpg = "gpg.md" },
+  { "Gpg-agent" = "gpg-agent.md" },
+  { Journalctl = "journalctl.md" },
+  { Jq = "jq.md" },
+  { Lpass = "lpass.md" },
+  { Reprepro = "reprepro.md" },
+  { Restic = "restic.md" },
+  { "Restic-age-key" = "restic-age-key.md" },
+  { Rg = "rg.md" },
+  { Rpi = "rpi.md" },
+  { Rpi4 = "rpi4.md" },
+  { Rpi5 = "rpi5.md" },
+  { Sops = "sops.md" },
+  { Ssh = "ssh.md" },
+  { "Ssh-agent" = "ssh-agent.md" },
+  { "Ssh-keygen" = "ssh-keygen.md" },
+  { Systemctl = "systemctl.md" },
+  { Task = "task.md" },
+  { Wsl = "wsl.md" },
+  { Xz = "xz.md" },
+  { Yubikey = "yubikey.md" }
+]
+
 [project.extra]
 social = [
     { icon = "fontawesome/solid/house", link = "https://nicholaswilde.io/" },
