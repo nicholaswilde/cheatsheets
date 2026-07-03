@@ -15,7 +15,7 @@ jq '.' file.json
 jq '.fieldName' file.json
 
 # Filter JSON array to extract specific element by index
-jq '.[index]' file.json
+jq '.[<index>]' file.json
 
 # Select multiple fields from JSON
 jq '{field1: .field1, field2: .field2}' file.json

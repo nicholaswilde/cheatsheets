@@ -1,5 +1,8 @@
 ---
 syntax: bash
+tags:
+  - docker
+  - containers
 ---
 # docker
 

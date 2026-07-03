@@ -112,9 +112,9 @@ ${Var:2:1}
 # to right. To make this global (IE: greedy) use two '#' characters. So, in
 # this example, everything, from left to right, up to and including a 'T' or
 # 't', will be removed, but it would only happen once.
-${Var#*[Tt]}
+"${Var#*t}"
 # As above, but from right to left. Use two '%' characters for a greedy match.
-${Var%[Tt]*}
+"${Var%t*}"
 
 # Change how the variable expands by using pattern substitution. This uses glob
 # pattern matching, not REGEX. If the first '/' is instead '//', a greedy match

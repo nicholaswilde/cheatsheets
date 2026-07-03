@@ -9,7 +9,7 @@
 systemctl show -p ActiveState --value ufw
 
 # Start, stop, or restart a given service(s).
-systemctl [start|stop|restart] [SERVICE]
+systemctl (start|stop|restart) <service>
 
 # Check if a given service(s) is active. If it is, 'active' will display. An
 # exit status of 0 will be given if it's active, and non-zero otherwise. Use
@@ -34,10 +34,10 @@ systemctl --failed
 systemctl poweroff
 
 # Enable or disable a given service(s).
-systemctl [enable|disable] [SERVICE]
+systemctl (enable|disable) <service>
 
 # Show the current status of a given service(s).
-systemctl status [SERVICE]
+systemctl status <service>
 
 # Reload the daemon
 systemctl daemon-reload

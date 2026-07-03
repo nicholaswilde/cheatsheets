@@ -1,5 +1,9 @@
 ---
-tags: [ job, scheduler, periodic ]
+syntax: bash
+tags:
+  - job
+  - scheduler
+  - periodic
 ---
 # set a shell
 SHELL=/bin/bash

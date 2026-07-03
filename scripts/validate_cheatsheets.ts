@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 
-export const INVALID_PLACEHOLDER_REGEX = /(?:\{\{[a-zA-Z_][a-zA-Z0-9_-]*\}\}|\{[a-zA-Z_][a-zA-Z0-9_-]*\}|\[[a-zA-Z_][a-zA-Z0-9_-]*\])/g;
+export const INVALID_PLACEHOLDER_REGEX = /(?<![\$@])(?:\{\{[a-zA-Z_][a-zA-Z0-9_-]*\}\}|\{[a-zA-Z_][a-zA-Z0-9_-]*\}|\[[a-zA-Z_][a-zA-Z0-9_-]*\])/g;
 
 export function validateContent(content: string): string[] {
     const errors: string[] = [];
@@ -98,7 +98,9 @@ export function validateContent(content: string): string[] {
         } else if (line.startsWith('# ')) {
             lastType = 'description';
         } else if (line.startsWith('#')) {
-            lastType = 'comment';
+            if (lastType !== 'description') {
+                lastType = 'comment';
+            }
         } else {
             // It's a command
             if (lastType !== 'description' && lastType !== 'command') {

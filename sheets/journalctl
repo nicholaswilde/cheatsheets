@@ -1,5 +1,9 @@
 ---
 syntax: bash
+tags:
+  - journalctl
+  - logging
+  - systemd
 ---
 # To actively follow log (like tail -f):
 journalctl -f
