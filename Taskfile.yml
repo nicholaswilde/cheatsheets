@@ -22,6 +22,11 @@ tasks:
     cmds:
       - bun test
 
+  site:convert:
+    desc: Convert cheatsheets to Zensical markdown pages
+    cmds:
+      - bun run scripts/convert_cheatsheets.ts
+
   site:build:
     desc: Build the static site using Zensical
     cmds:
