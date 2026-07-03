@@ -1,5 +1,5 @@
 import pytest
-from validate_cheatsheets import validate_content
+from scripts.validate_cheatsheets import validate_content, get_cheatsheets_dir
 
 def test_no_front_matter():
     content = """# Simple cheatsheet
@@ -115,5 +115,9 @@ git commit -m {{message}}
 """
     errors = validate_content(content)
     assert any("placeholder" in e.lower() for e in errors)
+
+def test_cheatsheets_dir():
+    dir_path = get_cheatsheets_dir()
+    assert dir_path.endswith('sheets')
 
 

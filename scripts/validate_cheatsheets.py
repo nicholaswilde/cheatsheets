@@ -104,8 +104,13 @@ def validate_content(content: str) -> list[str]:
             
     return errors
 
+def get_cheatsheets_dir() -> str:
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    root_dir = os.path.dirname(script_dir)
+    return os.path.join(root_dir, 'sheets')
+
 def main():
-    root_dir = os.path.dirname(os.path.abspath(__file__))
+    root_dir = get_cheatsheets_dir()
     files_to_check = []
     
     for entry in os.scandir(root_dir):
