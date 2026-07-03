@@ -1,4 +1,6 @@
 import re
+import os
+import sys
 
 INVALID_PLACEHOLDER_REGEX = re.compile(r'(?:\{\{[a-zA-Z_][a-zA-Z0-9_-]*\}\}|\{[a-zA-Z_][a-zA-Z0-9_-]*\}|\[[a-zA-Z_][a-zA-Z0-9_-]*\])')
 
@@ -101,4 +103,48 @@ def validate_content(content: str) -> list[str]:
             last_type = 'command'
             
     return errors
+
+def main():
+    root_dir = os.path.dirname(os.path.abspath(__file__))
+    files_to_check = []
+    
+    for entry in os.scandir(root_dir):
+        if entry.is_file():
+            name = entry.name
+            if name.startswith('.'):
+                continue
+            if name in ('validate_cheatsheets.py', 'test_validate_cheatsheets.py', 'README.md', 'LICENSE'):
+                continue
+            files_to_check.append(entry.path)
+            
+    total_errors = 0
+    total_files = len(files_to_check)
+    valid_files = 0
+    
+    print(f"Scanning {total_files} cheatsheets...")
+    for filepath in sorted(files_to_check):
+        filename = os.path.basename(filepath)
+        try:
+            with open(filepath, 'r', encoding='utf-8') as f:
+                content = f.read()
+            errors = validate_content(content)
+            if errors:
+                print(f"[FAIL] {filename}:")
+                for err in errors:
+                    print(f"  - {err}")
+                total_errors += len(errors)
+            else:
+                valid_files += 1
+        except Exception as e:
+            print(f"[ERROR] Failed to read {filename}: {e}")
+            total_errors += 1
+            
+    print(f"\nSummary: {valid_files}/{total_files} files passed. {total_errors} total errors.")
+    if total_errors > 0:
+        sys.exit(1)
+    else:
+        sys.exit(0)
+
+if __name__ == "__main__":
+    main()
 
