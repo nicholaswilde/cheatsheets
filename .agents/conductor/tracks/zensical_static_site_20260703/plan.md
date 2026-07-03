@@ -25,4 +25,4 @@ This plan details the phases and tasks required to set up and integrate the Zens
     - [x] Add `site:build` and `site:serve` tasks to `Taskfile.yml`.
 - [x] Task: Verify static site build (63c7733)
     - [x] Run `task site:build` and verify the static output is successfully generated under `site/` (or configured directory).
-- [ ] Task: Conductor - User Manual Verification 'Phase 3: Task Integration and Verification' (Protocol in workflow.md)
+- [~] Task: Conductor - User Manual Verification 'Phase 3: Task Integration and Verification' (Protocol in workflow.md)
