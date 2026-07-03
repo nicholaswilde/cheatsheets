@@ -2,14 +2,14 @@
 
 This plan details the phases and tasks required to set up and integrate the Zensical static site generator in this repository.
 
-## Phase 1: Installation and Environment Setup
+## Phase 1: Installation and Environment Setup [checkpoint: 85c0d82]
 
 - [x] Task: Initialize Python project and install Zensical locally with uv (e282fc3)
     - [x] Run `uv init --no-readme` (or write pyproject.toml) and add `zensical` as a dependency.
     - [x] Run `uv sync` to create `.venv` and `uv.lock`.
 - [x] Task: Configure gitignore (be076e8)
     - [x] Ensure `.venv/` is added to `.gitignore`.
-- [~] Task: Conductor - User Manual Verification 'Phase 1: Installation and Environment Setup' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 1: Installation and Environment Setup' (Protocol in workflow.md) (85c0d82)
 
 ## Phase 2: Zensical Configuration and Content
 
