@@ -1,0 +1,8 @@
+{
+  "track_id": "convert_cheatsheets_to_zensical_20260703",
+  "type": "feature",
+  "status": "new",
+  "created_at": "2026-07-03T13:22:00Z",
+  "updated_at": "2026-07-03T13:22:00Z",
+  "description": "Create a TypeScript script that converts the cheatsheets to Zensical pages with commands structured inside admonitions"
+}
