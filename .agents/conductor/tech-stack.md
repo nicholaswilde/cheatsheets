@@ -16,6 +16,7 @@ This document details the technologies, formats, and tools utilized in this chea
 ## 3. Storage and Synchronization
 *   **NFS Mounts:** Storage directory `/mnt/storage/cheat/cheatsheets/personal/sheets` is mounted via NFS to provide central access across all Proxmox LXC containers.
 *   **Git:** Version control is used in the repository root (`/mnt/storage/cheat/cheatsheets/personal`) to track changes, backup sheets to GitHub, and handle synchronization.
+*   **GitHub CLI (gh):** The `gh` command-line tool is used for remote repository interactions (e.g., creating PRs, checking status). It is piped to `cat` to suppress interactive prompts, e.g., `gh pr view --json title | cat`.
 *   **Shell Aliases:** Preconfigured shell aliases (`cheats-pull` and `cheats-push`) simplify git workflows from any container terminal.
 
 ## 4. Validation and Testing
