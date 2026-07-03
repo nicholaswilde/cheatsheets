@@ -9,7 +9,7 @@ Nicholas Wilde's personal cheatsheets — a central reference for commands and c
 
 ---
 
-## About
+## :framed_picture: About
 
 This collection is designed to be used with [cheat](https://github.com/cheat/cheat), a command-line tool for managing and searching cheatsheets. It supplements the [community-sourced cheatsheets](https://github.com/cheat/cheatsheets) and [cheat.sheets](https://github.com/chubin/cheat.sheets).
 
@@ -17,7 +17,7 @@ Browse individual cheatsheets using the navigation on the left, or use the searc
 
 ---
 
-## Format
+## :page_facing_up: Format
 
 Cheatsheets are plain-text files with an optional YAML front matter header used to assign tags and specify syntax highlighting.
 
@@ -39,7 +39,7 @@ Parameter placeholders follow [docopt](http://docopt.org) syntax where possible.
 
 ---
 
-## Installation
+## :hammer_and_wrench: Installation
 
 Clone the repository and mount it via NFS or a local path.
 
@@ -60,7 +60,7 @@ cheatpaths:
 
 ---
 
-## Usage
+## :pencil: Usage
 
 ```shell
 cheat -e git        # open or create the "git" cheatsheet
@@ -78,6 +78,6 @@ cheats-push   # stage, commit, and push all changes
 
 ---
 
-## Source
+## :link: Source
 
 Source code and full documentation is available on [GitHub](https://github.com/nicholaswilde/cheatsheets).
