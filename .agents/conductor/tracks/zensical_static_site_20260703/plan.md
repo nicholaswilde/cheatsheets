@@ -17,7 +17,7 @@ This plan details the phases and tasks required to set up and integrate the Zens
     - [x] Create `zensical.toml` at the root with project properties and plugins/CSS/JS matching recipes' config.
 - [x] Task: Create basic homepage (65a9939)
     - [x] Create `docs/index.md` with cheatsheet project introduction.
-- [ ] Task: Conductor - User Manual Verification 'Phase 2: Zensical Configuration and Content' (Protocol in workflow.md)
+- [~] Task: Conductor - User Manual Verification 'Phase 2: Zensical Configuration and Content' (Protocol in workflow.md)
 
 ## Phase 3: Task Integration and Verification
 
