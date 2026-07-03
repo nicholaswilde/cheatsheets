@@ -20,4 +20,4 @@ This plan details the phases and tasks required to reorganize the cheatsheets re
 - [x] Task: Update project documentation references (e3d3e7a)
     - [x] Update [README.md](file:///home/nicholas/git/nicholaswilde/cheatsheets/.github/README.md) to reference `./sheets/` instead of the root
     - [x] Update [tech-stack.md](file:///home/nicholas/git/nicholaswilde/cheatsheets/conductor/tech-stack.md) to reference the new structure
-- [ ] Task: Conductor - User Manual Verification 'Phase 2: Code Updates and Documentation' (Protocol in workflow.md)
+- [~] Task: Conductor - User Manual Verification 'Phase 2: Code Updates and Documentation' (Protocol in workflow.md)
