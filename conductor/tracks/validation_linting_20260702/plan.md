@@ -14,9 +14,9 @@ This plan defines the steps to implement the cheatsheet validation script.
 
 ## Phase 2: Structure and Formatting Rules
 
-- [ ] Task: Validate description and command layout
-    - [ ] Write failing test cases for correct mapping of descriptions (comments starting with `# `) and command lines (Red Phase)
-    - [ ] Implement checks for sequential description-command layout in `validate_cheatsheets.py` (Green Phase)
+- [x] Task: Validate description and command layout (8664535)
+    - [x] Write failing test cases for correct mapping of descriptions (comments starting with `# `) and command lines (Red Phase)
+    - [x] Implement checks for sequential description-command layout in `validate_cheatsheets.py` (Green Phase)
 - [ ] Task: Validate placeholder docopt compliance
     - [ ] Write failing test cases to check for docopt syntax placeholders (e.g. `<message>`) in command lines (Red Phase)
     - [ ] Implement regex-based placeholder checking in `validate_cheatsheets.py` (Green Phase)
