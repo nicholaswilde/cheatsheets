@@ -22,3 +22,4 @@ This document details the technologies, formats, and tools utilized in this chea
 *   **Language:** Python 3 (version 3.13+)
 *   **Testing Framework:** pytest (for running unit tests on the validator utility)
 *   **Validator Script:** `scripts/validate_cheatsheets.py` scans cheatsheets locally for proper layout, front matter tags, and docopt compliant placeholders.
+*   **Task Runner:** `go-task` (Taskfile.yml) is used to automate validation, testing, and other repository development workflows.

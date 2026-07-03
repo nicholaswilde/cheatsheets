@@ -1,0 +1,18 @@
+version: '3'
+
+tasks:
+  default:
+    desc: Run both validation and tests
+    cmds:
+      - task: validate
+      - task: test
+
+  validate:
+    desc: Run the cheatsheet validator script
+    cmds:
+      - python3 scripts/validate_cheatsheets.py
+
+  test:
+    desc: Run pytest unit tests on the validator
+    cmds:
+      - PYTHONPATH=. pytest
