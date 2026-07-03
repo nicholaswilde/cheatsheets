@@ -4,8 +4,8 @@ This plan details the phases and tasks required to integrate recipes' Taskfile t
 
 ## Phase 1: Implementation and Verification
 
-- [~] Task: Add tasks to Taskfile.yml
-    - [ ] Add `site:deps`, `site:check`, `site:update`, `site:validate-toml`, `linkcheck`, `linkcheck-offline`, and `linkcheck-file` to `Taskfile.yml`.
+- [x] Task: Add tasks to Taskfile.yml (11123ec)
+    - [x] Add `site:deps`, `site:check`, `site:update`, `site:validate-toml`, `linkcheck`, `linkcheck-offline`, and `linkcheck-file` to `Taskfile.yml`.
 - [ ] Task: Verify task commands
     - [ ] Run `task site:validate-toml` to verify config file validation works.
     - [ ] Verify `task site:check` runs successfully.
