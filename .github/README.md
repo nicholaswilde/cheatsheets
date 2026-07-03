@@ -37,7 +37,7 @@ Ensure that [cheatpaths][5] are configured in `cheat`.
 # conf.yml
 cheatpaths:
   - name: personal
-    path: /mnt/storage/cheat/cheatsheets/personal  # this is a separate directory and repository than above
+    path: /mnt/storage/cheat/cheatsheets/personal/sheets  # path points to sheets directory
     tags: [ personal ]
     readonly: false        
 ```
