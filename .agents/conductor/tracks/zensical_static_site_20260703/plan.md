@@ -21,8 +21,8 @@ This plan details the phases and tasks required to set up and integrate the Zens
 
 ## Phase 3: Task Integration and Verification
 
-- [~] Task: Integrate commands into Taskfile.yml
-    - [ ] Add `site:build` and `site:serve` tasks to `Taskfile.yml`.
+- [x] Task: Integrate commands into Taskfile.yml (44f37e1)
+    - [x] Add `site:build` and `site:serve` tasks to `Taskfile.yml`.
 - [ ] Task: Verify static site build
     - [ ] Run `task site:build` and verify the static output is successfully generated under `site/` (or configured directory).
 - [ ] Task: Conductor - User Manual Verification 'Phase 3: Task Integration and Verification' (Protocol in workflow.md)
