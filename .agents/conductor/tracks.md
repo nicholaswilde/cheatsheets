@@ -4,5 +4,5 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
-- [ ] **Track: Integrate Taskfile tasks from recipes**
+- [~] **Track: Integrate Taskfile tasks from recipes**
   *Link: [./tracks/integrate_taskfile_tasks_20260703/](./tracks/integrate_taskfile_tasks_20260703/)*
