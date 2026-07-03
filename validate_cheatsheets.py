@@ -1,3 +1,7 @@
+import re
+
+INVALID_PLACEHOLDER_REGEX = re.compile(r'(?:\{\{[a-zA-Z_][a-zA-Z0-9_-]*\}\}|\{[a-zA-Z_][a-zA-Z0-9_-]*\}|\[[a-zA-Z_][a-zA-Z0-9_-]*\])')
+
 def validate_content(content: str) -> list[str]:
     errors = []
     lines = content.splitlines()
@@ -88,6 +92,12 @@ def validate_content(content: str) -> list[str]:
             # It's a command
             if last_type not in ('description', 'command'):
                 errors.append(f"Line {i+1}: Command without description: '{stripped}'")
+            
+            # Check for invalid placeholder styles
+            invalid_matches = INVALID_PLACEHOLDER_REGEX.findall(stripped)
+            if invalid_matches:
+                errors.append(f"Line {i+1}: Use of non-docopt placeholder style: {', '.join(invalid_matches)}. Prefer '<placeholder_name>'.")
+                
             last_type = 'command'
             
     return errors

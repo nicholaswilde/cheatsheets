@@ -88,3 +88,32 @@ git status
     errors = validate_content(content)
     assert any("command without description" in e.lower() for e in errors)
 
+def test_valid_docopt_placeholders():
+    content = """# Commit change
+git commit -m <message>
+"""
+    errors = validate_content(content)
+    assert len(errors) == 0
+
+def test_invalid_placeholder_bracket():
+    content = """# Commit change
+git commit -m [message]
+"""
+    errors = validate_content(content)
+    assert any("placeholder" in e.lower() for e in errors)
+
+def test_invalid_placeholder_curly():
+    content = """# Commit change
+git commit -m {message}
+"""
+    errors = validate_content(content)
+    assert any("placeholder" in e.lower() for e in errors)
+
+def test_invalid_placeholder_double_curly():
+    content = """# Commit change
+git commit -m {{message}}
+"""
+    errors = validate_content(content)
+    assert any("placeholder" in e.lower() for e in errors)
+
+
