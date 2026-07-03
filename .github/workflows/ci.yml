@@ -27,10 +27,11 @@ jobs:
 
       - name: Install Lychee
         run: |
-          curl -sSfL -o lychee.tar.gz https://github.com/lycheeverse/lychee/releases/latest/download/lychee-x86_64-unknown-linux-gnu.tar.gz
-          tar -xzf lychee.tar.gz --strip-components=1
-          sudo mv lychee /usr/local/bin/
-          rm -rf lychee.tar.gz README.md docs/ complete/
+          mkdir -p /tmp/lychee
+          curl -sSfL -o /tmp/lychee/lychee.tar.gz https://github.com/lycheeverse/lychee/releases/latest/download/lychee-x86_64-unknown-linux-gnu.tar.gz
+          tar -xzf /tmp/lychee/lychee.tar.gz -C /tmp/lychee
+          sudo mv /tmp/lychee/lychee-x86_64-unknown-linux-gnu/lychee /usr/local/bin/
+          rm -rf /tmp/lychee
 
       - name: Run verification suite (task all)
         run: task all
