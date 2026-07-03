@@ -2,6 +2,11 @@ version: '3'
 
 tasks:
   default:
+    cmds:
+      - task -a
+    silent: true
+
+  all:
     desc: Run both validation and tests
     cmds:
       - task: validate
