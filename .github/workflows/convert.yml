@@ -1,0 +1,49 @@
+name: Convert Cheatsheets
+
+on:
+  push:
+    paths:
+      - 'sheets/**'
+      - 'scripts/convert_cheatsheets.ts'
+      - 'Taskfile.yml'
+
+jobs:
+  convert:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Bun
+        uses: oven-sh/setup-bun@v1
+
+      - name: Install Task
+        run: |
+          curl -sSf https://taskfile.dev/install.sh | sh
+
+      - name: Install dependencies
+        run: bun install
+
+      - name: Run conversion
+        run: task site:convert
+
+      - name: Commit changes
+        env:
+          GIT_AUTHOR_NAME: github-actions[bot]
+          GIT_AUTHOR_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
+          GIT_COMMITTER_NAME: github-actions[bot]
+          GIT_COMMITTER_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
+        run: |
+          git config --global user.name "$GIT_AUTHOR_NAME"
+          git config --global user.email "$GIT_AUTHOR_EMAIL"
+          if [[ -n "$(git status --porcelain)" ]]; then
+            git add .
+            git commit -m "chore: update generated Zensical pages"
+            git push origin HEAD:${{ github.ref }}
+          else
+            echo "No changes to commit"
+          fi
