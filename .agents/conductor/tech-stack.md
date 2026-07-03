@@ -23,3 +23,9 @@ This document details the technologies, formats, and tools utilized in this chea
 *   **Testing Framework:** Bun Test (for running unit tests on the validator utility)
 *   **Validator Script:** `scripts/validate_cheatsheets.ts` scans cheatsheets locally for proper layout, front matter tags, and docopt compliant placeholders.
 *   **Task Runner:** `go-task` (Taskfile.yml) is used to automate validation, testing, and other repository development workflows.
+
+## 5. Static Site Generation
+*   **Static Site Generator:** Zensical (Python-based, Rust-powered static site generator)
+*   **Package Management:** `uv` (for local dependency installation, virtual environment, and execution)
+*   **Asset Management:** Custom CSS (`neoteroi-mkdocs.css`, `extra.css`) and JavaScript (`mathjax.js`) for rendering formulas and timeline features
+
