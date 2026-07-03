@@ -29,4 +29,5 @@ This document details the technologies, formats, and tools utilized in this chea
 *   **Static Site Generator:** Zensical (Python-based, Rust-powered static site generator)
 *   **Package Management:** `uv` (for local dependency installation, virtual environment, and execution)
 *   **Asset Management:** Custom CSS (`neoteroi-mkdocs.css`, `extra.css`) and JavaScript (`mathjax.js`) for rendering formulas and timeline features
+*   **Conversion Utility:** A custom TypeScript script (`scripts/convert_cheatsheets.ts`) converts flat sheets into Zensical markdown pages and automatically updates the site's navigation menu.
 

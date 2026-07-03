@@ -13,7 +13,7 @@ The goal of this project is to maintain a central, highly accessible, and standa
 *   **Standardized Front Matter:** YAML-based front matter block declaring the sheet syntax (for syntax highlighting) and tags (for classification).
 *   **Docopt-compliant Syntax:** Use of docopt syntax for command placeholders to maintain clarity and standard formatting.
 *   **Automated Validation:** Local validation script (`scripts/validate_cheatsheets.ts`) checks cheatsheets for formatting, metadata correctness, and docopt placeholder compliance.
-*   **Zensical Static Site:** A local static documentation site built using the Zensical generator, with source documents stored in `./docs/`.
+*   **Zensical Static Site:** A local static documentation site built using the Zensical generator, with source documents stored in `./docs/` and automatically converted from `./sheets/` via a utility script.
 
 ## 4. Scope and Success Criteria
 *   High consistency across all cheatsheets (metadata syntax, formatting).
