@@ -13,7 +13,7 @@ This plan details the phases and tasks required to set up and integrate the Zens
 
 ## Phase 2: Zensical Configuration and Content
 
-- [ ] Task: Create zensical.toml configuration
+- [~] Task: Create zensical.toml configuration
     - [ ] Create `zensical.toml` at the root with project properties and plugins/CSS/JS matching recipes' config.
 - [ ] Task: Create basic homepage
     - [ ] Create `docs/index.md` with cheatsheet project introduction.
