@@ -30,6 +30,14 @@ jobs:
       - name: Setup Pages (optional config)
         uses: actions/configure-pages@v5
 
+      - name: Cache UV dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/uv
+          key: ${{ runner.os }}-uv-${{ hashFiles('uv.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-uv-
+
       - name: Install UV (Python package manager)
         run: |
           curl -LsSf https://github.com/astral-sh/uv/releases/latest/download/uv-installer.sh | sh
