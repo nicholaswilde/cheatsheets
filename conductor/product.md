@@ -12,7 +12,7 @@ The goal of this project is to maintain a central, highly accessible, and standa
 *   **Cross-Container Sync:** Centralized NFS storage combined with simple shell aliases (`cheats-pull`, `cheats-push`) to pull and push updates to the remote Git repository.
 *   **Standardized Front Matter:** YAML-based front matter block declaring the sheet syntax (for syntax highlighting) and tags (for classification).
 *   **Docopt-compliant Syntax:** Use of docopt syntax for command placeholders to maintain clarity and standard formatting.
-*   **Automated Validation:** Local validation script (`validate_cheatsheets.py`) checks cheatsheets for formatting, metadata correctness, and docopt placeholder compliance.
+*   **Automated Validation:** Local validation script (`scripts/validate_cheatsheets.py`) checks cheatsheets for formatting, metadata correctness, and docopt placeholder compliance.
 
 ## 4. Scope and Success Criteria
 *   High consistency across all cheatsheets (metadata syntax, formatting).

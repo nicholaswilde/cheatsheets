@@ -34,5 +34,5 @@ git clone <repository_url> <directory>
 ```
 
 ## 4. Repository Structure
-*   **Flat Structure:** All cheatsheet files must remain in the root directory for compatibility with `cheat` CLI paths.
+*   **Flat Structure:** All cheatsheet files must reside in the `./sheets/` directory for compatibility with `cheat` CLI paths.
 *   **Hidden Directories:** Configuration and CI files should reside in dot directories (e.g., `.github/`).
