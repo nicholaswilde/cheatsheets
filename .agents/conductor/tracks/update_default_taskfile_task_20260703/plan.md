@@ -4,7 +4,7 @@ This plan details the phases and tasks required to update the default Taskfile t
 
 ## Phase 1: Taskfile Refactoring and Verification
 
-- [ ] Task: Modify default and all tasks in Taskfile.yml
+- [~] Task: Modify default and all tasks in Taskfile.yml
     - [ ] Rename existing `default` task to `all` in `Taskfile.yml`.
     - [ ] Add the new `default` task that runs `task -a` silently.
 - [ ] Task: Verify task commands
