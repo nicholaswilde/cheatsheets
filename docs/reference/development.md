@@ -184,7 +184,7 @@ cargo install lychee
     lychee docs/ sheets/
     ```
 
-### :bun: [Bun][3]
+### :rabbit2: [Bun][3]
 A fast JavaScript runtime and package manager used to run the TypeScript validation and conversion scripts.
 
 ```shell title="Installation"
@@ -197,7 +197,7 @@ bun run scripts/validate_cheatsheets.ts
 bun test
 ```
 
-### :octocat: [GitHub CLI (`gh`)][7]
+### :computer: [GitHub CLI (`gh`)][7]
 Used to interact with the remote GitHub repository (checking workflow runs, PR status, etc.). Commands are piped to `cat` to suppress interactive prompts.
 
 ```shell title="Installation"
