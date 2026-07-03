@@ -7,9 +7,9 @@ This plan defines the steps to implement the cheatsheet validation script.
 - [x] Task: Project setup and testing harness (9aca86b)
     - [x] Create pytest testing boilerplate `test_validate_cheatsheets.py`
     - [x] Run test suite to verify testing framework functionality
-- [ ] Task: Validate YAML Front Matter parsing
-    - [ ] Write failing test cases for valid and invalid YAML front matter headers in `test_validate_cheatsheets.py` (Red Phase)
-    - [ ] Implement front matter extraction and YAML validation in `validate_cheatsheets.py` to make the tests pass (Green Phase)
+- [x] Task: Validate YAML Front Matter parsing (db02dfc)
+    - [x] Write failing test cases for valid and invalid YAML front matter headers in `test_validate_cheatsheets.py` (Red Phase)
+    - [x] Implement front matter extraction and YAML validation in `validate_cheatsheets.py` to make the tests pass (Green Phase)
 - [ ] Task: Conductor - User Manual Verification 'Phase 1: Validator Core and Front Matter Parsing' (Protocol in workflow.md)
 
 ## Phase 2: Structure and Formatting Rules
