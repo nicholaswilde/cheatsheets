@@ -7,10 +7,11 @@ tasks:
     silent: true
 
   all:
-    desc: Run both validation and tests
+    desc: Run validation, tests, and link checker
     cmds:
       - task: validate
       - task: test
+      - task: linkcheck
 
   validate:
     desc: Run the cheatsheet validator script
