@@ -19,7 +19,7 @@ This document details the technologies, formats, and tools utilized in this chea
 *   **Shell Aliases:** Preconfigured shell aliases (`cheats-pull` and `cheats-push`) simplify git workflows from any container terminal.
 
 ## 4. Validation and Testing
-*   **Language:** Python 3 (version 3.13+)
-*   **Testing Framework:** pytest (for running unit tests on the validator utility)
-*   **Validator Script:** `scripts/validate_cheatsheets.py` scans cheatsheets locally for proper layout, front matter tags, and docopt compliant placeholders.
+*   **Language:** Bun & TypeScript (with Bash as a secondary scripting language)
+*   **Testing Framework:** Bun Test (for running unit tests on the validator utility)
+*   **Validator Script:** `scripts/validate_cheatsheets.ts` scans cheatsheets locally for proper layout, front matter tags, and docopt compliant placeholders.
 *   **Task Runner:** `go-task` (Taskfile.yml) is used to automate validation, testing, and other repository development workflows.

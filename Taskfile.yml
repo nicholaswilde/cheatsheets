@@ -10,9 +10,9 @@ tasks:
   validate:
     desc: Run the cheatsheet validator script
     cmds:
-      - python3 scripts/validate_cheatsheets.py
+      - bun run scripts/validate_cheatsheets.ts
 
   test:
-    desc: Run pytest unit tests on the validator
+    desc: Run bun test unit tests on the validator
     cmds:
-      - PYTHONPATH=. pytest
+      - bun test
