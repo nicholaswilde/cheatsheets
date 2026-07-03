@@ -62,7 +62,7 @@ tasks:
   linkcheck:
     desc: Check for dead links in docs and sheets using lychee
     cmds:
-      - lychee --accept 200..=299,429 docs/ sheets/
+      - lychee docs/ sheets/
 
   linkcheck-offline:
     desc: Check for dead local links and images in docs and sheets (offline)
@@ -72,5 +72,5 @@ tasks:
   linkcheck-file:
     desc: Link check a single file
     cmds:
-      - lychee --accept 200..=299,429 {{shellQuote .FILE}}
+      - lychee {{shellQuote .FILE}}
 
