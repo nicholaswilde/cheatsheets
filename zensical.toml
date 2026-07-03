@@ -62,6 +62,11 @@ Cheatsheets = [
   { yubikey = "yubikey.md" }
 ]
 
+[[project.nav]]
+Reference = [
+  { development = "reference/development.md" }
+]
+
 [project.extra]
 social = [
     { icon = "fontawesome/solid/house", link = "https://nicholaswilde.io/" },
