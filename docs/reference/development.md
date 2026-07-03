@@ -227,4 +227,4 @@ agy -i "Fix the failing GitHub Actions workflow"
 [5]: <https://github.com/astral-sh/uv>
 [6]: <https://github.com/lycheeverse/lychee>
 [7]: <https://cli.github.com/>
-[8]: <https://github.com/google-gemini/antigravity-cli>
+[8]: <https://github.com/google-antigravity/antigravity-cli>

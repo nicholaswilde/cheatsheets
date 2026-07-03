@@ -246,10 +246,6 @@ export function main() {
         let tomlContent = fs.readFileSync(tomlPath, 'utf-8');
         
         const navLines: string[] = [];
-        navLines.push('[[project.nav]]');
-        navLines.push('Home = "index.md"');
-        navLines.push('');
-        navLines.push('[[project.nav]]');
         navLines.push('Cheatsheets = [');
         for (let k = 0; k < convertedSheets.length; k++) {
             const { title, filename } = convertedSheets[k];
@@ -261,14 +257,14 @@ export function main() {
         
         const newNavBlock = navLines.join('\n');
         
-        // Match from [[project.nav]] to the next section [project.extra]
-        const navRegex = /\[\[project\.nav\]\][\s\S]*?(?=\n\n?\[project\.extra\])/;
+        // Match only the Cheatsheets list block to avoid overwriting other navigation sections
+        const navRegex = /Cheatsheets\s*=\s*\[[\s\S]*?\]/;
         if (navRegex.test(tomlContent)) {
             tomlContent = tomlContent.replace(navRegex, newNavBlock);
             fs.writeFileSync(tomlPath, tomlContent, 'utf-8');
             console.log('zensical.toml navigation updated successfully!');
         } else {
-            console.warn('Could not locate project.nav or project.extra in zensical.toml. Navigation was not updated.');
+            console.warn('Could not locate Cheatsheets list in zensical.toml. Navigation was not updated.');
         }
     }
     

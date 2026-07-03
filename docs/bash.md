@@ -289,7 +289,7 @@
     bash
     Bourne-Again SHell, an `sh`-compatible command-line interpreter.
     See also: `zsh`, `histexpand` (history expansion).
-    More information: <https://gnu.org/software/bash/>.
+    More information: <https://www.gnu.org/software/bash/>.
     Start an interactive shell session:
 
     ```bash
