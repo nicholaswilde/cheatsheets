@@ -1,4 +1,4 @@
-# Systemctl
+# systemctl
 
 Control the systemd system and service manager
 

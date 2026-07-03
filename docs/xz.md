@@ -1,4 +1,4 @@
-# Xz
+# xz
 
 Compress or decompress .xz and .lzma files.
 

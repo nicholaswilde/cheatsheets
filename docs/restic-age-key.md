@@ -1,4 +1,4 @@
-# Restic-age-key
+# restic-age-key
 
 Use asymmetric age keys instead of a password on your restic repository
 

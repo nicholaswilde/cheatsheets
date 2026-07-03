@@ -1,4 +1,4 @@
-# Task
+# task
 
 !!! info "Install"
     ```bash

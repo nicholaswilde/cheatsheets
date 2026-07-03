@@ -3,7 +3,7 @@ tags:
   - encryption
 ---
 
-# Age
+# age
 
 A simple, modern and secure file encryption tool.
 

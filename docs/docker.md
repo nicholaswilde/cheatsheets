@@ -4,7 +4,7 @@ tags:
   - containers
 ---
 
-# Docker
+# docker
 
 !!! info "To start the docker daemon"
     ```bash

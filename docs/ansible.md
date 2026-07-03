@@ -3,7 +3,7 @@ tags:
   - orchestration
 ---
 
-# Ansible
+# ansible
 
 Manage groups of computers remotely over SSH. (use the `/etc/ansible/hosts` file to add new groups/hosts).
 

@@ -1,4 +1,4 @@
-# Yubikey
+# yubikey
 
 !!! info "https://github.com/drduh/YubiKey-Guide"
     ```bash

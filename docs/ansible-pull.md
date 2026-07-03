@@ -3,7 +3,7 @@ tags:
   - automation
 ---
 
-# Ansible-pull
+# ansible-pull
 
 Pull ansible playbooks from a VCS repo and executes them for the local host.
 

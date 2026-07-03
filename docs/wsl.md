@@ -1,4 +1,4 @@
-# Wsl
+# wsl
 
 Manage the Windows Subsystem for Linux from the command-line.
 

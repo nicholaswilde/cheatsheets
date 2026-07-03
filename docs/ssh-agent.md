@@ -1,4 +1,4 @@
-# Ssh-agent
+# ssh-agent
 
 !!! info "Start the ssh-agent in the background"
     ```bash

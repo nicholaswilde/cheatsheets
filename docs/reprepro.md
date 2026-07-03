@@ -1,4 +1,4 @@
-# Reprepro
+# reprepro
 
 Produce and Manage a Debian package repository
 

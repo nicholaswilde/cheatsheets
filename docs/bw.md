@@ -1,4 +1,4 @@
-# Bw
+# bw
 
 A CLI to access and manage a Bitwarden vault.
 

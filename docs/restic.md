@@ -1,4 +1,4 @@
-# Restic
+# restic
 
 Backups done right!
 

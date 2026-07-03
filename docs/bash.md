@@ -1,4 +1,4 @@
-# Bash
+# bash
 
 !!! info "To implement a for loop"
     ```bash

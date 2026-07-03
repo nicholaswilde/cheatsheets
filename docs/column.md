@@ -1,4 +1,4 @@
-# Column
+# column
 
 Format standard input or a file into multiple columns.
 

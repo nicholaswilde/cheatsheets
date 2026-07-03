@@ -1,4 +1,4 @@
-# Gpg-agent
+# gpg-agent
 
 !!! info "~/.gnupg/gpg-agent.conf"
     ```bash

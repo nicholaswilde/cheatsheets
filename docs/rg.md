@@ -1,4 +1,4 @@
-# Rg
+# rg
 
 Ripgrep is a recursive line-oriented CLI search tool.
 

@@ -3,7 +3,7 @@ tags:
   - ssh
 ---
 
-# Ssh-keygen
+# ssh-keygen
 
 !!! info "To generate an SSH key"
     ```bash

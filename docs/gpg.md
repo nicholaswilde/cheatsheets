@@ -1,4 +1,4 @@
-# Gpg
+# gpg
 
 !!! info "Create a key"
     ```bash

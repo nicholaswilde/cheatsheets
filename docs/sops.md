@@ -1,4 +1,4 @@
-# Sops
+# sops
 
 SOPS: Secrets OPerationS.
 

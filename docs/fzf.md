@@ -1,4 +1,4 @@
-# Fzf
+# fzf
 
 !!! info "To fuzzy find files in current directory"
     ```bash

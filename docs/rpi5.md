@@ -3,6 +3,6 @@ tags:
   - rpi
 ---
 
-# Rpi5
+# rpi5
 
 Raspberry Pi 5

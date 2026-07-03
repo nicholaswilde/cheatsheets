@@ -1,4 +1,4 @@
-# Lpass
+# lpass
 
 Command-line interface for the LastPass password manager.
 

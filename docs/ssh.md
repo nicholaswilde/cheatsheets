@@ -3,7 +3,7 @@ tags:
   - ssh
 ---
 
-# Ssh
+# ssh
 
 OpenSSH SSH client (remote login program)
 

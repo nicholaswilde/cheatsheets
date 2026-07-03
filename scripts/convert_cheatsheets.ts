@@ -1,13 +1,8 @@
 import * as fs from 'fs';
 import * as path from 'path';
 
-function capitalize(str: string): string {
-    if (!str) return str;
-    return str.charAt(0).toUpperCase() + str.slice(1);
-}
-
 export function parseCheatsheet(filename: string, bodyLines: string[], syntax: string): { title: string, description: string, markdown: string } {
-    let title = capitalize(filename);
+    let title = filename;
     let description = '';
     
     let i = 0;
@@ -22,7 +17,7 @@ export function parseCheatsheet(filename: string, bodyLines: string[], syntax: s
         if (line.startsWith('#') && !line.startsWith('##')) {
             const cleanComment = line.substring(line.startsWith('# ') ? 2 : 1).trim();
             if (cleanComment.toLowerCase() === filename.toLowerCase()) {
-                title = capitalize(cleanComment);
+                title = cleanComment; // Use the case from the file comment, or default to filename
                 i++; // consume title comment
                 
                 // Try to consume page description comments up to the first empty line
@@ -191,7 +186,9 @@ function convertFile(filename: string, srcPath: string, destPath: string): { tit
         outputLines.push('');
     }
     
-    outputLines.push(`# ${title}`);
+    // Always use the lowercase/exact filename as the main title if instructed by user
+    // e.g. jq -> jq
+    outputLines.push(`# ${filename}`);
     outputLines.push('');
     if (description) {
         outputLines.push(description);
@@ -204,7 +201,7 @@ function convertFile(filename: string, srcPath: string, destPath: string): { tit
     
     fs.writeFileSync(destPath, outputLines.join('\n').trim() + '\n', 'utf-8');
     
-    return { title, filename };
+    return { title: filename, filename };
 }
 
 export function main() {

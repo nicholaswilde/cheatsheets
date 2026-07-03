@@ -3,7 +3,7 @@ tags:
   - rpi
 ---
 
-# Rpi4
+# rpi4
 
 !!! info "Raspberry Pi 4"
     Argon Fan Hat

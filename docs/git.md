@@ -1,4 +1,4 @@
-# Git
+# git
 
 !!! info "Set your identity"
     ```bash

@@ -4,7 +4,7 @@ tags:
   - deps
 ---
 
-# Brew
+# brew
 
 !!! info "Install"
     ```bash

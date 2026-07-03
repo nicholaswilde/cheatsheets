@@ -5,7 +5,7 @@ tags:
   - systemd
 ---
 
-# Journalctl
+# journalctl
 
 !!! info "To actively follow log (like tail -f)"
     ```bash

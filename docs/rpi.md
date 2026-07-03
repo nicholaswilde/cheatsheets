@@ -3,7 +3,7 @@ tags:
   - rpi
 ---
 
-# Rpi
+# rpi
 
 !!! info "Raspberry Pi OS"
     Change settings
