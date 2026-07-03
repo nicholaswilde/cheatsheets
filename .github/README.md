@@ -11,6 +11,8 @@ This repository contains my personal cheatsheets to be used with
 
 This repository supplements the [community-sourced cheatsheets][4] and [cheat.sheets][9].
 
+A [static site][10] is automatically generated from the cheatsheets using [Zensical][11] and published to GitHub Pages.
+
 ---
 
 ## :hammer_and_wrench: Installation
@@ -118,6 +120,58 @@ necessary.
 
 ---
 
+## :globe_with_meridians: Static Site
+
+The cheatsheets are published as a static site at [nicholaswilde.io/cheatsheets][10] using [Zensical][11].
+
+Install [uv][12] and install dependencies.
+
+```shell
+uv sync
+```
+
+Run common site tasks using [Task][13].
+
+```shell
+task site:convert   # convert cheatsheets to Zensical markdown pages
+task site:build     # build the static site
+task site:serve     # serve the site locally at http://localhost:8000
+task site:check     # check Zensical version
+task site:update    # update Zensical to the latest version
+```
+
+---
+
+## :arrows_counterclockwise: CI Workflows
+
+| Workflow | Trigger | Description |
+|----------|---------|-------------|
+| **Convert Cheatsheets** | Push to `sheets/**`, `scripts/convert_cheatsheets.ts`, or `Taskfile.yml` | Converts cheatsheets to Zensical markdown pages and commits back to `main`. |
+| **Publish Zensical Site** | Push to `main`, manual dispatch, or after **Convert Cheatsheets** completes | Builds the Zensical static site and deploys it to GitHub Pages. |
+
+---
+
+## :test_tube: Development
+
+Run validation and tests using [Task][13].
+
+```shell
+task          # list all available tasks
+task all      # run validation and tests
+task validate # validate cheatsheet format
+task test     # run unit tests
+```
+
+Check for broken links.
+
+```shell
+task linkcheck              # check all links
+task linkcheck-offline      # check local links only
+task linkcheck-file FILE=sheets/git  # check a single file
+```
+
+---
+
 ## :clipboard: ToDo
 
 - [ ] Transfer useful commands from [notes][8] to this repo.
@@ -144,3 +198,7 @@ This project was started in 2025 by [Nicholas Wilde][2].
 [7]: <https://linuxize.com/post/how-to-create-bash-aliases/>
 [8]: <https://nicholaswilde.io/notes>
 [9]: <https://github.com/chubin/cheat.sheets>
+[10]: <https://nicholaswilde.io/cheatsheets>
+[11]: <https://zensical.org>
+[12]: <https://docs.astral.sh/uv/>
+[13]: <https://taskfile.dev>
