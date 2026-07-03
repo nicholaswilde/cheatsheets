@@ -1,0 +1,8 @@
+{
+  "track_id": "zensical_static_site_20260703",
+  "type": "feature",
+  "status": "new",
+  "created_at": "2026-07-03T10:49:00Z",
+  "updated_at": "2026-07-03T10:49:00Z",
+  "description": "Implement Zensical static site in this repo using uv for local installation and running, with configuration matching the shape of nicholaswilde/recipes"
+}
