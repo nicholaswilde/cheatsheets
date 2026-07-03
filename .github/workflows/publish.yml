@@ -1,0 +1,39 @@
+name: Publish Zensical Site
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install UV (Python package manager)
+        run: |
+          curl -LsSf https://github.com/astral-sh/uv/releases/latest/download/uv-installer.sh | sh
+          export PATH="$HOME/.local/bin:$PATH"
+
+      - name: Install dependencies
+        run: uv sync
+
+      - name: Build Zensical site
+        run: uv run zensical build
+
+      - name: Upload site artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site/
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
