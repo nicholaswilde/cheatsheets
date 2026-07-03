@@ -26,3 +26,40 @@ tasks:
     desc: Serve the static site locally using Zensical
     cmds:
       - uv run zensical serve
+
+  site:deps:
+    desc: Install Zensical and other Python dependencies
+    cmds:
+      - uv sync
+
+  site:check:
+    desc: Check Zensical version
+    cmds:
+      - uv run zensical --version
+
+  site:update:
+    desc: Update Zensical to the latest version
+    cmds:
+      - uv add zensical@latest
+
+  site:validate-toml:
+    desc: Validate zensical.toml file syntax
+    cmds:
+      - uv run python -c "import tomllib, sys; tomllib.load(open('zensical.toml', 'rb'))"
+    silent: true
+
+  linkcheck:
+    desc: Check for dead links in docs and sheets using lychee
+    cmds:
+      - lychee docs/ sheets/
+
+  linkcheck-offline:
+    desc: Check for dead local links and images in docs and sheets (offline)
+    cmds:
+      - lychee --offline docs/ sheets/
+
+  linkcheck-file:
+    desc: Link check a single file
+    cmds:
+      - lychee {{shellQuote .FILE}}
+
