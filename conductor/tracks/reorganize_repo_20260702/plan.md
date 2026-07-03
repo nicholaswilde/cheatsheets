@@ -4,8 +4,8 @@ This plan details the phases and tasks required to reorganize the cheatsheets re
 
 ## Phase 1: Directory Reorganization and File Migration
 
-- [ ] Task: Create new target directories
-    - [ ] Create `./scripts/`, `./tests/`, `./sheets/`, and `./docs/` directories
+- [x] Task: Create new target directories (f7e696d)
+    - [x] Create `./scripts/`, `./tests/`, `./sheets/`, and `./docs/` directories
 - [ ] Task: Migrate existing files
     - [ ] Move the 32 cheatsheet files from the root to `./sheets/`
     - [ ] Move `validate_cheatsheets.py` to `./scripts/`
