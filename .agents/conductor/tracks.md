@@ -4,5 +4,5 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
-- [ ] **Track: Update default Taskfile task**
+- [~] **Track: Update default Taskfile task**
   *Link: [./tracks/update_default_taskfile_task_20260703/](./tracks/update_default_taskfile_task_20260703/)*
