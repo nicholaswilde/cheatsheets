@@ -17,19 +17,19 @@ Below is the general workflow for adding or updating a cheatsheet.
 
 ``` mermaid
 graph TD
-  A[Identify a command or tool to document];
-  B[Create or edit a sheet in ./sheets/];
+  A["Identify a command<br/>or tool to document"];
+  B["Create or edit a<br/>sheet in ./sheets/"];
   C[Validate the sheet format];
-  D{Does it pass validation?};
+  D{Does it pass<br/>validation?};
   E[Fix formatting issues];
-  F[Run conversion to generate Zensical pages];
-  G[Serve the site locally to verify];
-  H{Does the page render correctly?};
+  F["Run conversion to<br/>generate Zensical pages"];
+  G["Serve the site<br/>locally to verify"];
+  H{Does the page<br/>render correctly?};
   I[Fix the sheet or docs];
   J[Commit and push to repo];
-  K[CI workflow runs validation];
-  L[Convert workflow updates Zensical pages];
-  M[Publish workflow deploys to GitHub Pages];
+  K["CI workflow<br/>runs validation"];
+  L["Convert workflow<br/>updates Zensical pages"];
+  M["Publish workflow<br/>deploys to GitHub Pages"];
 
   A --> B;
   B --> C;
