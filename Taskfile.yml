@@ -16,3 +16,13 @@ tasks:
     desc: Run bun test unit tests on the validator
     cmds:
       - bun test
+
+  site:build:
+    desc: Build the static site using Zensical
+    cmds:
+      - uv run zensical build
+
+  site:serve:
+    desc: Serve the static site locally using Zensical
+    cmds:
+      - uv run zensical serve
