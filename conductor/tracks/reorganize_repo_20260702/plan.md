@@ -14,9 +14,9 @@ This plan details the phases and tasks required to reorganize the cheatsheets re
 
 ## Phase 2: Code Updates and Documentation
 
-- [ ] Task: Update validator and test imports
-    - [ ] Write failing test cases in `./tests/test_validate_cheatsheets.py` that verify the validator scans the `./sheets/` path (Red Phase)
-    - [ ] Modify `./scripts/validate_cheatsheets.py` to scan `./sheets/` and ensure all tests pass (Green Phase)
+- [x] Task: Update validator and test imports (f721ba7)
+    - [x] Write failing test cases in `./tests/test_validate_cheatsheets.py` that verify the validator scans the `./sheets/` path (Red Phase)
+    - [x] Modify `./scripts/validate_cheatsheets.py` to scan `./sheets/` and ensure all tests pass (Green Phase)
 - [ ] Task: Update project documentation references
     - [ ] Update [README.md](file:///home/nicholas/git/nicholaswilde/cheatsheets/.github/README.md) to reference `./sheets/` instead of the root
     - [ ] Update [tech-stack.md](file:///home/nicholas/git/nicholaswilde/cheatsheets/conductor/tech-stack.md) to reference the new structure
