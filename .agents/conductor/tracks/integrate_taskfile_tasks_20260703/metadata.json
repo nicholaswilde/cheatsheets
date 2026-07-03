@@ -1,0 +1,8 @@
+{
+  "track_id": "integrate_taskfile_tasks_20260703",
+  "type": "feature",
+  "status": "new",
+  "created_at": "2026-07-03T10:59:00Z",
+  "updated_at": "2026-07-03T10:59:00Z",
+  "description": "Integrate documentation dependency, validation, and link checking tasks into Taskfile.yaml from the nicholaswilde/recipes project"
+}
