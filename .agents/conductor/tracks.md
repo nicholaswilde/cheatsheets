@@ -1,8 +1,3 @@
 # Project Tracks
 
-This file tracks all major tracks for the project. Each track has its own detailed plan in its respective folder.
-
----
-
-- [x] **Track: Create cheatsheet to Zensical conversion script**
-  *Link: [./tracks/convert_cheatsheets_to_zensical_20260703/](./tracks/convert_cheatsheets_to_zensical_20260703/)*
+This file tracks all major tasks for the project. Each task has its own detailed plan in its respective folder.
