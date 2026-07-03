@@ -23,6 +23,7 @@ This document details the technologies, formats, and tools utilized in this chea
 *   **Testing Framework:** Bun Test (for running unit tests on the validator utility)
 *   **Validator Script:** `scripts/validate_cheatsheets.ts` scans cheatsheets locally for proper layout, front matter tags, and docopt compliant placeholders.
 *   **Task Runner:** `go-task` (Taskfile.yml) is used to automate validation, testing, and other repository development workflows.
+*   **Link Checker:** `lychee` is used to verify external and internal hyperlinks across sheets and documentation.
 
 ## 5. Static Site Generation
 *   **Static Site Generator:** Zensical (Python-based, Rust-powered static site generator)
