@@ -12,7 +12,7 @@ This plan defines the steps to implement the cheatsheet validation script.
     - [x] Implement front matter extraction and YAML validation in `validate_cheatsheets.py` to make the tests pass (Green Phase)
 - [x] Task: Conductor - User Manual Verification 'Phase 1: Validator Core and Front Matter Parsing' (Protocol in workflow.md) (d46a593)
 
-## Phase 2: Structure and Formatting Rules
+## Phase 2: Structure and Formatting Rules [checkpoint: d864ff2]
 
 - [x] Task: Validate description and command layout (8664535)
     - [x] Write failing test cases for correct mapping of descriptions (comments starting with `# `) and command lines (Red Phase)
@@ -22,4 +22,4 @@ This plan defines the steps to implement the cheatsheet validation script.
     - [x] Implement regex-based placeholder checking in `validate_cheatsheets.py` (Green Phase)
 - [x] Task: Run validator on existing cheatsheets (0104ebe)
     - [x] Run validator tool on all sheets in the root directory to log issues and report status
-- [~] Task: Conductor - User Manual Verification 'Phase 2: Structure and Formatting Rules' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 2: Structure and Formatting Rules' (Protocol in workflow.md) (d864ff2)
