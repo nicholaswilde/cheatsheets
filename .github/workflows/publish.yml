@@ -1,5 +1,8 @@
 name: Publish Zensical Site
 
+env:
+  ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: true
+
 on:
   push:
     branches: [main]
@@ -19,6 +22,9 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Setup Pages (optional config)
+        uses: actions/configure-pages@v5
+
       - name: Install UV (Python package manager)
         run: |
           curl -LsSf https://github.com/astral-sh/uv/releases/latest/download/uv-installer.sh | sh
@@ -31,9 +37,12 @@ jobs:
         run: uv run zensical build
 
       - name: Upload site artifact
+        id: upload
         uses: actions/upload-pages-artifact@v3
         with:
           path: site/
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
+        with:
+          artifact_id: ${{ steps.upload.outputs.artifact_id }}
