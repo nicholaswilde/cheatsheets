@@ -9,7 +9,7 @@ This plan details the phases and tasks required to set up and integrate the Zens
     - [x] Run `uv sync` to create `.venv` and `uv.lock`.
 - [x] Task: Configure gitignore (be076e8)
     - [x] Ensure `.venv/` is added to `.gitignore`.
-- [ ] Task: Conductor - User Manual Verification 'Phase 1: Installation and Environment Setup' (Protocol in workflow.md)
+- [~] Task: Conductor - User Manual Verification 'Phase 1: Installation and Environment Setup' (Protocol in workflow.md)
 
 ## Phase 2: Zensical Configuration and Content
 
