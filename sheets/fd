@@ -3,27 +3,74 @@ syntax: bash
 tags:
   - app
   - terminal
+  - search
 ---
 # fd
 # Simple, fast and user-friendly alternative to find (https://github.com/sharkdp/fd)
 
-# To check fd version:
-fd --version
+# --- Basic Search ---
 
-# To search for files matching a pattern:
+# To search for files matching a pattern (regex by default):
 fd <pattern>
 
 # To search in a specific directory:
 fd <pattern> <directory>
 
 # To search for a specific file extension:
-fd -e <extension> <pattern>
+fd -e <extension>
 
 # To search using a glob pattern:
 fd -g <glob_pattern>
 
-# To search including hidden and gitignored files:
+# --- Hidden & Ignored Files ---
+
+# To include hidden files:
 fd -H <pattern>
 
-# To exclude specific files or directories from search:
+# To include files listed in .gitignore:
+fd -I <pattern>
+
+# To include both hidden and ignored files:
+fd -HI <pattern>
+
+# --- Filtering ---
+
+# To search only for files:
+fd -t f <pattern>
+
+# To search only for directories:
+fd -t d <pattern>
+
+# To search only for symlinks:
+fd -t l <pattern>
+
+# To exclude specific files or directories:
 fd -E <exclude_pattern> <pattern>
+
+# To filter by file size (e.g. larger than 1MB):
+fd --size +1m <pattern>
+
+# To filter by modification time (e.g. modified in last 7 days):
+fd --changed-within 7d <pattern>
+
+# --- Output ---
+
+# To print absolute paths:
+fd --absolute-path <pattern>
+
+# To limit search depth:
+fd --max-depth <n> <pattern>
+
+# To list all files recursively (no pattern):
+fd
+
+# --- Executing Commands ---
+
+# To run a command on each result:
+fd <pattern> -x <command> {}
+
+# To run a command on all results at once:
+fd <pattern> -X <command> {}
+
+# To delete all matching files (use with caution):
+fd <pattern> -x rm {}

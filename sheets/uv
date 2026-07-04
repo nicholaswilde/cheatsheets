@@ -3,24 +3,82 @@ syntax: bash
 tags:
   - app
   - package-manager
+  - python
 ---
 # uv
 # Fast Python package installer and resolver (https://github.com/astral-sh/uv)
 
-# To install uv:
-# Via installer script
+# --- Installation ---
+
+# To install via installer script:
 curl -LsSf https://astral.sh/uv/install.sh | sh
-# Via apt (Debian/Ubuntu)
-sudo mkdir -p /etc/apt/keyrings
-curl -LsSf https://astral.sh/uv/packaging/key.asc | sudo gpg --dearmor -o /etc/apt/keyrings/astral.gpg
-echo "deb [signed-by=/etc/apt/keyrings/astral.gpg] https://astral.sh/uv/packaging/debian stable main" | sudo tee /etc/apt/sources.list.d/astral.list
-sudo apt update && sudo apt install uv -y
+
+# To install via pip:
+pip install uv
+
+# To update uv itself:
+uv self update
+
+# --- Projects ---
 
 # To initialize a new project:
 uv init <project_name>
 
-# To run a Python script with packages in a virtual environment:
-uv run --with <package> <script_name>.py
-
-# To sync environment dependencies:
+# To sync environment dependencies from pyproject.toml:
 uv sync
+
+# To add a dependency to the project:
+uv add <package>
+
+# To add a dev dependency:
+uv add --dev <package>
+
+# To remove a dependency:
+uv remove <package>
+
+# To upgrade all dependencies:
+uv lock --upgrade
+
+# --- Running ---
+
+# To run a Python script in the project environment:
+uv run <script>.py
+
+# To run a script with extra packages:
+uv run --with <package> <script>.py
+
+# To run a tool without installing it (like pipx run):
+uvx <tool>
+
+# --- Virtual Environments ---
+
+# To create a virtual environment:
+uv venv
+
+# To create a virtual environment with a specific Python version:
+uv venv --python <version>
+
+# --- Python Management ---
+
+# To install a specific Python version:
+uv python install <version>
+
+# To list available Python versions:
+uv python list
+
+# To pin the project's Python version:
+uv python pin <version>
+
+# --- Package Installation (pip mode) ---
+
+# To install packages into the current environment:
+uv pip install <package>
+
+# To install from requirements.txt:
+uv pip install -r requirements.txt
+
+# To list installed packages:
+uv pip list
+
+# To show info about an installed package:
+uv pip show <package>

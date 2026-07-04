@@ -1,5 +1,12 @@
+---
+syntax: bash
+tags:
+  - app
+  - debian
+  - packaging
+---
 # reprepro
-# Produce and Manage a Debian package repository
+# Produce and manage a Debian package repository
 
 # Dry run
 reprepro -b /srv/reprepro/raspi listfilter bullseye "Package (== my-app), Version (== 1.0.2)"

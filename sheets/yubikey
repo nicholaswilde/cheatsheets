@@ -1,17 +1,84 @@
+---
+syntax: bash
+tags:
+  - security
+  - yubikey
+  - gpg
+---
 # yubikey
-# https://github.com/drduh/YubiKey-Guide
+# YubiKey hardware security key management.
+# Guide: https://github.com/drduh/YubiKey-Guide
+# OpenPGP: https://support.yubico.com/hc/en-us/articles/360013790259-Using-Your-YubiKey-with-OpenPGP
+
+# --- Setup ---
+
+# To install required packages (Debian/Ubuntu):
 sudo apt -y install \
   wget gnupg2 gnupg-agent dirmngr \
   cryptsetup scdaemon pcscd \
   yubikey-personalization yubikey-manager
 
-# https://support.yubico.com/hc/en-us/articles/360013790259-Using-Your-YubiKey-with-OpenPGP
+# --- Card Status & Info ---
 
-gpg --expert --edit-key 1234ABC
-  keytocard
-
+# To show YubiKey card status:
 gpg --card-status
+
+# To edit card settings (PINs, name, URL):
 gpg --card-edit
 
+# Inside card-edit: enter admin mode:
   admin
+
+# Inside card-edit: change PINs:
   passwd
+
+# To check YubiKey firmware and serial number:
+ykman info
+
+# --- GPG Key Management ---
+
+# To move a GPG key to the YubiKey card:
+gpg --expert --edit-key <key-id>
+  keytocard
+
+# To list GPG keys:
+gpg --list-keys
+gpg --list-secret-keys
+
+# To import a GPG public key:
+gpg --import <keyfile.gpg>
+
+# --- FIDO2 / SSH ---
+
+# To list FIDO2 credentials stored on the key:
+ykman fido credentials list
+
+# To generate a resident SSH key backed by the YubiKey:
+ssh-keygen -t ed25519-sk -O resident -O verify-required
+
+# To load resident SSH keys from the YubiKey:
+ssh-keygen -K
+
+# --- OTP ---
+
+# To list OTP slots:
+ykman otp info
+
+# To program a static password in slot 2:
+ykman otp static --generate 2
+
+# --- PIV ---
+
+# To list PIV certificates:
+ykman piv certificates list
+
+# To reset the PIV applet:
+ykman piv reset
+
+# --- Lock & Reset ---
+
+# To lock the YubiKey OTP applet:
+ykman otp delete 1
+
+# To factory reset all applets:
+ykman config reset

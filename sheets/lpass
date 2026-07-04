@@ -1,6 +1,12 @@
+---
+syntax: bash
+tags:
+  - app
+  - security
+  - password-manager
+---
 # lpass
-# Command-line interface for the LastPass password manager.
-# More information: <https://github.com/lastpass/lastpass-cli>.
+# Command-line interface for the LastPass password manager (https://github.com/lastpass/lastpass-cli)
 
 # Log in to your LastPass account, by entering your master password when prompted:
 mkdir -p ~/.local/share/lpass

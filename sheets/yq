@@ -3,24 +3,73 @@ syntax: bash
 tags:
   - app
   - parser
+  - yaml
 ---
 # yq
-# Portable command-line YAML processor (https://github.com/mikefarah/yq)
+# Portable command-line YAML/JSON/TOML processor (https://github.com/mikefarah/yq)
 
-# To read a specific key path from a YAML file:
-yq '.<key_path>' <file>.yaml
+# --- Reading ---
 
-# To edit a YAML file in-place:
-yq -i '.<key_path> = "<value>"' <file>.yaml
+# To read a specific key from a YAML file:
+yq '.<key>' <file>.yaml
 
-# To process front matter in a Markdown file:
-yq --front-matter="process" '.<key_path> = "<value>"' <file>.md
+# To read a nested key:
+yq '.parent.child' <file>.yaml
 
-# To sort all keys alphabetically in-place:
-yq -i 'sort_keys(.)' <file>.yaml
+# To read an array element by index:
+yq '.list[0]' <file>.yaml
 
-# To filter out null values or empty lists:
+# To read all array elements:
+yq '.list[]' <file>.yaml
+
+# To read multiple keys:
+yq '.foo, .bar' <file>.yaml
+
+# --- Writing ---
+
+# To set a key value in-place:
+yq -i '.<key> = "<value>"' <file>.yaml
+
+# To set a nested key in-place:
+yq -i '.parent.child = "<value>"' <file>.yaml
+
+# To append to an array in-place:
+yq -i '.list += ["<value>"]' <file>.yaml
+
+# To delete a key in-place:
+yq -i 'del(.<key>)' <file>.yaml
+
+# --- Filtering ---
+
+# To filter out null or empty values:
 yq '.foo | select(length > 0)' <file>.yaml
 
-# To convert a YAML file to JSON:
+# To select array items matching a condition:
+yq '.list[] | select(.name == "<value>")' <file>.yaml
+
+# To sort all keys alphabetically:
+yq -i 'sort_keys(.)' <file>.yaml
+
+# --- Format Conversion ---
+
+# To convert YAML to JSON:
 yq -o=json <file>.yaml
+
+# To convert JSON to YAML:
+yq -p=json -o=yaml <file>.json
+
+# To convert YAML to TOML:
+yq -o=toml <file>.yaml
+
+# --- Merging ---
+
+# To merge two YAML files (second overrides first):
+yq '. * load("<other>.yaml")' <file>.yaml
+
+# --- Markdown Front Matter ---
+
+# To read a front matter key from a Markdown file:
+yq --front-matter="extract" '.<key>' <file>.md
+
+# To set a front matter key in a Markdown file:
+yq --front-matter="process" -i '.<key> = "<value>"' <file>.md

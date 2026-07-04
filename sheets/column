@@ -1,16 +1,35 @@
+---
+syntax: bash
+tags:
+  - cli
+  - terminal
+---
 # column
-# Format standard input or a file into multiple columns.
-# Columns are filled before rows; the default separator is a whitespace.
-# More information: <https://manned.org/column>.
+# Format standard input or a file into multiple columns (https://manned.org/column)
 
-# Format the output of a command for a 30 characters wide display:
-printf "header1 header2\nbar foo\n" | column --output-width 30
-
-# Split columns automatically and auto-align them in a tabular format:
+# To format output into a table with auto-aligned columns:
 printf "header1 header2\nbar foo\n" | column --table
 
-# Specify the column delimiter character for the `--table` option (e.g. "," for CSV) (defaults to whitespace):
+# To specify a delimiter for the --table option:
 printf "header1,header2\nbar,foo\n" | column --table --separator ,
 
-# Fill rows before filling columns:
+# To specify the output column separator:
+printf "header1,header2\nbar,foo\n" | column --table --separator , --output-separator ' | '
+
+# To format output for a specific display width:
+printf "header1 header2\nbar foo\n" | column --output-width 30
+
+# To fill rows before filling columns:
 printf "header1\nbar\nfoobar\n" | column --output-width 30 --fillrows
+
+# To suppress empty lines in output:
+printf "a\n\nb\n" | column --table --separator , --empty-lines
+
+# To hide a specific column from output (0-indexed):
+printf "a,b,c\n1,2,3\n" | column --table --separator , --hide 1
+
+# To make a column right-aligned:
+printf "name,size\nfile,1024\n" | column --table --separator , --right 1
+
+# To format /etc/passwd into a readable table:
+column --table --separator : /etc/passwd

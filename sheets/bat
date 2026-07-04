@@ -7,26 +7,64 @@ tags:
 # bat
 # A cat clone with syntax highlighting and Git integration (https://github.com/sharkdp/bat)
 
-# To check bat version:
-bat --version
+# --- Viewing Files ---
 
-# To display a single file with syntax highlighting:
+# To display a file with syntax highlighting:
 bat <file>
 
-# To display multiple files sequentially:
+# To display multiple files:
 bat <file1> <file2>
 
-# To show and highlight non-printable characters:
+# To display a file with line numbers (default):
+bat -n <file>
+
+# To display a file without line numbers:
+bat --style=plain <file>
+
+# To display a file without any decorations (plain output):
+bat -p <file>
+
+# To show non-printable characters:
 bat -A <file>
+
+# To show only a specific line range:
+bat -r <start>:<end> <file>
+
+# --- Syntax & Themes ---
 
 # To list all supported syntax languages:
 bat --list-languages
 
-# To set the language for syntax highlighting explicitly:
+# To set the syntax language explicitly:
 bat --language <language> <file>
 
 # To list all available color themes:
 bat --list-themes
 
-# To display a file using a specific color theme:
+# To display a file using a specific theme:
 bat --theme <theme_name> <file>
+
+# To preview all themes on a file:
+bat --list-themes | xargs -I{} sh -c 'echo "Theme: {}"; bat --theme={} <file>'
+
+# --- Paging & Integration ---
+
+# To disable the pager:
+bat --pager=never <file>
+
+# To use bat as a colorizing pager for man pages (add to .bashrc):
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+
+# To use bat with tail -f for live log viewing:
+tail -f <logfile> | bat --paging=never -l log
+
+# To use bat as a drop-in cat replacement (add to .bashrc):
+alias cat='bat -p'
+
+# --- Reading from Stdin ---
+
+# To pipe input to bat with explicit language:
+<command> | bat --language <language>
+
+# To show git diff output with syntax highlighting:
+git diff | bat --language diff
