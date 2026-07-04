@@ -107,3 +107,10 @@ tasks:
     requires:
       vars: [APP]
 
+  site:add-command:
+    desc: Add a command to an existing cheatsheet (usage task site:add-command APP=... CMD=... DESC=...)
+    cmds:
+      - bun run scripts/add_command_to_cheatsheet.ts {{shellQuote .APP}} {{shellQuote .CMD}} {{shellQuote .DESC}}
+    requires:
+      vars: [APP, CMD, DESC]
+
