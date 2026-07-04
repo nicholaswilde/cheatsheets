@@ -58,10 +58,10 @@ Add `personal` path to a `$CHEAT_PERSONAL_PATH` environmental variable in [`.bas
 export CHEAT_PERSONAL_PATH=/mnt/storage/cheat/cheatsheets/personal
 ```
 
-Add a [bash function][7] to `~/.bash_functions` to make it easier to run git commands from any directory.
+Add a [bash function][7] to `~/.bashrc` to make it easier to run git commands from any directory.
 
 ```bash
-# ~/.bash_functions
+# ~/.bashrc
 function cgit() { ## Run git commands in the cheatsheets repo from any directory
   git -C "${CHEAT_PERSONAL_PATH}" "$@"
 }
