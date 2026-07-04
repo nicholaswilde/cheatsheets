@@ -100,3 +100,10 @@ tasks:
     requires:
       vars: [NOTES_DIR]
 
+  site:import-community:
+    desc: Import a community cheatsheet and evaluate it (usage task site:import-community APP=...)
+    cmds:
+      - bun run scripts/import_community_cheat.ts {{shellQuote .APP}}
+    requires:
+      vars: [APP]
+

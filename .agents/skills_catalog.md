@@ -8,3 +8,4 @@ This file documents the project-specific agent skills available in this reposito
 *   **[check-and-fix-workflows](./skills/check_and_fix_workflows.md)**: Check recent GitHub Actions workflow runs for failures, view logs, and diagnose/repair workflow issues.
 *   **[migrate-notes-apps](./skills/migrate_notes_apps.md)**: Protocol to migrate technical notes from the nicholaswilde/notes repository to cheatsheets.
 *   **[list-migration-candidates](./skills/list_migration_candidates.md)**: Protocol to list candidate application markdown note pages from the nicholaswilde/notes repository eligible for cheatsheet migration.
+*   **[import-community-cheat](./skills/import_community_cheat.md)**: Protocol to search, copy, evaluate, and integrate community cheatsheets into this repository.
