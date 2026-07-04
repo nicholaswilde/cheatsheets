@@ -40,6 +40,7 @@ Cheatsheets = [
   { cargo = "cargo.md" },
   { column = "column.md" },
   { crontab = "crontab.md" },
+  { cut = "cut.md" },
   { docker = "docker.md" },
   { fd = "fd.md" },
   { find = "find.md" },

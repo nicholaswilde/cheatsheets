@@ -1,0 +1,26 @@
+---
+syntax: bash
+tags:
+  - app
+  - terminal
+---
+# cut
+# Remove sections from each line of files (https://www.gnu.org/software/coreutils/manual/html_node/cut-invocation.html)
+
+# To check cut version:
+cut --version
+
+# To cut a specific field index using a custom delimiter:
+cut -d '<delimiter>' -f <field_index> <file>
+
+# To cut a range of fields:
+cut -d '<delimiter>' -f <start_index>-<end_index> <file>
+
+# To cut from a specific field index to the end of the line:
+cut -d '<delimiter>' -f <start_index>- <file>
+
+# To cut specific character positions (by index or range):
+cut -c <character_positions> <file>
+
+# To cut specific byte positions:
+cut -b <byte_positions> <file>
