@@ -1,4 +1,12 @@
+---
+tags:
+  - gpg
+  - security
+---
+
 # gpg-agent
+
+GPG agent for managing GPG key passphrases and SSH keys.
 
 !!! info "~/.gnupg/gpg-agent.conf"
     ```bash

@@ -48,11 +48,12 @@ Bash script linter enforcing strict conventions (https://github.com/ewhauser/shu
     set -o pipefail
     ```
 
-!!! info "Constants: UPPER_CASE"
-    Functions: snake_case
-    Indentation: 2 spaces
-    Required main wrapper pattern:
+!!! info "Naming conventions"
+    - Constants: `UPPER_CASE`
+    - Functions: `snake_case`
+    - Indentation: 2 spaces
 
+!!! info "Required main wrapper pattern"
     ```bash
     main() {
       # logic here

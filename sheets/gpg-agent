@@ -1,9 +1,16 @@
+---
+syntax: bash
+tags:
+  - gpg
+  - security
+---
 # gpg-agent
+# GPG agent for managing GPG key passphrases and SSH keys.
 
 # ~/.gnupg/gpg-agent.conf
   default-cache-ttl 34560000
   max-cache-ttl 34560000
 
-# End the session by restarting gpg-agent
+# End the session by restarting gpg-agent:
 gpgconf --kill gpg-agent
 gpg-agent --daemon

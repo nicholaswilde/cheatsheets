@@ -1,6 +1,12 @@
+---
+tags:
+  - backup
+  - encryption
+---
+
 # restic-age-key
 
-Use asymmetric age keys instead of a password on your restic repository
+Use asymmetric age keys instead of a password on your restic repository.
 
 !!! info "Usage"
     ```bash

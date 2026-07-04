@@ -1,10 +1,18 @@
+---
+tags:
+  - ssh
+---
+
 # ssh-agent
+
+SSH authentication agent for managing SSH keys and passphrases.
 
 !!! info "Start the ssh-agent in the background"
     ```bash
     eval "$(ssh-agent -s)"
     ```
 
-Depending on your environment, you may need to use a different command. For example, you may need to use root access
-by running sudo -s -H before starting the ssh-agent, or you may need to use exec ssh-agent bash or exec ssh-agent
-zsh to run the ssh-agent.
+!!! note
+    Depending on your environment, you may need to use root access by running
+    `sudo -s -H` before starting the agent, or use `exec ssh-agent bash` /
+    `exec ssh-agent zsh` to run the agent in a new shell.
