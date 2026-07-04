@@ -1,0 +1,23 @@
+---
+syntax: bash
+tags:
+  - app
+  - checker
+---
+# lychee
+# Fast, async link checker (https://github.com/lycheeverse/lychee)
+
+# To check all links in the current directory recursively:
+lychee .
+
+# To check links in specific files or directories:
+lychee <path>
+
+# To run a link check offline (skipping external URLs):
+lychee --offline <path>
+
+# To accept specific status codes (e.g. 200, 429, 520) as successful:
+lychee --accept <status_codes> <path>
+
+# To check links using a specific configuration file:
+lychee --config <config_file> <path>

@@ -46,6 +46,7 @@ Cheatsheets = [
   { journalctl = "journalctl.md" },
   { jq = "jq.md" },
   { lpass = "lpass.md" },
+  { lychee = "lychee.md" },
   { pass = "pass.md" },
   { reprepro = "reprepro.md" },
   { restic = "restic.md" },
