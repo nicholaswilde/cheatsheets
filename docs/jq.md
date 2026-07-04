@@ -331,6 +331,21 @@ A lightweight and flexible command-line JSON processor.
     jq '.[] | [.foo, .bar] | @csv' -r
     ```
 
+!!! info ""
+    [{ "foo": 1, "bar": 2, "baz":3 }]
+    => 1,2
+    List all keys of an object:
 
-[{ "foo": 1, "bar": 2, "baz":3 }]
-=> 1,2
+    ```bash
+    jq 'keys' file.json
+    ```
+
+!!! info "Slice an array from start to end index"
+    ```bash
+    jq '.[<start>:<end>]' file.json
+    ```
+
+!!! info "Print selected fields joined as space-separated text"
+    ```bash
+    jq '.[] | [.field1, .field2] | join(" ")' file.json
+    ```

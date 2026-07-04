@@ -212,3 +212,12 @@ jq '.[] | [.foo, .bar] | @csv' -r
 #
 #     [{ "foo": 1, "bar": 2, "baz":3 }]
 #     => 1,2
+
+# List all keys of an object:
+jq 'keys' file.json
+
+# Slice an array from start to end index:
+jq '.[<start>:<end>]' file.json
+
+# Print selected fields joined as space-separated text:
+jq '.[] | [.field1, .field2] | join(" ")' file.json
