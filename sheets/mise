@@ -1,0 +1,35 @@
+---
+syntax: bash
+tags:
+  - app
+  - version-manager
+---
+# mise
+# Polyglot tool version manager and environment manager (https://github.com/jdx/mise)
+
+# To check mise version:
+mise --version
+
+# To install a tool:
+mise install <tool>@<version>
+
+# To set the active version of a tool globally:
+mise global <tool>@<version>
+
+# To set the active version of a tool locally (saves to .mise.toml):
+mise local <tool>@<version>
+
+# To list all installed tools and their active versions:
+mise list
+
+# To list all available remote versions of a tool:
+mise ls-remote <tool>
+
+# To run a command using tools managed by mise:
+mise exec -- <command>
+
+# To uninstall a specific tool version:
+mise uninstall <tool>@<version>
+
+# To check the status and health of mise:
+mise doctor

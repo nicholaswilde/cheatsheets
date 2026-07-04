@@ -54,6 +54,7 @@ Cheatsheets = [
   { jq = "jq.md" },
   { lpass = "lpass.md" },
   { lychee = "lychee.md" },
+  { mise = "mise.md" },
   { pass = "pass.md" },
   { ps = "ps.md" },
   { reprepro = "reprepro.md" },
