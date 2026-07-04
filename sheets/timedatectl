@@ -1,0 +1,26 @@
+---
+syntax: bash
+tags:
+  - app
+  - system
+---
+# timedatectl
+# Control the system time and date (https://www.freedesktop.org/software/systemd/man/latest/timedatectl.html)
+
+# To check current time, date, and time zone status:
+timedatectl status
+
+# To list all available time zones:
+timedatectl list-timezones
+
+# To set the system time zone:
+timedatectl set-timezone <timezone>
+
+# To set the system date and time manually:
+timedatectl set-time "<yyyy-MM-dd hh:mm:ss>"
+
+# To enable or disable network time synchronization (NTP):
+timedatectl set-ntp <yes|no>
+
+# To control whether the RTC is in local time or UTC:
+timedatectl set-local-rtc <yes|no>
