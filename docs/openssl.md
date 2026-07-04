@@ -113,6 +113,18 @@ Cryptography toolkit and TLS/SSL library CLI (https://www.openssl.org)
     openssl dgst -md5 <file>
     ```
 
+!!! info "--- Password Hashing ---"
+    To generate a SHA-512 password hash:
+
+    ```bash
+    openssl passwd -6 <password>
+    ```
+
+!!! info "To generate a user:hash string for Raspberry Pi OS (userconf.txt)"
+    ```bash
+    echo "<username>:$(openssl passwd -6 <password>)"
+    ```
+
 !!! info "--- Random Data ---"
     To generate random bytes (hex):
 

@@ -78,6 +78,14 @@ openssl dgst -sha256 <file>
 # To compute MD5 hash:
 openssl dgst -md5 <file>
 
+# --- Password Hashing ---
+
+# To generate a SHA-512 password hash:
+openssl passwd -6 <password>
+
+# To generate a user:hash string for Raspberry Pi OS (userconf.txt):
+echo "<username>:$(openssl passwd -6 <password>)"
+
 # --- Random Data ---
 
 # To generate random bytes (hex):
