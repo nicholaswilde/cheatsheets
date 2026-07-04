@@ -1,73 +1,74 @@
+---
+tags:
+  - app
+  - terminal
+---
+
 # rg
 
-Ripgrep is a recursive line-oriented CLI search tool.
+Ripgrep is a fast, recursive line-oriented CLI search tool (https://github.com/BurntSushi/ripgrep)
 
-Aims to be a faster alternative to `grep`.
-
-More information: <https://github.com/BurntSushi/ripgrep>.
-
-!!! info "Search hidden files but respect .gitignore"
+!!! info "To search for a regular expression pattern recursively in the current directory"
     ```bash
-    rg --hidden "search_term"
+    rg <pattern>
     ```
 
-!!! info "OR"
+!!! info "To search for a pattern including hidden files (but respecting .gitignore)"
     ```bash
-    rg -. "search_term"
+    rg --hidden <pattern>
     ```
 
-!!! info "Unrestricted level 1 - Searches files ignored by .gitignore, but skips hidden files"
+!!! info "Or"
     ```bash
-    rg -u "search_term"
+    rg -. <pattern>
     ```
 
-!!! info "Unrestricted level 2 - Searches ignored files AND hidden files"
+!!! info "To search for a pattern in ignored files (but skipping hidden files)"
     ```bash
-    rg -u "search_term"
+    rg -u <pattern>
     ```
 
-!!! info "Unrestricted level 3 - Searches everything, including binary files"
+!!! info "To search for a pattern in both ignored and hidden files"
     ```bash
-    rg -uuu "search_term"
+    rg -uu <pattern>
     ```
 
-!!! info "Recursively search the current directory for a regular expression"
+!!! info "To search all files including binary files"
     ```bash
-    rg regular_expression
+    rg -uuu <pattern>
     ```
 
-!!! info "Search for regular expressions recursively in the current directory, including hidden files and files listed in `.gitignore`"
+!!! info "To search for a pattern including hidden files and files listed in .gitignore"
     ```bash
-    rg --no-ignore --hidden regular_expression
+    rg --no-ignore --hidden <pattern>
     ```
 
-!!! info "Search for a regular expression only in a subset of directories"
+!!! info "To search for a pattern only in specific directories"
     ```bash
-    rg regular_expression set_of_subdirs
+    rg <pattern> <directory>
     ```
 
-!!! info "Search for a regular expression in files matching a glob (e.g. `README.*`)"
+!!! info "To search for a pattern in files matching a glob pattern (e.g. *.md)"
     ```bash
-    rg regular_expression --glob glob
+    rg <pattern> --glob <glob_pattern>
     ```
 
-!!! info "Search for filenames that match a regular expression"
+!!! info "To search for filenames that match a pattern"
     ```bash
-    rg --files | rg regular_expression
+    rg --files | rg <pattern>
     ```
 
-!!! info "Only list matched files (useful when piping to other commands)"
+!!! info "To list only the names of files that contain matches"
     ```bash
-    rg --files-with-matches regular_expression
+    rg --files-with-matches <pattern>
     ```
 
-!!! info "Show lines that do not match the given regular expression"
+!!! info "To show lines that do not match the given pattern"
     ```bash
-    rg --invert-match regular_expression
+    rg --invert-match <pattern>
     ```
 
-!!! info "Search a literal string pattern"
+!!! info "To search for a literal string pattern"
     ```bash
-    rg --fixed-strings -- string
-    rg -n --color=always "\.apt" .
+    rg --fixed-strings -- <literal_string>
     ```
