@@ -1,4 +1,12 @@
+---
+tags:
+  - app
+  - security
+---
+
 # gpg
+
+GNU Privacy Guard (GnuPG) for encryption and signing (https://gnupg.org)
 
 !!! info "Create a key"
     ```bash
