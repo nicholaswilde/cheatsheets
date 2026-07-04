@@ -1,0 +1,32 @@
+---
+syntax: bash
+tags:
+  - app
+  - terminal
+---
+# bat
+# A cat clone with syntax highlighting and Git integration (https://github.com/sharkdp/bat)
+
+# To check bat version:
+bat --version
+
+# To display a single file with syntax highlighting:
+bat <file>
+
+# To display multiple files sequentially:
+bat <file1> <file2>
+
+# To show and highlight non-printable characters:
+bat -A <file>
+
+# To list all supported syntax languages:
+bat --list-languages
+
+# To set the language for syntax highlighting explicitly:
+bat --language <language> <file>
+
+# To list all available color themes:
+bat --list-themes
+
+# To display a file using a specific color theme:
+bat --theme <theme_name> <file>

@@ -32,6 +32,7 @@ Cheatsheets = [
   { ansible = "ansible.md" },
   { "ansible-pull" = "ansible-pull.md" },
   { bash = "bash.md" },
+  { bat = "bat.md" },
   { brew = "brew.md" },
   { bun = "bun.md" },
   { bw = "bw.md" },
