@@ -1,4 +1,13 @@
+---
+syntax: bash
+tags:
+  - app
+  - terminal
+  - shell
+---
 # bash
+# GNU Bourne-Again SHell (https://www.gnu.org/software/bash/)
+
 # To implement a for loop:
 for WORD in LIST; do
   COMMANDS

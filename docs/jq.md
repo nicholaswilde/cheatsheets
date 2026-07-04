@@ -1,6 +1,14 @@
+---
+tags:
+  - app
+  - terminal
+  - json
+  - parser
+---
+
 # jq
 
-A lightweight and flexible command-line JSON processor.
+A lightweight and flexible command-line JSON processor (https://jqlang.github.io/jq/)
 
 !!! info "Output a JSON file, in pretty-print format"
     ```bash

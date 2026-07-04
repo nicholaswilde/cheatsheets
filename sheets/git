@@ -1,3 +1,13 @@
+---
+syntax: bash
+tags:
+  - app
+  - terminal
+  - version-control
+---
+# git
+# Git is a fast, scalable, distributed revision control system (https://git-scm.com)
+
 # Set your identity.
 git config --global user.name "John Doe"
 git config --global user.email johndoe@example.com

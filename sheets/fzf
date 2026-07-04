@@ -1,4 +1,14 @@
-# To fuzzy find files in current directory
+---
+syntax: bash
+tags:
+  - app
+  - terminal
+  - search
+---
+# fzf
+# General-purpose command-line fuzzy finder (https://github.com/junegunn/fzf)
+
+# To fuzzy find files in current directory:
 fzf
 
 # To fuzzy find a file and cat it

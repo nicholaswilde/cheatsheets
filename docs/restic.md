@@ -1,6 +1,13 @@
+---
+tags:
+  - app
+  - backup
+  - encryption
+---
+
 # restic
 
-Backups done right!
+Backups done right (https://restic.net)
 
 !!! info "To get started with a local repository, first define some environment variables"
     ```bash

@@ -1,4 +1,13 @@
+---
+tags:
+  - app
+  - terminal
+  - shell
+---
+
 # bash
+
+GNU Bourne-Again SHell (https://www.gnu.org/software/bash/)
 
 !!! info "To implement a for loop"
     ```bash

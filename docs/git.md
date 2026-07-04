@@ -1,4 +1,13 @@
+---
+tags:
+  - app
+  - terminal
+  - version-control
+---
+
 # git
+
+Git is a fast, scalable, distributed revision control system (https://git-scm.com)
 
 !!! info "Set your identity"
     ```bash

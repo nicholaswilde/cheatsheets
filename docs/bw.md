@@ -1,8 +1,13 @@
+---
+tags:
+  - app
+  - security
+  - password-manager
+---
+
 # bw
 
-A CLI to access and manage a Bitwarden vault.
-
-More information: <https://help.bitwarden.com/article/cli/>.
+A CLI to access and manage a Bitwarden vault (https://bitwarden.com/help/cli/)
 
 !!! info "Log in to a Bitwarden user account"
     ```bash

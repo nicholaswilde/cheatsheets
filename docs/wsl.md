@@ -1,8 +1,13 @@
+---
+tags:
+  - app
+  - windows
+  - linux
+---
+
 # wsl
 
-Manage the Windows Subsystem for Linux from the command-line.
-
-More information: <https://learn.microsoft.com/windows/wsl/reference>.
+Manage the Windows Subsystem for Linux from the command-line (https://learn.microsoft.com/windows/wsl/reference)
 
 !!! info "Start a Linux shell (in the default distribution)"
     ```bash

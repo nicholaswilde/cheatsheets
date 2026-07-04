@@ -19,5 +19,6 @@ exclude_all_private = true
 exclude = [
     'gnu\.org',
     'tukaani\.org',
-    'github\.com/owner/repo'
+    'github\.com/owner/repo',
+    'learn\.microsoft\.com'
 ]
