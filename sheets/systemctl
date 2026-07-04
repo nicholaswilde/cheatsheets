@@ -1,43 +1,73 @@
+---
+syntax: bash
+tags:
+  - app
+  - system
+---
 # systemctl
-# Control the systemd system and service manager
+# Control the systemd system and service manager (https://www.freedesktop.org/software/systemd/man/latest/systemctl.html)
 
-# Show only a given value from one of the `show` keys. In this example, the
-# value for the `ActiveState` key for the UFW service will be shown, and only
-# it; ideal for scripting.
-#
-# Using the `--value` flag causes only the value to be displayed.
-systemctl show -p ActiveState --value ufw
+# To check systemctl version:
+systemctl --version
 
-# Start, stop, or restart a given service(s).
-systemctl (start|stop|restart) <service>
-
-# Check if a given service(s) is active. If it is, 'active' will display. An
-# exit status of 0 will be given if it's active, and non-zero otherwise. Use
-# the `-q` or `--quiet` flag to rely only on the exit status.
-systemctl is-active ufw
-
-# Check if a given service(s) has failed. If it is, 'failed' will display. An
-# exit status of 0 will be given if it has failed, and non-zero otherwise. Use
-# the `-q` or `--quiet` flag to rely only on the exit status.
-systemctl is-active ufw
-
-# Check if a given service(s) is enabled. If it is, 'enabled' will display. An
-# exit status of 0 will be given if it's enabled, and non-zero otherwise. Use
-# the `-q` or `--quiet` flag to rely only on the exit status.
-systemctl is-enabled ufw
-
-# List all failed services.
-systemctl --failed
-
-# Shut the system down. Use `suspend` to suspend, `halt` to halt, and `reboot`
-# to instead of reboot the machine.
-systemctl poweroff
-
-# Enable or disable a given service(s).
-systemctl (enable|disable) <service>
-
-# Show the current status of a given service(s).
+# To check the status of a service:
 systemctl status <service>
 
-# Reload the daemon
+# To start, stop, or restart a service:
+systemctl start <service>
+systemctl stop <service>
+systemctl restart <service>
+
+# To reload a service's configuration (without restarting):
+systemctl reload <service>
+
+# To enable or disable a service to startup on boot:
+systemctl enable <service>
+systemctl disable <service>
+
+# To edit a service's configuration override file:
+systemctl edit <service>
+
+# To check if a service is active (returns exit code 0 if active):
+systemctl is-active <service>
+
+# To check if a service has failed (returns exit code 0 if failed):
+systemctl is-failed <service>
+
+# To check if a service is enabled to run on boot:
+systemctl is-enabled <service>
+
+# To show only a specific property value of a service (ideal for scripting):
+systemctl show -p <property> --value <service>
+# Example: systemctl show -p ActiveState --value ufw
+
+# To list all failed services:
+systemctl --failed
+
+# To list active loaded services:
+systemctl list-units --type=service
+
+# To list all loaded service files and their enablement status:
+systemctl list-unit-files --type=service
+
+# To reload systemd manager configuration (after changing unit files):
 systemctl daemon-reload
+
+# To list currently loaded targets:
+systemctl list-units --type=target
+
+# To change current system target (e.g. multi-user or graphical):
+systemctl isolate <target>
+
+# To set the default boot target:
+systemctl set-default <target>
+
+# To manage user-specific services:
+systemctl --user <start|stop|restart|status> <service>
+
+# To show dependencies of a service:
+systemctl list-dependencies <service>
+
+# To shut down or reboot the system:
+systemctl poweroff
+systemctl reboot

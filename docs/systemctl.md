@@ -1,69 +1,115 @@
+---
+tags:
+  - app
+  - system
+---
+
 # systemctl
 
-Control the systemd system and service manager
+Control the systemd system and service manager (https://www.freedesktop.org/software/systemd/man/latest/systemctl.html)
 
-!!! info "Show only a given value from one of the `show` keys. In this example, the"
-    value for the `ActiveState` key for the UFW service will be shown, and only
-    it; ideal for scripting.
-    
-    Using the `--value` flag causes only the value to be displayed.
-
+!!! info "To check systemctl version"
     ```bash
-    systemctl show -p ActiveState --value ufw
+    systemctl --version
     ```
 
-!!! info "Start, stop, or restart a given service(s)"
-    ```bash
-    systemctl (start|stop|restart) <service>
-    ```
-
-!!! info "Check if a given service(s) is active. If it is, 'active' will display. An"
-    exit status of 0 will be given if it's active, and non-zero otherwise. Use
-    the `-q` or `--quiet` flag to rely only on the exit status.
-
-    ```bash
-    systemctl is-active ufw
-    ```
-
-!!! info "Check if a given service(s) has failed. If it is, 'failed' will display. An"
-    exit status of 0 will be given if it has failed, and non-zero otherwise. Use
-    the `-q` or `--quiet` flag to rely only on the exit status.
-
-    ```bash
-    systemctl is-active ufw
-    ```
-
-!!! info "Check if a given service(s) is enabled. If it is, 'enabled' will display. An"
-    exit status of 0 will be given if it's enabled, and non-zero otherwise. Use
-    the `-q` or `--quiet` flag to rely only on the exit status.
-
-    ```bash
-    systemctl is-enabled ufw
-    ```
-
-!!! info "List all failed services"
-    ```bash
-    systemctl --failed
-    ```
-
-!!! info "Shut the system down. Use `suspend` to suspend, `halt` to halt, and `reboot`"
-    to instead of reboot the machine.
-
-    ```bash
-    systemctl poweroff
-    ```
-
-!!! info "Enable or disable a given service(s)"
-    ```bash
-    systemctl (enable|disable) <service>
-    ```
-
-!!! info "Show the current status of a given service(s)"
+!!! info "To check the status of a service"
     ```bash
     systemctl status <service>
     ```
 
-!!! info "Reload the daemon"
+!!! info "To start, stop, or restart a service"
+    ```bash
+    systemctl start <service>
+    systemctl stop <service>
+    systemctl restart <service>
+    ```
+
+!!! info "To reload a service's configuration (without restarting)"
+    ```bash
+    systemctl reload <service>
+    ```
+
+!!! info "To enable or disable a service to startup on boot"
+    ```bash
+    systemctl enable <service>
+    systemctl disable <service>
+    ```
+
+!!! info "To edit a service's configuration override file"
+    ```bash
+    systemctl edit <service>
+    ```
+
+!!! info "To check if a service is active (returns exit code 0 if active)"
+    ```bash
+    systemctl is-active <service>
+    ```
+
+!!! info "To check if a service has failed (returns exit code 0 if failed)"
+    ```bash
+    systemctl is-failed <service>
+    ```
+
+!!! info "To check if a service is enabled to run on boot"
+    ```bash
+    systemctl is-enabled <service>
+    ```
+
+!!! info "To show only a specific property value of a service (ideal for scripting)"
+    ```bash
+    systemctl show -p <property> --value <service>
+    ```
+
+!!! info "Example: systemctl show -p ActiveState --value ufw"
+    To list all failed services:
+
+    ```bash
+    systemctl --failed
+    ```
+
+!!! info "To list active loaded services"
+    ```bash
+    systemctl list-units --type=service
+    ```
+
+!!! info "To list all loaded service files and their enablement status"
+    ```bash
+    systemctl list-unit-files --type=service
+    ```
+
+!!! info "To reload systemd manager configuration (after changing unit files)"
     ```bash
     systemctl daemon-reload
+    ```
+
+!!! info "To list currently loaded targets"
+    ```bash
+    systemctl list-units --type=target
+    ```
+
+!!! info "To change current system target (e.g. multi-user or graphical)"
+    ```bash
+    systemctl isolate <target>
+    ```
+
+!!! info "To set the default boot target"
+    ```bash
+    systemctl set-default <target>
+    ```
+
+!!! info "To manage user-specific services"
+    ```bash
+    systemctl --user <start|stop|restart|status> <service>
+    ```
+
+!!! info "To show dependencies of a service"
+    ```bash
+    systemctl list-dependencies <service>
+    ```
+
+!!! info "To shut down or reboot the system"
+    ```bash
+    systemctl poweroff
+    systemctl reboot
     ```
