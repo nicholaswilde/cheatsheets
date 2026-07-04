@@ -1,0 +1,39 @@
+---
+syntax: bash
+tags:
+  - app
+  - terminal
+  - ai
+---
+# agy
+# Google Antigravity (AGY) CLI interface (https://antigravity.google)
+
+# To launch the Antigravity interactive CLI:
+agy
+
+# To show command-line flags and help options:
+agy --help
+
+# To run a single prompt directly from the shell:
+agy --prompt "<your_request>"
+
+# To configure the CLI settings:
+nano ~/.gemini/antigravity-cli/settings.json
+
+# To list available interactive slash commands (within agy TUI):
+# Type /help in the TUI chat input
+
+# To set a long-running, autonomous goal (within agy TUI):
+# Type /goal <goal_description>
+
+# To start an interactive interview to align on design decisions (within agy TUI):
+# Type /grill-me
+
+# To teach the agent new workflows/instructions persistently (within agy TUI):
+# Type /learn
+
+# To schedule a recurring task or cron timer (within agy TUI):
+# Type /schedule
+
+# To exit the TUI session:
+# Type /exit or /quit, or press Ctrl+D twice

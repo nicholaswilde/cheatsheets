@@ -29,6 +29,7 @@ Home = "index.md"
 [[project.nav]]
 Cheatsheets = [
   { age = "age.md" },
+  { agy = "agy.md" },
   { ansible = "ansible.md" },
   { "ansible-pull" = "ansible-pull.md" },
   { awk = "awk.md" },
