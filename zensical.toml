@@ -117,7 +117,8 @@ name = "material"
 features = [
     "navigation.footer",
     "content.action.edit",
-    "content.action.view"
+    "content.action.view",
+    "content.code.copy"
 ]
 
 # Palette toggle for light mode
