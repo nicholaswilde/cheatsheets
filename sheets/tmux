@@ -1,0 +1,45 @@
+---
+syntax: bash
+tags:
+  - app
+  - terminal
+---
+# tmux
+# Terminal multiplexer (https://github.com/tmux/tmux)
+
+# To install tmux:
+sudo apt install tmux
+
+# To start a new session:
+tmux new -s <session_name>
+
+# To list active sessions:
+tmux ls
+
+# To attach to the last session or a specific one:
+tmux a
+# Or
+tmux attach -t <session_name>
+
+# To detach from the current session:
+# Press Prefix (Ctrl+b) followed by d
+
+# To automatically attach/create an SSH tmux session on login (add to ~/.bashrc):
+if [[ $- =~ i ]] && [[ -z "$TMUX" ]] && [[ -n "$SSH_TTY" ]]; then
+  tmux attach-session -t ssh_tmux || tmux new-session -s ssh_tmux
+fi
+
+# To bypass shell profiles when logging in via SSH (in case autostart locks you out):
+ssh -t <user>@<host> bash --norc
+# Or
+ssh -t <user>@<host> sh
+
+# To install Tmux Plugin Manager (TPM):
+mkdir -p ~/.tmux/plugins
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+# Add to ~/.tmux.conf: run '~/.tmux/plugins/tpm/tpm'
+# Reload tmux config, then press Prefix (Ctrl+b) followed by Shift+i to install plugins
+
+# To enable pass-through escape sequences (e.g., for OSC52 clipboard or notifications):
+# Add to ~/.tmux.conf
+set -g allow-passthrough on
