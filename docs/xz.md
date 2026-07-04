@@ -1,45 +1,54 @@
+---
+tags:
+  - app
+  - compression
+---
+
 # xz
 
-Compress or decompress .xz and .lzma files.
+Compress or decompress .xz and .lzma files (https://tukaani.org/xz/format.html)
 
-More information: <https://tukaani.org/xz/format.html>.
-
-!!! info "Compress a file to the xz file format"
+!!! info "To check xz version"
     ```bash
-    xz path/to/file
+    xz --version
     ```
 
-!!! info "Decompress a xz file"
+!!! info "To compress a file to the xz format"
     ```bash
-    xz -d file.xz
+    xz <file>
     ```
 
-!!! info "Compress a file to the LZMA file format"
+!!! info "To decompress a .xz file"
     ```bash
-    xz --format=lzma path/to/file
+    xz -d <file.xz>
     ```
 
-!!! info "Decompress an LZMA file"
+!!! info "To compress a file keeping the original file intact"
     ```bash
-    xz -d --format=lzma file.lzma
+    xz -k <file>
     ```
 
-!!! info "Decompress a file and write to `stdout`"
+!!! info "To decompress a file and output to stdout"
     ```bash
-    xz -dc file.xz
+    xz -dc <file.xz>
     ```
 
-!!! info "Compress a file, but don't delete the original"
+!!! info "To compress a file to the LZMA format"
     ```bash
-    xz -k path/to/file
+    xz --format=lzma <file>
     ```
 
-!!! info "Compress a file using the fastest compression"
+!!! info "To decompress a .lzma file"
     ```bash
-    xz -0 path/to/file
+    xz -d --format=lzma <file.lzma>
     ```
 
-!!! info "Compress a file using the best compression"
+!!! info "To compress using the fastest speed (lower compression)"
     ```bash
-    xz -9 path/to/file
+    xz -0 <file>
+    ```
+
+!!! info "To compress using the best compression (slower speed)"
+    ```bash
+    xz -9 <file>
     ```

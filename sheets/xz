@@ -1,27 +1,35 @@
+---
+syntax: bash
+tags:
+  - app
+  - compression
+---
 # xz
-# Compress or decompress .xz and .lzma files.
-# More information: <https://tukaani.org/xz/format.html>.
+# Compress or decompress .xz and .lzma files (https://tukaani.org/xz/format.html)
 
-# Compress a file to the xz file format:
-xz path/to/file
+# To check xz version:
+xz --version
 
-# Decompress a xz file:
-xz -d file.xz
+# To compress a file to the xz format:
+xz <file>
 
-# Compress a file to the LZMA file format:
-xz --format=lzma path/to/file
+# To decompress a .xz file:
+xz -d <file.xz>
 
-# Decompress an LZMA file:
-xz -d --format=lzma file.lzma
+# To compress a file keeping the original file intact:
+xz -k <file>
 
-# Decompress a file and write to `stdout`:
-xz -dc file.xz
+# To decompress a file and output to stdout:
+xz -dc <file.xz>
 
-# Compress a file, but don't delete the original:
-xz -k path/to/file
+# To compress a file to the LZMA format:
+xz --format=lzma <file>
 
-# Compress a file using the fastest compression:
-xz -0 path/to/file
+# To decompress a .lzma file:
+xz -d --format=lzma <file.lzma>
 
-# Compress a file using the best compression:
-xz -9 path/to/file
+# To compress using the fastest speed (lower compression):
+xz -0 <file>
+
+# To compress using the best compression (slower speed):
+xz -9 <file>
