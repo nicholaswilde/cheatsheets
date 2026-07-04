@@ -1,0 +1,49 @@
+---
+syntax: bash
+tags:
+  - app
+  - compression
+---
+# tar
+# Archiving utility (https://www.gnu.org/software/tar/)
+
+# To check tar version:
+tar --version
+
+# To extract an uncompressed archive:
+tar -xvf <archive.tar>
+
+# To extract an archive into a specific destination directory:
+tar -xvf <archive.tar> -C <destination_directory>
+
+# To create an uncompressed archive:
+tar -cvf <archive.tar> <source_directory>
+
+# To extract a gzip compressed archive (.tar.gz or .tgz):
+tar -xzvf <archive.tar.gz>
+
+# To create a gzip compressed archive (.tar.gz or .tgz):
+tar -czvf <archive.tar.gz> <source_directory>
+
+# To list the contents of a gzip compressed archive:
+tar -tzvf <archive.tar.gz>
+
+# To extract a bzip2 compressed archive (.tar.bz2):
+tar -xjvf <archive.tar.bz2>
+
+# To create a bzip2 compressed archive (.tar.bz2):
+tar -cjvf <archive.tar.bz2> <source_directory>
+
+# To list the contents of a bzip2 compressed archive:
+tar -tjvf <archive.tar.bz2>
+
+# To create a gzip archive excluding specific extensions:
+tar -czvf <archive.tar.gz> --exclude=\*.{jpg,gif,png,zip} <source_directory>
+
+# To use multi-threaded compression algorithms (via pigz, pbzip2, pixz):
+tar -Ipigz -cvf <archive.tar.gz> <source_directory>
+tar -Ipbzip2 -cvf <archive.tar.bz2> <source_directory>
+tar -Ipixz -cvf <archive.tar.xz> <source_directory>
+
+# To append a new file to an existing uncompressed tar archive:
+tar -rf <archive.tar> <file_to_append>

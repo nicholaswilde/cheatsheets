@@ -64,6 +64,7 @@ Cheatsheets = [
   { "ssh-agent" = "ssh-agent.md" },
   { "ssh-keygen" = "ssh-keygen.md" },
   { systemctl = "systemctl.md" },
+  { tar = "tar.md" },
   { task = "task.md" },
   { timedatectl = "timedatectl.md" },
   { tmux = "tmux.md" },
