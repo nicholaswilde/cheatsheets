@@ -1,6 +1,13 @@
+---
+tags:
+  - app
+  - debian
+  - packaging
+---
+
 # reprepro
 
-Produce and Manage a Debian package repository
+Produce and manage a Debian package repository
 
 !!! info "Dry run"
     ```bash

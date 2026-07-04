@@ -2,38 +2,111 @@
 tags:
   - app
   - parser
+  - yaml
 ---
 
 # yq
 
-Portable command-line YAML processor (https://github.com/mikefarah/yq)
+Portable command-line YAML/JSON/TOML processor (https://github.com/mikefarah/yq)
 
-!!! info "To read a specific key path from a YAML file"
+!!! info "--- Reading ---"
+    To read a specific key from a YAML file:
+
     ```bash
-    yq '.<key_path>' <file>.yaml
+    yq '.<key>' <file>.yaml
     ```
 
-!!! info "To edit a YAML file in-place"
+!!! info "To read a nested key"
     ```bash
-    yq -i '.<key_path> = "<value>"' <file>.yaml
+    yq '.parent.child' <file>.yaml
     ```
 
-!!! info "To process front matter in a Markdown file"
+!!! info "To read an array element by index"
     ```bash
-    yq --front-matter="process" '.<key_path> = "<value>"' <file>.md
+    yq '.list[0]' <file>.yaml
     ```
 
-!!! info "To sort all keys alphabetically in-place"
+!!! info "To read all array elements"
     ```bash
-    yq -i 'sort_keys(.)' <file>.yaml
+    yq '.list[]' <file>.yaml
     ```
 
-!!! info "To filter out null values or empty lists"
+!!! info "To read multiple keys"
+    ```bash
+    yq '.foo, .bar' <file>.yaml
+    ```
+
+!!! info "--- Writing ---"
+    To set a key value in-place:
+
+    ```bash
+    yq -i '.<key> = "<value>"' <file>.yaml
+    ```
+
+!!! info "To set a nested key in-place"
+    ```bash
+    yq -i '.parent.child = "<value>"' <file>.yaml
+    ```
+
+!!! info "To append to an array in-place"
+    ```bash
+    yq -i '.list += ["<value>"]' <file>.yaml
+    ```
+
+!!! info "To delete a key in-place"
+    ```bash
+    yq -i 'del(.<key>)' <file>.yaml
+    ```
+
+!!! info "--- Filtering ---"
+    To filter out null or empty values:
+
     ```bash
     yq '.foo | select(length > 0)' <file>.yaml
     ```
 
-!!! info "To convert a YAML file to JSON"
+!!! info "To select array items matching a condition"
+    ```bash
+    yq '.list[] | select(.name == "<value>")' <file>.yaml
+    ```
+
+!!! info "To sort all keys alphabetically"
+    ```bash
+    yq -i 'sort_keys(.)' <file>.yaml
+    ```
+
+!!! info "--- Format Conversion ---"
+    To convert YAML to JSON:
+
     ```bash
     yq -o=json <file>.yaml
+    ```
+
+!!! info "To convert JSON to YAML"
+    ```bash
+    yq -p=json -o=yaml <file>.json
+    ```
+
+!!! info "To convert YAML to TOML"
+    ```bash
+    yq -o=toml <file>.yaml
+    ```
+
+!!! info "--- Merging ---"
+    To merge two YAML files (second overrides first):
+
+    ```bash
+    yq '. * load("<other>.yaml")' <file>.yaml
+    ```
+
+!!! info "--- Markdown Front Matter ---"
+    To read a front matter key from a Markdown file:
+
+    ```bash
+    yq --front-matter="extract" '.<key>' <file>.md
+    ```
+
+!!! info "To set a front matter key in a Markdown file"
+    ```bash
+    yq --front-matter="process" -i '.<key> = "<value>"' <file>.md
     ```

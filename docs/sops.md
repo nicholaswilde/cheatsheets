@@ -1,10 +1,13 @@
+---
+tags:
+  - app
+  - security
+  - secrets
+---
+
 # sops
 
-SOPS: Secrets OPerationS.
-
-Tool for managing secrets.
-
-More information: <https://github.com/mozilla/sops>.
+Secrets OPerationS — tool for managing encrypted secrets (https://github.com/getsops/sops)
 
 !!! info "Encrypt a file"
     ```bash
