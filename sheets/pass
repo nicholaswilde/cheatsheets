@@ -1,0 +1,51 @@
+---
+syntax: bash
+tags:
+  - app
+  - security
+---
+# pass
+# Standard Unix password manager (https://www.passwordstore.org)
+
+# To install pass:
+# Ubuntu/Debian
+sudo apt install pass
+# macOS
+brew install pass
+
+# To reconnect an existing git password store repository:
+git clone git@github.com:nicholaswilde/pass.git ~/.password-store
+
+# To check git remote origin:
+pass git remote -v
+
+# To push local password history:
+pass git push -u --all
+
+# To initialize or update GPG encryption key:
+pass init <gpg_key_id>
+
+# To insert an encrypted multiline file:
+pass insert -fm gpg/revoke < file.txt
+# Or
+pass insert -m sensitive/secret_answers < secret_answers.txt
+
+# To install pass-import extension:
+# Debian/Ubuntu (using sudo)
+curl -fsSL https://pkg.pujol.io/debian/gpgkey | sudo tee /etc/apt/keyrings/pass-extension-import.gpg
+echo 'deb [arch=amd64] https://pkg.pujol.io/debian/repo all main' | sudo tee /etc/apt/sources.list.d/pkg.pujol.io.list
+sudo apt update && sudo apt install pass-extension-import -y
+
+# To copy a password to clipboard over SSH (using OSC52 wrapper):
+# Step 1: Remove xclip if installed
+sudo apt remove xclip
+# Step 2: Create a dummy xclip script at ~/.local/bin/xclip and paste:
+#   #!/bin/bash
+#   if [[ "$*" == *"-o"* ]]; then exit 0; fi
+#   cat | copy
+# Step 3: Make executable
+chmod +x ~/.local/bin/xclip
+# Step 4: Bypass DISPLAY checks by setting a dummy DISPLAY (add to ~/.bashrc)
+export DISPLAY=:0
+# Step 5: Copy password
+pass -c <path>

@@ -44,6 +44,7 @@ Cheatsheets = [
   { journalctl = "journalctl.md" },
   { jq = "jq.md" },
   { lpass = "lpass.md" },
+  { pass = "pass.md" },
   { reprepro = "reprepro.md" },
   { restic = "restic.md" },
   { "restic-age-key" = "restic-age-key.md" },
