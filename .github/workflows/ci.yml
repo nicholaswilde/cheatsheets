@@ -25,13 +25,12 @@ jobs:
           version: 3.x
           repo-token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Install Lychee
+      - name: Run validation and tests
         run: |
-          mkdir -p /tmp/lychee
-          curl -sSfL -o /tmp/lychee/lychee.tar.gz https://github.com/lycheeverse/lychee/releases/latest/download/lychee-x86_64-unknown-linux-gnu.tar.gz
-          tar -xzf /tmp/lychee/lychee.tar.gz -C /tmp/lychee
-          sudo mv /tmp/lychee/lychee-x86_64-unknown-linux-gnu/lychee /usr/local/bin/
-          rm -rf /tmp/lychee
+          task validate
+          task test
 
-      - name: Run verification suite (task all)
-        run: task all
+      - name: Link Checker
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: docs/ sheets/
