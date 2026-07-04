@@ -1,46 +1,49 @@
+---
+tags:
+  - app
+  - build-tool
+---
+
 # task
 
-!!! info "Install"
+Taskrunner / build tool alternative to GNU Make (https://taskfile.dev)
+
+!!! info "To check task version"
     ```bash
-    brew install go-task
+    task --version
     ```
 
-!!! info "Create your first Taskfile"
+!!! info "To initialize a new Taskfile.yml in the current directory"
     ```bash
     task --init
     ```
 
-!!! info "Create Taskfile in subdirectory"
+!!! info "To initialize a new Taskfile.yml in a specific directory"
     ```bash
-    task --init ./subdirectory
+    task --init <directory>
     ```
 
-!!! info "Taskfile to have a specific name"
+!!! info "To initialize a taskfile with a custom filename"
     ```bash
-    task --init Custom.yml
+    task --init <filename>
     ```
 
-!!! info "Calling a task in a subdirectory"
+!!! info "To execute a task in a specific directory"
     ```bash
-    task --dir ./subdirectory
+    task --dir <directory> <task_name>
     ```
 
-!!! info "List tasks"
+!!! info "To list all public tasks"
     ```bash
-    task -l
+    task --list
     ```
 
-!!! info "Reading a Taskfile from stdin"
+!!! info "To read a Taskfile from stdin"
     ```bash
-    task -t - <(cat ./Taskfile.yml)
+    task -t - < <taskfile_path>
     ```
 
-!!! info "OR"
+!!! info "To pass variables to a task via environment variables"
     ```bash
-    cat ./Taskfile.yml | task -t -
-    ```
-
-!!! info "Sending parameters with environment variables"
-    ```bash
-    TASK_VARIABLE=a-value task do-something
+    <variable_name>=<value> task <task_name>
     ```

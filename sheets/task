@@ -1,25 +1,32 @@
-# Install
-brew install go-task
+---
+syntax: bash
+tags:
+  - app
+  - build-tool
+---
+# task
+# Taskrunner / build tool alternative to GNU Make (https://taskfile.dev)
 
-# Create your first Taskfile
+# To check task version:
+task --version
+
+# To initialize a new Taskfile.yml in the current directory:
 task --init
 
-# Create Taskfile in subdirectory
-task --init ./subdirectory
+# To initialize a new Taskfile.yml in a specific directory:
+task --init <directory>
 
-# Taskfile to have a specific name
-task --init Custom.yml
+# To initialize a taskfile with a custom filename:
+task --init <filename>
 
-# Calling a task in a subdirectory
-task --dir ./subdirectory
+# To execute a task in a specific directory:
+task --dir <directory> <task_name>
 
-# List tasks
-task -l
+# To list all public tasks:
+task --list
 
-# Reading a Taskfile from stdin
-task -t - <(cat ./Taskfile.yml)
-# OR
-cat ./Taskfile.yml | task -t -
+# To read a Taskfile from stdin:
+task -t - < <taskfile_path>
 
-# Sending parameters with environment variables
-TASK_VARIABLE=a-value task do-something
+# To pass variables to a task via environment variables:
+<variable_name>=<value> task <task_name>
