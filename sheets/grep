@@ -1,0 +1,54 @@
+---
+syntax: bash
+tags:
+  - cli
+  - terminal
+  - search
+---
+# grep
+# Search for patterns in files using regular expressions (https://www.gnu.org/software/grep/)
+
+# To search for a pattern in a file:
+grep <pattern> <file>
+
+# To search recursively in a directory:
+grep -r <pattern> <directory>
+
+# To search case-insensitively:
+grep -i <pattern> <file>
+
+# To show line numbers with matches:
+grep -n <pattern> <file>
+
+# To list only filenames that contain matches:
+grep -l <pattern> <files>
+
+# To count the number of matching lines:
+grep -c <pattern> <file>
+
+# To show lines that do not match:
+grep -v <pattern> <file>
+
+# To match whole words only:
+grep -w <pattern> <file>
+
+# To use extended regular expressions (ere):
+grep -E <pattern> <file>
+
+# To match a literal string (no regex):
+grep -F <pattern> <file>
+
+# To show num lines after each match:
+grep -A <num> <pattern> <file>
+
+# To show num lines before each match:
+grep -B <num> <pattern> <file>
+
+# To show num lines of context around each match:
+grep -C <num> <pattern> <file>
+
+# To search only files matching a glob:
+grep --include='<glob>' -r <pattern> <directory>
+
+# To print only the matching part of each line:
+grep -o <pattern> <file>

@@ -53,6 +53,7 @@ Cheatsheets = [
   { git = "git.md" },
   { gpg = "gpg.md" },
   { "gpg-agent" = "gpg-agent.md" },
+  { grep = "grep.md" },
   { journalctl = "journalctl.md" },
   { jq = "jq.md" },
   { lpass = "lpass.md" },
