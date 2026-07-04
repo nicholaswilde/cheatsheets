@@ -80,6 +80,7 @@ Cheatsheets = [
   { "ssh-keygen" = "ssh-keygen.md" },
   { syncthing = "syncthing.md" },
   { systemctl = "systemctl.md" },
+  { "systemd-timer" = "systemd-timer.md" },
   { tar = "tar.md" },
   { task = "task.md" },
   { timedatectl = "timedatectl.md" },

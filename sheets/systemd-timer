@@ -1,0 +1,99 @@
+---
+syntax: bash
+tags:
+  - app
+  - system
+  - scheduling
+---
+# systemd-timer
+# Schedule recurring tasks using systemd timer units (https://www.freedesktop.org/software/systemd/man/latest/systemd.timer.html)
+
+# --- Managing Timers ---
+
+# To list all active timers (with next/last run times):
+systemctl list-timers
+
+# To list all timers including inactive ones:
+systemctl list-timers --all
+
+# To start a timer:
+systemctl start <name>.timer
+
+# To stop a timer:
+systemctl stop <name>.timer
+
+# To check timer status:
+systemctl status <name>.timer
+
+# To enable a timer to start on boot:
+systemctl enable --now <name>.timer
+
+# To disable a timer:
+systemctl disable --now <name>.timer
+
+# To trigger the associated service immediately:
+systemctl start <name>.service
+
+# To reload systemd after creating or editing unit files:
+systemctl daemon-reload
+
+# --- Timer Unit File: /etc/systemd/system/<name>.timer ---
+
+# [Unit]
+# Description=Run backup daily at 2am
+#
+# [Timer]
+# OnCalendar=*-*-* 02:00:00
+# Persistent=true
+#
+# [Install]
+# WantedBy=timers.target
+
+# --- Service Unit File: /etc/systemd/system/<name>.service ---
+
+# [Unit]
+# Description=Backup service
+#
+# [Service]
+# Type=oneshot
+# ExecStart=/usr/local/bin/backup.sh
+
+# --- OnCalendar expressions ---
+
+# daily at midnight:
+OnCalendar=daily
+
+# daily at 02:30:
+OnCalendar=*-*-* 02:30:00
+
+# weekdays at 09:00:
+OnCalendar=Mon..Fri *-*-* 09:00
+
+# every hour:
+OnCalendar=hourly
+
+# --- Other Timer Directives ---
+
+# Run once 15 minutes after boot:
+OnBootSec=15min
+
+# Run every hour after last activation:
+OnUnitActiveSec=1h
+
+# Add random jitter (avoid thundering herd):
+RandomizedDelaySec=5min
+
+# Catch up missed runs after downtime:
+Persistent=true
+
+# --- Debugging ---
+
+# To verify a calendar expression:
+systemd-analyze calendar "<expression>"
+
+# To check the next 5 elapse times:
+systemd-analyze calendar --iterations=5 "<expression>"
+
+# To view timer logs:
+journalctl -u <name>.timer
+journalctl -u <name>.service
