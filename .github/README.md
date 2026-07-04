@@ -42,11 +42,12 @@ Ensure that [cheatpaths][5] are configured in `cheat`.
 
 ```yaml
 # conf.yml
+pager: bat -p
 cheatpaths:
   - name: personal
     path: /mnt/storage/cheat/cheatsheets/personal/sheets  # path points to sheets directory
     tags: [ personal ]
-    readonly: false        
+    readonly: false
 ```
 
 `git` can be used to backup new or updated sheets to a remote repo.

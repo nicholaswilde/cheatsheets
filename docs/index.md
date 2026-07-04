@@ -51,6 +51,7 @@ Configure [cheatpaths](https://github.com/cheat/cheat?tab=readme-ov-file#cheatpa
 
 ```yaml
 # conf.yml
+pager: bat -p
 cheatpaths:
   - name: personal
     path: /path/to/cheatsheets/sheets
