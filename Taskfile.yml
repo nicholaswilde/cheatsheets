@@ -93,3 +93,10 @@ tasks:
     requires:
       vars: [FILE]
 
+  site:list-migration-candidates:
+    desc: List candidate notes in the Notes repo to migrate (usage task site:list-migration-candidates NOTES_DIR=...)
+    cmds:
+      - bun run scripts/list_notes_to_migrate.ts {{shellQuote .NOTES_DIR}}
+    requires:
+      vars: [NOTES_DIR]
+
