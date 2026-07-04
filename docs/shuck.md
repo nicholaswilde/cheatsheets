@@ -35,13 +35,15 @@ Bash script linter enforcing strict conventions (https://github.com/ewhauser/shu
     ```
 
 !!! info "Canonical bash script header block (required by shuck)"
-    ```bash
     #!/usr/bin/env bash
     # Name:        script.sh
     # Description: Brief description of what this script does.
     # Author:      Nicholas Wilde <ncwilde43@gmail.com>
     # Date:        YYYY-MM-DD
     # Version:     0.1.0
+    Required error handling at top of every script:
+
+    ```bash
     set -e
     set -o pipefail
     ```
