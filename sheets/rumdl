@@ -1,0 +1,53 @@
+---
+syntax: bash
+tags:
+  - app
+  - linting
+  - markdown
+---
+# rumdl
+# Rust-based markdown linter — fast drop-in for markdownlint-cli (https://github.com/nicholaswilde/rumdl)
+
+# To install rumdl:
+cargo install rumdl
+# Or via binstall:
+cargo binstall rumdl
+
+# To check all markdown files in the current directory:
+rumdl check .
+
+# To check a specific file:
+rumdl check <file>.md
+
+# To auto-fix fixable issues:
+rumdl check --fix .
+
+# To fix a specific file:
+rumdl check --fix <file>.md
+
+# To list all available rules:
+rumdl rules
+
+# To check with a specific config file:
+rumdl check --config .markdownlint.yaml .
+
+# To disable a specific rule inline in markdown:
+# <!-- rumdl-disable MD013 -->
+# long line here...
+# <!-- rumdl-enable MD013 -->
+
+# Canonical .markdownlint.yaml config:
+# MD007:
+#   indent: 4
+# MD013:
+#   line_length: 120
+#   code_blocks: false
+#   tables: false
+# MD024:
+#   allow_different_nesting: true
+#   siblings_only: true
+# MD046: false
+
+# To run via go-task:
+task markdownlint        # check
+task markdownlint-fix    # auto-fix

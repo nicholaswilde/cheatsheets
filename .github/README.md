@@ -58,13 +58,13 @@ Add `personal` path to a `$CHEAT_PERSONAL_PATH` environmental variable in [`.bas
 export CHEAT_PERSONAL_PATH=/mnt/storage/cheat/cheatsheets/personal
 ```
 
-Add [aliases][7] to make it easier to pull and push updates.
+Add a [bash function][7] to `~/.bash_functions` to make it easier to run git commands from any directory.
 
-```ini
-# .bash_aliases
-alias cheats-pull='git -C ${CHEAT_PERSONAL_PATH} pull origin'
-
-alias cheats-push='git -C ${CHEAT_PERSONAL_PATH} add ${CHEAT_PERSONAL_PATH}/* && git -C ${CHEAT_PERSONAL_PATH} commit --allow-empty-message -a -m ""; git -C ${CHEAT_PERSONAL_PATH} push origin'
+```bash
+# ~/.bash_functions
+function cgit() { ## Run git commands in the cheatsheets repo from any directory
+  git -C "${CHEAT_PERSONAL_PATH}" "$@"
+}
 ```
 
 Reload `.bashrc`.
@@ -90,8 +90,9 @@ cheat -e foo/bar # nested cheatsheets are accessed like this
 Push or pull sheets to a remote repo.
 
 ```shell
-cheats-pull
-cheats-push
+cgit pull
+cgit push
+cgit status
 ```
 
 ---
@@ -200,7 +201,7 @@ This project was started in 2025 by [Nicholas Wilde][2].
 [4]: <https://github.com/cheat/cheatsheets>
 [5]: <https://github.com/cheat/cheat?tab=readme-ov-file#cheatpaths>
 [6]: <https://www.digitalocean.com/community/tutorials/bashrc-file-in-linux>
-[7]: <https://linuxize.com/post/how-to-create-bash-aliases/>
+[7]: <https://www.gnu.org/software/bash/manual/bash.html#Shell-Functions>
 [8]: <https://nicholaswilde.io/notes>
 [9]: <https://github.com/chubin/cheat.sheets>
 [10]: <https://nicholaswilde.io/cheatsheets>

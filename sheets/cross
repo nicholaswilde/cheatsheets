@@ -1,0 +1,51 @@
+---
+syntax: bash
+tags:
+  - app
+  - rust
+  - cross-compilation
+---
+# cross
+# Containerized cross-compilation for Rust (https://github.com/cross-rs/cross)
+
+# To install cross:
+cargo install cross --git https://github.com/cross-rs/cross
+
+# To build for a specific target:
+cross build --target <target-triple>
+
+# To build a release binary:
+cross build --target <target-triple> --release
+
+# To run tests for a target:
+cross test --target <target-triple>
+
+# Common ARM target triples:
+cross build --target arm-unknown-linux-gnueabihf   # ARMv6 (Raspberry Pi Zero/1)
+cross build --target armv7-unknown-linux-gnueabihf  # ARMv7 (Raspberry Pi 2/3)
+cross build --target aarch64-unknown-linux-gnu      # ARM64 (Raspberry Pi 4/5, modern LXC)
+
+# To build for multiple targets:
+cross build --target aarch64-unknown-linux-gnu --release
+cross build --target armv7-unknown-linux-gnueabihf --release
+
+# To list available targets (via rustup):
+rustup target list
+
+# To add a target to rustup (for native builds):
+rustup target add <target-triple>
+
+# Cross.toml — custom image configuration (repo root):
+# [target.arm-unknown-linux-gnueabihf]
+# image = "ghcr.io/cross-rs/arm-unknown-linux-gnueabihf:edge"
+
+# To run container-backed integration tests:
+RUN_DOCKER_TESTS=1 cargo test -- --test-threads=1
+
+# To build a .deb package after cross-compiling (cargo-deb):
+cargo deb --no-build --target <target-triple>
+
+# To build an .rpm package after cross-compiling (cargo-generate-rpm):
+cargo generate-rpm --target <target-triple>
+
+# Note: Requires a running Docker or Podman daemon.

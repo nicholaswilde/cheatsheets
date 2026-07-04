@@ -1,0 +1,120 @@
+---
+syntax: bash
+tags:
+  - cli
+  - security
+  - crypto
+---
+# openssl
+# Cryptography toolkit and TLS/SSL library CLI (https://www.openssl.org)
+
+# --- Key Generation ---
+
+# To generate a 2048-bit RSA private key:
+openssl genrsa -out <key>.pem 2048
+
+# To generate a 4096-bit RSA private key (encrypted):
+openssl genrsa -aes256 -out <key>.pem 4096
+
+# To generate an EC private key (P-256):
+openssl ecparam -name prime256v1 -genkey -noout -out <key>.pem
+
+# --- CSR (Certificate Signing Request) ---
+
+# To generate a CSR from an existing key:
+openssl req -new -key <key>.pem -out <csr>.pem
+
+# To generate a key and CSR in one step:
+openssl req -newkey rsa:2048 -nodes -keyout <key>.pem -out <csr>.pem
+
+# To view a CSR:
+openssl req -text -noout -verify -in <csr>.pem
+
+# --- Self-Signed Certificates ---
+
+# To generate a self-signed certificate (valid 365 days):
+openssl req -x509 -newkey rsa:4096 -nodes \
+  -keyout <key>.pem -out <cert>.pem \
+  -days 365 -subj "/CN=<hostname>"
+
+# To generate a self-signed cert with SANs:
+openssl req -x509 -newkey rsa:4096 -nodes \
+  -keyout <key>.pem -out <cert>.pem \
+  -days 365 \
+  -subj "/CN=<hostname>" \
+  -addext "subjectAltName=DNS:<hostname>,IP:127.0.0.1"
+
+# --- Inspecting Certificates ---
+
+# To view a certificate:
+openssl x509 -text -noout -in <cert>.pem
+
+# To view certificate expiry date:
+openssl x509 -enddate -noout -in <cert>.pem
+
+# To check a remote server's certificate:
+echo | openssl s_client -connect <host>:443 2>/dev/null | openssl x509 -text -noout
+
+# To check certificate expiry of a remote host:
+echo | openssl s_client -connect <host>:443 2>/dev/null \
+  | openssl x509 -noout -enddate
+
+# To view a certificate chain:
+openssl s_client -connect <host>:443 -showcerts
+
+# --- Encryption & Decryption ---
+
+# To encrypt a file with AES-256:
+openssl enc -aes-256-cbc -salt -pbkdf2 -in <file> -out <file>.enc
+
+# To decrypt a file:
+openssl enc -d -aes-256-cbc -pbkdf2 -in <file>.enc -out <file>
+
+# --- Hashing ---
+
+# To compute SHA-256 hash of a file:
+openssl dgst -sha256 <file>
+
+# To compute MD5 hash:
+openssl dgst -md5 <file>
+
+# --- Random Data ---
+
+# To generate random bytes (hex):
+openssl rand -hex 32
+
+# To generate random bytes (base64):
+openssl rand -base64 48
+
+# To generate a random password of specific length:
+openssl rand -base64 48 | cut -c1-16
+
+# --- PEM / DER Conversion ---
+
+# To convert PEM to DER:
+openssl x509 -outform DER -in <cert>.pem -out <cert>.der
+
+# To convert DER to PEM:
+openssl x509 -inform DER -in <cert>.der -out <cert>.pem
+
+# --- PKCS ---
+
+# To create a PKCS#12 bundle (cert + key):
+openssl pkcs12 -export -out <bundle>.p12 -inkey <key>.pem -in <cert>.pem
+
+# To extract cert from PKCS#12:
+openssl pkcs12 -in <bundle>.p12 -clcerts -nokeys -out <cert>.pem
+
+# To extract key from PKCS#12:
+openssl pkcs12 -in <bundle>.p12 -nocerts -nodes -out <key>.pem
+
+# --- Verification ---
+
+# To verify a certificate against a CA:
+openssl verify -CAfile <ca>.pem <cert>.pem
+
+# To test an SSL connection:
+openssl s_client -connect <host>:<port>
+
+# To test with a specific TLS version:
+openssl s_client -tls1_3 -connect <host>:443

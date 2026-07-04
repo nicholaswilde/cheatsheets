@@ -1,0 +1,100 @@
+---
+syntax: bash
+tags:
+  - cli
+  - text-processing
+---
+# sed
+# Stream editor for filtering and transforming text (https://www.gnu.org/software/sed/)
+
+# To substitute the first occurrence of a pattern on each line:
+sed 's/<pattern>/<replacement>/' <file>
+
+# To substitute all occurrences on each line (global):
+sed 's/<pattern>/<replacement>/g' <file>
+
+# To edit a file in-place:
+sed -i 's/<pattern>/<replacement>/g' <file>
+
+# To edit in-place with a backup:
+sed -i.bak 's/<pattern>/<replacement>/g' <file>
+
+# To substitute only on lines matching a pattern:
+sed '/<line-pattern>/s/<pattern>/<replacement>/g' <file>
+
+# To delete lines matching a pattern:
+sed '/<pattern>/d' <file>
+
+# To delete blank lines:
+sed '/^$/d' <file>
+
+# To delete a specific line number:
+sed '5d' <file>
+
+# To delete a range of lines:
+sed '3,7d' <file>
+
+# To print only lines matching a pattern (like grep):
+sed -n '/<pattern>/p' <file>
+
+# To print a specific line number:
+sed -n '5p' <file>
+
+# To print a range of lines:
+sed -n '3,7p' <file>
+
+# To insert a line before a matching line:
+sed '/<pattern>/i\<new line>' <file>
+
+# To append a line after a matching line:
+sed '/<pattern>/a\<new line>' <file>
+
+# To replace an entire matching line:
+sed 's/.*<pattern>.*/<replacement>/' <file>
+
+# To strip leading whitespace:
+sed 's/^[[:space:]]*//' <file>
+
+# To strip trailing whitespace:
+sed 's/[[:space:]]*$//' <file>
+
+# To strip both leading and trailing whitespace:
+sed 's/^[[:space:]]*//;s/[[:space:]]*$//' <file>
+
+# To replace tabs with spaces:
+sed 's/\t/  /g' <file>
+
+# To add a prefix to every line:
+sed 's/^/PREFIX: /' <file>
+
+# To remove a prefix from every line:
+sed 's/^PREFIX: //' <file>
+
+# To number lines:
+sed '=' <file> | sed 'N;s/\n/\t/'
+
+# To use extended regex (ERE):
+sed -E 's/<ere-pattern>/<replacement>/g' <file>
+
+# To apply multiple expressions:
+sed -e 's/foo/bar/g' -e 's/baz/qux/g' <file>
+
+# To read replacement from a file:
+sed 's/<pattern>/<replacement>/g' <file> > <output>
+
+# To use & to refer to the matched text:
+sed 's/<pattern>/[&]/' <file>
+
+# To use capture groups (back-references):
+sed 's/\(foo\)\(bar\)/\2\1/' <file>
+# With extended regex:
+sed -E 's/(foo)(bar)/\2\1/' <file>
+
+# To uncomment a line (remove leading #):
+sed 's/^#//' <file>
+
+# To comment out a line (add leading #):
+sed 's/^/#/' <file>
+
+# To update a key=value config line in-place:
+sed -i 's/^key=.*/key=newvalue/' <file>

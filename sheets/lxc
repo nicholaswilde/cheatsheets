@@ -1,0 +1,106 @@
+---
+syntax: bash
+tags:
+  - cli
+  - homelab
+  - virtualization
+  - containers
+---
+# lxc
+# Linux Containers — userspace tools for managing LXC containers (https://linuxcontainers.org)
+
+# --- Container Lifecycle ---
+
+# To list all containers:
+lxc-ls --fancy
+
+# To create a container from a template:
+lxc-create -n <name> -t <template>
+
+# To start a container:
+lxc-start -n <name>
+
+# To start in foreground (see console output):
+lxc-start -n <name> -F
+
+# To stop a container:
+lxc-stop -n <name>
+
+# To restart a container:
+lxc-stop -n <name> && lxc-start -n <name>
+
+# To destroy a container:
+lxc-destroy -n <name>
+
+# To clone a container:
+lxc-copy -n <source> -N <dest>
+
+# --- Attaching & Console ---
+
+# To attach to a running container (get a shell):
+lxc-attach -n <name>
+
+# To run a single command inside a container:
+lxc-attach -n <name> -- <command>
+
+# To open the container console:
+lxc-console -n <name>
+
+# To detach from console:
+# Press Ctrl+a then q
+
+# --- Status & Info ---
+
+# To check container state:
+lxc-info -n <name>
+
+# To show container IP address:
+lxc-info -n <name> -iH
+
+# To monitor container state changes:
+lxc-monitor -n <name>
+
+# To view container statistics:
+lxc-top
+
+# --- Configuration ---
+
+# Container config file location:
+# /var/lib/lxc/<name>/config
+
+# To set a config option (e.g. memory limit):
+# lxc.cgroup2.memory.max = 512M
+
+# To set a network interface in config:
+# lxc.net.0.type = veth
+# lxc.net.0.link = lxcbr0
+# lxc.net.0.flags = up
+
+# To view running container's cgroup info:
+lxc-cgroup -n <name> memory.usage_in_bytes
+
+# --- Snapshots ---
+
+# To take a snapshot (requires overlay or btrfs):
+lxc-snapshot -n <name>
+
+# To list snapshots:
+lxc-snapshot -n <name> -L
+
+# To restore a snapshot:
+lxc-snapshot -n <name> -r <snap-name>
+
+# To destroy a snapshot:
+lxc-snapshot -n <name> -d <snap-name>
+
+# --- Networking ---
+
+# To list default bridge (lxcbr0) DHCP leases:
+cat /var/lib/misc/dnsmasq.lxcbr0.leases
+
+# To check if lxcbr0 bridge is up:
+ip link show lxcbr0
+
+# --- Proxmox Note ---
+# On Proxmox VE, use `pct` (pve container toolkit) which wraps LXC.
+# See: cheat proxmox

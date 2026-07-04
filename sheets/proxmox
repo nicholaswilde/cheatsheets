@@ -1,0 +1,108 @@
+---
+syntax: bash
+tags:
+  - app
+  - homelab
+  - proxmox
+  - virtualization
+---
+# proxmox
+# Proxmox Virtual Environment — LXC and VM management (https://www.proxmox.com)
+
+# --- LXC Containers (pct) ---
+
+# To list all containers:
+pct list
+
+# To start a container:
+pct start <vmid>
+
+# To stop a container:
+pct stop <vmid>
+
+# To restart a container:
+pct restart <vmid>
+
+# To enter a container shell:
+pct enter <vmid>
+# Or via lxc-attach:
+lxc-attach -n <vmid>
+
+# To create a new unprivileged LXC container:
+pct create <vmid> <template> \
+  --hostname <name> \
+  --unprivileged 0 \
+  --net0 name=eth0,bridge=vmbr0,ip=dhcp,ip6=slaac \
+  --features nesting=1 \
+  --password $(pass show default-lxc-password)
+
+# To list available templates:
+pveam list local
+
+# To download a template:
+pveam download local <template-name>
+
+# To clone a container:
+pct clone <vmid> <new-vmid> --hostname <new-name>
+
+# To destroy a container:
+pct destroy <vmid>
+
+# To get container status:
+pct status <vmid>
+
+# To view container config:
+pct config <vmid>
+
+# To set container config option:
+pct set <vmid> --<option> <value>
+
+# To resize a container disk:
+pct resize <vmid> rootfs +<size>G
+
+# To take a snapshot:
+pct snapshot <vmid> <snapname>
+
+# To restore a snapshot:
+pct rollback <vmid> <snapname>
+
+# --- Virtual Machines (qm) ---
+
+# To list all VMs:
+qm list
+
+# To start a VM:
+qm start <vmid>
+
+# To stop a VM:
+qm stop <vmid>
+
+# To get VM status:
+qm status <vmid>
+
+# To take a VM snapshot:
+qm snapshot <vmid> <snapname>
+
+# --- Nodes & Cluster ---
+
+# To check node status:
+pvesh get /nodes/<node>/status
+
+# To list cluster nodes:
+pvecm nodes
+
+# To check storage status:
+pvesm status
+
+# --- Post-Setup LXC Convention ---
+# After container creation, always run:
+apt update && apt install -y openssh-server syncthing
+systemctl enable --now syncthing@root
+sed -i 's/#PermitRootLogin.*/PermitRootLogin yes/' /etc/ssh/sshd_config
+systemctl restart ssh
+apt purge -y cloud-init
+
+# --- Networking ---
+# Add Traefik conf: pve/traefik/conf.d/<app>.yml
+# Add AdGuard DNS rewrite for <app>.home
+# Run: /homepage update && /traefik update && /gatus update

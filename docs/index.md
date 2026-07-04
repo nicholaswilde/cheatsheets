@@ -69,11 +69,12 @@ cheat -t homelab    # list all cheatsheets tagged "homelab"
 cheat -s <keyword>  # search across all cheatsheets
 ```
 
-Use shell aliases to sync with the remote repo:
+Use the `cgit` bash function to sync with the remote repo from any directory:
 
 ```shell
-cheats-pull   # pull latest changes
-cheats-push   # stage, commit, and push all changes
+cgit pull    # pull latest changes
+cgit push    # push committed changes
+cgit status  # check repo status
 ```
 
 ---

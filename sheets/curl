@@ -1,0 +1,105 @@
+---
+syntax: bash
+tags:
+  - cli
+  - networking
+  - http
+---
+# curl
+# Command-line tool for transferring data with URLs (https://curl.se)
+
+# To make a basic GET request:
+curl <url>
+
+# To follow redirects:
+curl -L <url>
+
+# To save output to a file:
+curl -o <file> <url>
+
+# To save output using the remote filename:
+curl -O <url>
+
+# To download silently (no progress bar):
+curl -sO <url>
+
+# To make a POST request with JSON body:
+curl -X POST <url> \
+  -H "Content-Type: application/json" \
+  -d '{"key": "value"}'
+
+# To make a POST request with form data:
+curl -X POST <url> -d "param1=value1&param2=value2"
+
+# To make a PUT request:
+curl -X PUT <url> -H "Content-Type: application/json" -d '{"key": "value"}'
+
+# To make a DELETE request:
+curl -X DELETE <url>
+
+# To add a custom header:
+curl -H "Authorization: Bearer <token>" <url>
+
+# To use basic authentication:
+curl -u <username>:<password> <url>
+
+# To show response headers only:
+curl -I <url>
+
+# To show both request and response headers (verbose):
+curl -v <url>
+
+# To suppress output, show only HTTP status code:
+# curl -s -o /dev/null -w "%{http_code}" <url>
+
+# To set a timeout (seconds):
+curl --max-time 10 <url>
+
+# To retry on failure:
+curl --retry 3 --retry-delay 2 <url>
+
+# To use a proxy:
+curl -x http://<proxy-host>:<port> <url>
+
+# To skip SSL certificate verification (insecure):
+curl -k <url>
+
+# To specify a custom CA certificate:
+curl --cacert <ca-cert.pem> <url>
+
+# To send a file as multipart form data:
+curl -F "file=@<path/to/file>" <url>
+
+# To pipe output to jq for JSON parsing:
+curl -s <url> | jq '.'
+
+# To upload a file with PUT:
+curl -T <file> <url>
+
+# To resume a partial download:
+curl -C - -O <url>
+
+# To limit download speed (bytes/sec):
+curl --limit-rate 100K -O <url>
+
+# To make a request with a cookie:
+curl -b "name=value" <url>
+
+# To save and reuse cookies:
+curl -c cookies.txt -b cookies.txt <url>
+
+# To send a request and write headers to a file:
+curl -D headers.txt <url>
+
+# To use HTTP/2:
+curl --http2 <url>
+
+# To check the effective URL after redirects:
+# curl -Ls -o /dev/null -w "%{url_effective}" <url>
+
+# To use a specific network interface:
+curl --interface eth0 <url>
+
+# To make a GitHub API request:
+curl -s -H "Authorization: Bearer <token>" \
+  "https://api.github.com/repos/<owner>/<repo>/releases/latest" | jq '.tag_name'

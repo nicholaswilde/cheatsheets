@@ -1,0 +1,125 @@
+---
+syntax: bash
+tags:
+  - app
+  - github
+  - vcs
+---
+# gh
+# GitHub CLI — interact with GitHub from the command line (https://cli.github.com)
+
+# To authenticate with GitHub:
+gh auth login
+
+# To check authentication status:
+gh auth status
+
+# --- Workflow Runs ---
+
+# To list recent workflow runs (pipe to cat to bypass pager):
+gh run list --limit 10 | cat
+
+# To view details of a specific run:
+gh run view <run-id> | cat
+
+# To view full logs for a failed job:
+gh run view --log --job=<job-id> | cat
+
+# To watch a run in real time:
+gh run watch <run-id>
+
+# To re-run a failed workflow:
+gh run rerun <run-id>
+
+# To re-run only failed jobs:
+gh run rerun <run-id> --failed-only
+
+# To trigger a workflow_dispatch manually:
+gh workflow run <workflow-name>
+
+# To list all workflows:
+gh workflow list | cat
+
+# --- Issues ---
+
+# To list open issues:
+gh issue list | cat
+
+# To view an issue:
+gh issue view <number>
+
+# To create an issue:
+gh issue create --title "Title" --body "Body"
+
+# To close an issue:
+gh issue close <number>
+
+# To reopen an issue:
+gh issue reopen <number>
+
+# To list issues with a label:
+gh issue list --label <label>
+
+# --- Pull Requests ---
+
+# To list open pull requests:
+gh pr list | cat
+
+# To view a pull request:
+gh pr view <number>
+
+# To checkout a PR locally:
+gh pr checkout <number>
+
+# To create a pull request:
+gh pr create --title "Title" --body "Body" --base main
+
+# To merge a pull request:
+gh pr merge <number> --squash
+
+# To check PR status (CI checks):
+gh pr checks <number> | cat
+
+# --- Repos ---
+
+# To clone a repo:
+gh repo clone <owner>/<repo>
+
+# To view repo info:
+gh repo view <owner>/<repo>
+
+# To fork a repo:
+gh repo fork <owner>/<repo>
+
+# To create a new repo:
+gh repo create <name> --public --clone
+
+# --- Releases ---
+
+# To list releases:
+gh release list | cat
+
+# To view a release:
+gh release view <tag>
+
+# To create a release:
+gh release create <tag> --title "Title" --notes "Notes"
+
+# To download release assets:
+gh release download <tag>
+
+# --- Secrets ---
+
+# To list repository secrets:
+gh secret list | cat
+
+# To set a secret:
+gh secret set <name>
+
+# --- Gists ---
+
+# To create a gist from a file:
+gh gist create <file> --public
+
+# To list your gists:
+gh gist list | cat

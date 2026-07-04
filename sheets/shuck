@@ -1,0 +1,54 @@
+---
+syntax: bash
+tags:
+  - app
+  - linting
+  - bash
+---
+# shuck
+# Bash script linter enforcing strict conventions (https://github.com/ewhauser/shuck)
+
+# To install shuck:
+cargo install shuck
+# Or via binstall:
+cargo binstall shuck
+
+# To lint a single script:
+shuck <script>.sh
+
+# To lint all scripts in a directory:
+shuck scripts/*.sh
+
+# To lint and treat warnings as errors:
+shuck --deny-warnings <script>.sh
+
+# Canonical bash script header block (required by shuck):
+# #!/usr/bin/env bash
+# # Name:        script.sh
+# # Description: Brief description of what this script does.
+# # Author:      Nicholas Wilde <ncwilde43@gmail.com>
+# # Date:        YYYY-MM-DD
+# # Version:     0.1.0
+
+# Required error handling at top of every script:
+set -e
+set -o pipefail
+
+# Constants: UPPER_CASE
+# Functions: snake_case
+# Indentation: 2 spaces
+
+# Required main wrapper pattern:
+main() {
+  # logic here
+}
+main "$@"
+
+# Logging with Catppuccin Mocha ANSI colors convention:
+log() {
+  local level="$1"; shift
+  echo "[${level}] $*"
+}
+
+# To run via go-task (project convention):
+task lint       # runs shuck scripts/*.sh

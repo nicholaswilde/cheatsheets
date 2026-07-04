@@ -1,0 +1,54 @@
+---
+syntax: bash
+tags:
+  - app
+  - linting
+  - spellcheck
+---
+# typos
+# Fast source code spellchecker written in Rust (https://github.com/crate-ci/typos)
+
+# To install typos:
+cargo install typos-cli
+# Or via binstall:
+cargo binstall typos-cli
+
+# To check for typos in the current directory:
+typos
+
+# To check a specific file:
+typos <file>
+
+# To check a specific directory:
+typos <directory>
+
+# To auto-fix typos:
+typos --write-changes
+
+# To list typos without fixing:
+typos --diff
+
+# To check and output in JSON format:
+typos --format json
+
+# To use a custom config file:
+typos --config _typos.toml
+
+# To add a word to the custom dictionary (dictionary.txt, one word per line):
+echo "myword" >> dictionary.txt
+
+# To sort the dictionary after additions:
+sort dictionary.txt -u -o dictionary.txt
+
+# To regenerate _typos.toml from dictionary.txt (project convention):
+python3 scripts/generate_typos_config.py && typos
+
+# To run a focused check on a single file (project convention):
+task spellcheck-file FILE=path/to/file
+
+# Canonical _typos.toml structure (auto-generated — do NOT hand-edit):
+# [default.extend-words]
+# "myword" = "myword"
+
+# GitHub Actions CI integration:
+# - uses: crate-ci/typos@v1
