@@ -43,6 +43,7 @@ Cheatsheets = [
   { crontab = "crontab.md" },
   { cut = "cut.md" },
   { docker = "docker.md" },
+  { eget = "eget.md" },
   { fd = "fd.md" },
   { find = "find.md" },
   { fzf = "fzf.md" },

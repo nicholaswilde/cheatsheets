@@ -1,0 +1,29 @@
+---
+syntax: bash
+tags:
+  - app
+  - installer
+---
+# eget
+# Easily install pre-compiled binaries from GitHub releases (https://github.com/zyedidia/eget)
+
+# To check eget version:
+eget --version
+
+# To download and install a binary from a GitHub repository:
+eget <owner>/<repo>
+
+# To download a binary and place it in a specific directory:
+eget --to <destination_directory> <owner>/<repo>
+
+# To download a specific tagged release version:
+eget <owner>/<repo>@<tag>
+
+# To download an asset matching a specific filename pattern:
+eget --file <filename_pattern> <owner>/<repo>
+
+# To download the release asset directly without extracting it:
+eget --download-only <owner>/<repo>
+
+# To upgrade all binaries installed via eget:
+eget --upgrade
