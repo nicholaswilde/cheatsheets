@@ -5,9 +5,11 @@ tags:
 
 # rpi
 
-!!! info "Raspberry Pi OS"
-    Change settings
+Raspberry Pi commands and configuration.
 
+## All Models
+
+!!! info "Change settings"
     ```bash
     sudo raspi-config
     ```
@@ -22,22 +24,51 @@ tags:
     sudo raspi-config --expand-rootfs
     ```
 
-!!! info "Generate User Before Boot"
+!!! info "Generate user:hash for userconf.txt before first boot"
     ```bash
-    echo 'mypassword' | openssl passwd -6 -stdin | sudo tee -a /boot/userconf.txt
+    echo "<username>:$(openssl passwd -6 <password>)" | sudo tee /boot/userconf.txt
     ```
 
-!!! info "or"
-    ```bash
-    echo 'nicholas:' "$(openssl passwd -6)" | sed 's/ //g' | sudo tee -a userconf.txt
-    ```
-
-!!! info "Enable ssh"
+!!! info "Enable SSH before first boot"
     ```bash
     touch /boot/ssh
     ```
 
-!!! info "Kernal page size /boot/firmware/config.txt"
+!!! info "Kernel page size fix - add to /boot/firmware/config.txt"
+    Required on some distros when using a 16k page-size kernel:
+
     ```bash
-    kernel=kernel8.img # to end of line
+    kernel=kernel8.img
+    ```
+
+## Raspberry Pi 4
+
+!!! info "Install Argon Fan Hat"
+    !!! warning
+        This runs a remote script directly. Review the script before running.
+
+    ```bash
+    curl https://download.argon40.com/argonfanhat.sh | bash
+    ```
+
+!!! info "Uninstall Argon Fan Hat"
+    ```bash
+    argonone-uninstall
+    ```
+
+!!! info "Configure Argon Fan Hat"
+    ```bash
+    argonone-config
+    ```
+
+## Raspberry Pi 5
+
+!!! info "Update EEPROM bootloader"
+    ```bash
+    sudo rpi-eeprom-update -a
+    ```
+
+!!! info "Enable PCIe Gen 3 (faster NVMe) - add to /boot/firmware/config.txt"
+    ```bash
+    dtparam=pciex1_gen=3
     ```
