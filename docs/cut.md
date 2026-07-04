@@ -37,3 +37,13 @@ Remove sections from each line of files (https://www.gnu.org/software/coreutils/
     ```bash
     cut -b <byte_positions> <file>
     ```
+
+!!! info "To cut fields with a custom output delimiter"
+    ```bash
+    cut -d '<delimiter>' -f <fields> --output-delimiter='<output_delimiter>' <file>
+    ```
+
+!!! info "To cut fields matching everything except the specified fields (complement)"
+    ```bash
+    cut -d '<delimiter>' -f <fields> --complement <file>
+    ```

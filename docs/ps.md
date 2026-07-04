@@ -37,3 +37,28 @@ Report a snapshot of the current processes (https://man7.org/linux/man-pages/man
     ```bash
     ps aux | grep '[<first_char>]<remaining_chars>'
     ```
+
+!!! info "To list processes sorted by CPU usage"
+    ```bash
+    ps aux --sort=-%cpu
+    ```
+
+!!! info "To list processes sorted by memory usage"
+    ```bash
+    ps aux --sort=-%mem
+    ```
+
+!!! info "To show top 10 CPU-consuming processes"
+    ```bash
+    ps aux --sort=-%cpu | head -n 11
+    ```
+
+!!! info "To find processes by name"
+    ```bash
+    ps -fC <process_name>
+    ```
+
+!!! info "To show threads of a specific process"
+    ```bash
+    ps -T -p <pid>
+    ```

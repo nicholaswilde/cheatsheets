@@ -24,3 +24,18 @@ ps -eo pid,user,command
 
 # To search for processes matching a name without including grep in the output:
 ps aux | grep '[<first_char>]<remaining_chars>'
+
+# To list processes sorted by CPU usage:
+ps aux --sort=-%cpu
+
+# To list processes sorted by memory usage:
+ps aux --sort=-%mem
+
+# To show top 10 CPU-consuming processes:
+ps aux --sort=-%cpu | head -n 11
+
+# To find processes by name:
+ps -fC <process_name>
+
+# To show threads of a specific process:
+ps -T -p <pid>

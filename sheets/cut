@@ -24,3 +24,9 @@ cut -c <character_positions> <file>
 
 # To cut specific byte positions:
 cut -b <byte_positions> <file>
+
+# To cut fields with a custom output delimiter:
+cut -d '<delimiter>' -f <fields> --output-delimiter='<output_delimiter>' <file>
+
+# To cut fields matching everything except the specified fields (complement):
+cut -d '<delimiter>' -f <fields> --complement <file>
