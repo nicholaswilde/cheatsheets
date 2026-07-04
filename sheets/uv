@@ -1,0 +1,26 @@
+---
+syntax: bash
+tags:
+  - app
+  - package-manager
+---
+# uv
+# Fast Python package installer and resolver (https://github.com/astral-sh/uv)
+
+# To install uv:
+# Via installer script
+curl -LsSf https://astral.sh/uv/install.sh | sh
+# Via apt (Debian/Ubuntu)
+sudo mkdir -p /etc/apt/keyrings
+curl -LsSf https://astral.sh/uv/packaging/key.asc | sudo gpg --dearmor -o /etc/apt/keyrings/astral.gpg
+echo "deb [signed-by=/etc/apt/keyrings/astral.gpg] https://astral.sh/uv/packaging/debian stable main" | sudo tee /etc/apt/sources.list.d/astral.list
+sudo apt update && sudo apt install uv -y
+
+# To initialize a new project:
+uv init <project_name>
+
+# To run a Python script with packages in a virtual environment:
+uv run --with <package> <script_name>.py
+
+# To sync environment dependencies:
+uv sync
