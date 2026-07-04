@@ -39,6 +39,7 @@ Cheatsheets = [
   { column = "column.md" },
   { crontab = "crontab.md" },
   { docker = "docker.md" },
+  { fd = "fd.md" },
   { find = "find.md" },
   { fzf = "fzf.md" },
   { git = "git.md" },

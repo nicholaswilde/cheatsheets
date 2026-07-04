@@ -1,0 +1,29 @@
+---
+syntax: bash
+tags:
+  - app
+  - terminal
+---
+# fd
+# Simple, fast and user-friendly alternative to find (https://github.com/sharkdp/fd)
+
+# To check fd version:
+fd --version
+
+# To search for files matching a pattern:
+fd <pattern>
+
+# To search in a specific directory:
+fd <pattern> <directory>
+
+# To search for a specific file extension:
+fd -e <extension> <pattern>
+
+# To search using a glob pattern:
+fd -g <glob_pattern>
+
+# To search including hidden and gitignored files:
+fd -H <pattern>
+
+# To exclude specific files or directories from search:
+fd -E <exclude_pattern> <pattern>
