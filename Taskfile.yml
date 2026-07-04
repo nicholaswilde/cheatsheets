@@ -86,3 +86,10 @@ tasks:
     requires:
       vars: [RUN_ID]
 
+  site:migrate-note:
+    desc: Migrate a markdown note page to a flat cheatsheet (usage task site:migrate-note FILE=...)
+    cmds:
+      - bun run scripts/migrate_note_to_cheatsheet.ts {{shellQuote .FILE}}
+    requires:
+      vars: [FILE]
+
