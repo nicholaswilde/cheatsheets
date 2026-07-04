@@ -7,7 +7,7 @@ tags:
 
 # rumdl
 
-Rust-based markdown linter — fast drop-in for markdownlint-cli (https://github.com/nicholaswilde/rumdl)
+Rust-based markdown linter — fast drop-in for markdownlint-cli (https://github.com/rvben/rumdl)
 
 !!! info "To install rumdl"
     ```bash

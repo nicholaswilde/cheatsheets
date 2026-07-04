@@ -18,5 +18,6 @@ exclude_all_private = true
 # Regex exclusions for specific slow/rate-limited URLs
 exclude = [
     'gnu\.org',
-    'tukaani\.org'
+    'tukaani\.org',
+    'github\.com/owner/repo'
 ]

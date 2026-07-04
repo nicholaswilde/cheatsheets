@@ -7,7 +7,7 @@ tags:
 
 # zensical
 
-MkDocs/Material static site generator wrapper (https://github.com/nicholaswilde/zensical)
+MkDocs/Material static site generator wrapper (https://github.com/zensical/zensical)
 
 !!! info "To install zensical via uv"
     ```bash

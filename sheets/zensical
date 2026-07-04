@@ -6,7 +6,7 @@ tags:
   - static-site
 ---
 # zensical
-# MkDocs/Material static site generator wrapper (https://github.com/nicholaswilde/zensical)
+# MkDocs/Material static site generator wrapper (https://github.com/zensical/zensical)
 
 # To install zensical via uv:
 uv pip install zensical
