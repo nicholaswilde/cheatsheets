@@ -62,6 +62,7 @@ Cheatsheets = [
   { uv = "uv.md" },
   { wsl = "wsl.md" },
   { xz = "xz.md" },
+  { yq = "yq.md" },
   { yubikey = "yubikey.md" }
 ]
 

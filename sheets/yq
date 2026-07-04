@@ -1,0 +1,26 @@
+---
+syntax: bash
+tags:
+  - app
+  - parser
+---
+# yq
+# Portable command-line YAML processor (https://github.com/mikefarah/yq)
+
+# To read a specific key path from a YAML file:
+yq '.<key_path>' <file>.yaml
+
+# To edit a YAML file in-place:
+yq -i '.<key_path> = "<value>"' <file>.yaml
+
+# To process front matter in a Markdown file:
+yq --front-matter="process" '.<key_path> = "<value>"' <file>.md
+
+# To sort all keys alphabetically in-place:
+yq -i 'sort_keys(.)' <file>.yaml
+
+# To filter out null values or empty lists:
+yq '.foo | select(length > 0)' <file>.yaml
+
+# To convert a YAML file to JSON:
+yq -o=json <file>.yaml
