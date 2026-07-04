@@ -51,6 +51,7 @@ Cheatsheets = [
   { lpass = "lpass.md" },
   { lychee = "lychee.md" },
   { pass = "pass.md" },
+  { ps = "ps.md" },
   { reprepro = "reprepro.md" },
   { restic = "restic.md" },
   { "restic-age-key" = "restic-age-key.md" },
