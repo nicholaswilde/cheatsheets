@@ -9,9 +9,9 @@ tags:
 
 Query and display logs from the systemd journal (https://www.freedesktop.org/software/systemd/man/latest/journalctl.html)
 
-## Following & Output
+!!! info "--- Following & Output ---"
+    To follow logs in real time (like tail -f):
 
-!!! info "To follow logs in real time (like tail -f)"
     ```bash
     journalctl -f
     ```
@@ -21,12 +21,7 @@ Query and display logs from the systemd journal (https://www.freedesktop.org/sof
     journalctl -n <number>
     ```
 
-!!! info "To show output in short format (default)"
-    ```bash
-    journalctl -o short
-    ```
-
-!!! info "To show output in JSON format (one object per line)"
+!!! info "To show output in JSON format"
     ```bash
     journalctl -o json-pretty
     ```
@@ -36,9 +31,9 @@ Query and display logs from the systemd journal (https://www.freedesktop.org/sof
     journalctl --no-pager
     ```
 
-## Filtering by Unit
+!!! info "--- Filtering by Unit ---"
+    To filter by a specific systemd unit:
 
-!!! info "To filter by a specific systemd unit"
     ```bash
     journalctl -u <unit>
     ```
@@ -58,11 +53,9 @@ Query and display logs from the systemd journal (https://www.freedesktop.org/sof
     journalctl -F _SYSTEMD_UNIT
     ```
 
-## Filtering by Priority
+!!! info "--- Filtering by Priority (0=emerg .. 7=debug) ---"
+    To show logs at a specific priority and above:
 
-Priority levels: `emerg(0)` `alert(1)` `crit(2)` `err(3)` `warning(4)` `notice(5)` `info(6)` `debug(7)`
-
-!!! info "To show logs at a specific priority level and above"
     ```bash
     journalctl -p <level>
     ```
@@ -77,9 +70,9 @@ Priority levels: `emerg(0)` `alert(1)` `crit(2)` `err(3)` `warning(4)` `notice(5
     journalctl -p warning..warning
     ```
 
-## Filtering by Time
+!!! info "--- Filtering by Time ---"
+    To filter by time range:
 
-!!! info "To filter by time range"
     ```bash
     journalctl --since="<YYYY-MM-DD HH:MM:SS>" --until="<YYYY-MM-DD HH:MM:SS>"
     ```
@@ -99,9 +92,9 @@ Priority levels: `emerg(0)` `alert(1)` `crit(2)` `err(3)` `warning(4)` `notice(5
     journalctl --since=today
     ```
 
-## Filtering by Boot
+!!! info "--- Filtering by Boot ---"
+    To list all available boots:
 
-!!! info "To list all available boots"
     ```bash
     journalctl --list-boots
     ```
@@ -121,9 +114,9 @@ Priority levels: `emerg(0)` `alert(1)` `crit(2)` `err(3)` `warning(4)` `notice(5
     journalctl -b <boot-id>
     ```
 
-## Filtering by Process / User
+!!! info "--- Filtering by Process / User ---"
+    To filter by executable path:
 
-!!! info "To filter by executable path"
     ```bash
     journalctl /usr/bin/<executable>
     ```
@@ -148,9 +141,9 @@ Priority levels: `emerg(0)` `alert(1)` `crit(2)` `err(3)` `warning(4)` `notice(5
     journalctl -t <identifier>
     ```
 
-## Kernel Logs
+!!! info "--- Kernel Logs ---"
+    To show only kernel messages (like dmesg):
 
-!!! info "To show only kernel messages (like dmesg)"
     ```bash
     journalctl -k
     ```
@@ -160,9 +153,9 @@ Priority levels: `emerg(0)` `alert(1)` `crit(2)` `err(3)` `warning(4)` `notice(5
     journalctl -k -b -1
     ```
 
-## Disk Usage & Maintenance
+!!! info "--- Disk Usage & Maintenance ---"
+    To show journal disk usage:
 
-!!! info "To show journal disk usage"
     ```bash
     journalctl --disk-usage
     ```
