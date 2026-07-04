@@ -5,7 +5,7 @@ tags:
 
 # rpi5
 
-Raspberry Pi 5.
+Raspberry Pi 5
 
 !!! info "Change settings"
     ```bash
@@ -22,14 +22,12 @@ Raspberry Pi 5.
     sudo rpi-eeprom-update -a
     ```
 
-!!! info "Kernel page size fix /boot/firmware/config.txt"
-    Required on some distros when using a 16k page-size kernel:
-
+!!! info "Kernel page size fix - add to /boot/firmware/config.txt"
     ```bash
     kernel=kernel8.img
     ```
 
-!!! info "Enable PCIe Gen 3 (faster NVMe) /boot/firmware/config.txt"
+!!! info "Enable PCIe Gen 3 (faster NVMe) - add to /boot/firmware/config.txt"
     ```bash
     dtparam=pciex1_gen=3
     ```

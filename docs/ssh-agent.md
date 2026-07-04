@@ -12,7 +12,8 @@ SSH authentication agent for managing SSH keys and passphrases.
     eval "$(ssh-agent -s)"
     ```
 
-!!! note
-    Depending on your environment, you may need to use root access by running
-    `sudo -s -H` before starting the agent, or use `exec ssh-agent bash` /
-    `exec ssh-agent zsh` to run the agent in a new shell.
+!!! info "Depending on your environment, you may need root access (sudo -s -H) or"
+    ```bash
+    exec ssh-agent bash
+    exec ssh-agent zsh
+    ```
