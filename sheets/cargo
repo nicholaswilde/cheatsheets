@@ -1,0 +1,45 @@
+---
+syntax: bash
+tags:
+  - app
+  - package-manager
+  - rust
+---
+# cargo
+# The Rust package manager (https://github.com/rust-lang/cargo)
+
+# To create a new binary project:
+cargo new <project_name>
+
+# To create a new library project:
+cargo new --lib <project_name>
+
+# To compile the project:
+cargo build
+
+# To compile the project with optimizations (for release):
+cargo build --release
+
+# To build and execute the binary:
+cargo run
+
+# To build and execute the binary with arguments:
+cargo run -- <args>
+
+# To run tests:
+cargo test
+
+# To check the code for compilation errors without building:
+cargo check
+
+# To update dependencies in Cargo.lock:
+cargo update
+
+# To install a binary crate locally:
+cargo install <crate_name>
+
+# To uninstall a locally installed binary crate:
+cargo uninstall <crate_name>
+
+# To remove build artifacts and clean the target directory:
+cargo clean

@@ -35,6 +35,7 @@ Cheatsheets = [
   { brew = "brew.md" },
   { bun = "bun.md" },
   { bw = "bw.md" },
+  { cargo = "cargo.md" },
   { column = "column.md" },
   { crontab = "crontab.md" },
   { docker = "docker.md" },
