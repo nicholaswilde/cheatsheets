@@ -74,3 +74,15 @@ tasks:
     cmds:
       - lychee {{shellQuote .FILE}}
 
+  ci:failed:
+    desc: List recent failed GitHub Actions workflow runs
+    cmds:
+      - bun run scripts/check_failed_workflows.ts list
+
+  ci:failed-view:
+    desc: View logs of a specific failed run (usage task ci:failed-view RUN_ID=...)
+    cmds:
+      - bun run scripts/check_failed_workflows.ts view {{.RUN_ID}}
+    requires:
+      vars: [RUN_ID]
+
