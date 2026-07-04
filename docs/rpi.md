@@ -7,68 +7,63 @@ tags:
 
 Raspberry Pi commands and configuration.
 
-## All Models
+!!! info "--- All Models ---"
+    To change settings:
 
-!!! info "Change settings"
     ```bash
     sudo raspi-config
     ```
 
-!!! info "Update firmware"
+!!! info "To update firmware"
     ```bash
     sudo rpi-update
     ```
 
-!!! info "Expand filesystem"
+!!! info "To expand filesystem"
     ```bash
     sudo raspi-config --expand-rootfs
     ```
 
-!!! info "Generate user:hash for userconf.txt before first boot"
+!!! info "To generate user:hash for userconf.txt before first boot"
     ```bash
     echo "<username>:$(openssl passwd -6 <password>)" | sudo tee /boot/userconf.txt
     ```
 
-!!! info "Enable SSH before first boot"
+!!! info "To enable SSH before first boot"
     ```bash
     touch /boot/ssh
     ```
 
-!!! info "Kernel page size fix - add to /boot/firmware/config.txt"
-    Required on some distros when using a 16k page-size kernel:
-
+!!! info "To set kernel page size fix in /boot/firmware/config.txt"
     ```bash
     kernel=kernel8.img
     ```
 
-## Raspberry Pi 4
-
-!!! info "Install Argon Fan Hat"
-    !!! warning
-        This runs a remote script directly. Review the script before running.
+!!! info "--- Raspberry Pi 4 ---"
+    To install Argon Fan Hat (review script before running):
 
     ```bash
     curl https://download.argon40.com/argonfanhat.sh | bash
     ```
 
-!!! info "Uninstall Argon Fan Hat"
+!!! info "To uninstall Argon Fan Hat"
     ```bash
     argonone-uninstall
     ```
 
-!!! info "Configure Argon Fan Hat"
+!!! info "To configure Argon Fan Hat"
     ```bash
     argonone-config
     ```
 
-## Raspberry Pi 5
+!!! info "--- Raspberry Pi 5 ---"
+    To update EEPROM bootloader:
 
-!!! info "Update EEPROM bootloader"
     ```bash
     sudo rpi-eeprom-update -a
     ```
 
-!!! info "Enable PCIe Gen 3 (faster NVMe) - add to /boot/firmware/config.txt"
+!!! info "To enable PCIe Gen 3 (faster NVMe) in /boot/firmware/config.txt"
     ```bash
     dtparam=pciex1_gen=3
     ```
