@@ -1,0 +1,40 @@
+---
+syntax: bash
+tags:
+  - app
+  - runtime
+  - javascript
+---
+# bun
+# All-in-one JavaScript runtime, packager, bundler, and test runner (https://bun.sh)
+
+# To install bun:
+curl -fsSL https://bun.sh/install | bash
+
+# To initialize a new project:
+bun init
+
+# To run a file or package script:
+bun run <file_name>
+# Or
+bun run <script_name>
+
+# To install dependencies:
+bun install
+
+# To add a package to dependencies:
+bun add <package_name>
+# Or as a devDependency
+bun add -d <package_name>
+
+# To remove a package:
+bun remove <package_name>
+
+# To run a binary or package without installing (like npx):
+bunx <command>
+
+# To run tests:
+bun test
+
+# To run a script in hot-reload mode:
+bun --hot <file_name>

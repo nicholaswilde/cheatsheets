@@ -33,6 +33,7 @@ Cheatsheets = [
   { "ansible-pull" = "ansible-pull.md" },
   { bash = "bash.md" },
   { brew = "brew.md" },
+  { bun = "bun.md" },
   { bw = "bw.md" },
   { column = "column.md" },
   { crontab = "crontab.md" },
