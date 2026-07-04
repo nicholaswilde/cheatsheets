@@ -1,0 +1,29 @@
+---
+syntax: bash
+tags:
+  - app
+  - terminal
+---
+# awk
+# Pattern scanning and processing language (https://www.gnu.org/software/gawk/)
+
+# To check awk version:
+awk --version
+
+# To print the first column/field of a file:
+awk '{print $1}' <file>
+
+# To sum integers from a file or stdin (one integer per line):
+printf '1\n2\n3\n' | awk '{ sum += $1} END {print sum}'
+
+# To use a specific character as field separator:
+printf '1:2:3' | awk -F ":" '{print $1+$2+$3}'
+
+# To specify an output field separator (OFS) character:
+printf '1 2 3' | awk 'BEGIN {OFS=":"}; {print $1,$2,$3}'
+
+# To print lines matching a specific condition:
+printf "george jetson\nolive oyl\nbeetle bailey" | awk '$2=="bailey"{print $0}'
+
+# To print lines matching a regular expression:
+printf "george jetson\nolive oyl\nbeetle bailey" | awk '/ley$/{print $0}'
