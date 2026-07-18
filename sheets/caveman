@@ -1,0 +1,34 @@
+---
+syntax: bash
+tags:
+  - ai
+  - cli
+  - compression
+---
+# caveman
+# Caveman Mode - An ultra-compressed communication skill that cuts output tokens by omitting grammatical fluff.
+
+# To turn on caveman mode or switch intensity level (within agy TUI):
+# Type /caveman <level>
+# Available levels: lite, full, ultra, wenyan-lite, wenyan-full, wenyan-ultra
+
+# To turn off caveman mode (within agy TUI):
+# Type stop caveman or normal mode
+
+# Lite level (Professional, no filler/hedging, full sentences, articles kept):
+# Example: "The component re-renders because you create a new object reference. Wrap it in useMemo."
+
+# Full level (Default, fragments OK, drop articles, no pleasantries, short synonyms):
+# Example: "New object ref each render. prop reference change = re-render. Wrap in useMemo."
+
+# Ultra level (Strip conjunctions if logical path stays clear, state facts once):
+# Example: "Inline obj prop, new ref, re-render. useMemo."
+
+# Wenyan-lite level (Semi-classical Chinese register, drop fluff, grammatical structure kept):
+# Example: "組件頻重繪，以每繪新生對象參照故。以 useMemo 包之。"
+
+# Wenyan-full level (Classical 文言文, 80-90% character reduction, subjects omitted):
+# Example: "每繪新生對象參照，故重繪；以 useMemo 包之則免。"
+
+# Wenyan-ultra level (Extreme classical terseness, maximum character compression):
+# Example: "新參照則重繪。useMemo 包之。"
