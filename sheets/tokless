@@ -1,0 +1,24 @@
+---
+syntax: bash
+tags:
+  - app
+  - terminal
+  - ai
+---
+# tokless
+# CLI tool designed to simplify the installation and management of token-saving plugins for AI coding assistants (https://github.com/HoangP8/tokless)
+
+# To install and configure tokless plugins (e.g., rtk, caveman, codegraph):
+tokless
+
+# To display the current configuration status and verify installed tools:
+tokless doctor
+
+# To build a project code graph index in the current directory:
+tokless index
+
+# To check for updates and upgrade installed plugins:
+tokless update
+
+# To uninstall tokless and remove all changes made to the system:
+tokless uninstall
