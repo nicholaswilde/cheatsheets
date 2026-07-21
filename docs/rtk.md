@@ -10,6 +10,11 @@ tags:
 
 Rust Token Killer (RTK) - A token-optimized CLI proxy that compresses command outputs.
 
+!!! info "Install in a project"
+    ```bash
+    rtk init --agent antigravity
+    ```
+
 !!! info "Show token savings analytics"
     ```bash
     rtk gain

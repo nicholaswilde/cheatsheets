@@ -90,6 +90,7 @@ Cheatsheets = [
   { task = "task.md" },
   { timedatectl = "timedatectl.md" },
   { tmux = "tmux.md" },
+  { tokless = "tokless.md" },
   { traefik = "traefik.md" },
   { typos = "typos.md" },
   { uv = "uv.md" },
